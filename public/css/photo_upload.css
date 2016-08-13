@@ -1,0 +1,15 @@
+fieldset {
+    border:0;
+    margin-bottom:20px;
+}
+
+input {
+    display:block;
+}
+
+img.preview {
+    width:200px;
+    height:auto;
+    clear:both;
+    margin:10px 0;
+}
