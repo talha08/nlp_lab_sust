@@ -62,7 +62,7 @@
 
 
                     {{--user--}}
-                    <li class="{!! Menu::areActiveRoutes(['user.student','user.teacher','user.alumni','user.applyList','auth.userAdd']) !!}"><a href="#"><i
+                    <li class="{!! Menu::areActiveRoutes(['user.student','user.teacher','user.other_user','user.alumni','user.applyList','auth.userAdd']) !!}"><a href="#"><i
                                     class="ion-person-stalker"></i> <span class="nav-label">Users</span></a>
                         <ul class="list-unstyled">
 
@@ -75,6 +75,11 @@
                             <li class="{!! Menu::isActiveRoute('user.alumni') !!}">
                                 <a href="{!!  URL::route('user.alumni') !!}">Alumni</a>
                             </li>
+
+                            <li class="{!! Menu::isActiveRoute('user.other_user') !!}">
+                                <a href="{!!  URL::route('user.other_user') !!}">Other Users</a>
+                            </li>
+
 
                             <li class="{!! Menu::isActiveRoute('user.applyList') !!}">
                                 <a href="{!!  URL::route('user.applyList') !!}">Waiting Users</a>
@@ -104,6 +109,10 @@
                     </li>
                     {{--news end--}}
 
+
+
+
+
                     {{--event--}}
                     <li class="{!! Menu::areActiveRoutes(['event.index', 'event.create','event.eventFileUpload']) !!}"><a href="#"><i class="ion-speakerphone"></i> <span class="nav-label">Event</span></a>
                         <ul class="list-unstyled">
@@ -122,6 +131,10 @@
                         </ul>
                     </li>
                     {{--event end--}}
+
+
+
+
 
                     {{--paper--}}
                     <li class="{!! Menu::areActiveRoutes(['paper.index', 'paper.create']) !!}"><a href="#"><i class="ion-ios7-bookmarks-outline"></i> <span class="nav-label">Paper</span></a>

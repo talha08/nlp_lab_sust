@@ -147,6 +147,8 @@ Route::group(array('middleware' => 'auth'), function() {
 		Route::delete('alumni-list/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
 		Route::get('makeAlumni/{id}', array('as' => 'user.makeAlumni', 'uses' => 'UsersController@makeAlumni'));
 		Route::get('affiliates-and-scholar', array('as' => 'user.other_user', 'uses' => 'UsersController@otherUser'));
+		Route::delete('affiliates-and-scholar/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
+
           //here different delete for different user
 
 		//user profile

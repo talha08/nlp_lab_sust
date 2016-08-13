@@ -12,7 +12,7 @@
 
 			<div class="k-breadcrumbs col-lg-12 clearfix"><!-- breadcrumbs -->
 				<ol class="breadcrumb">
-					<li><a href="#">SUST cse data Science Lab</a></li>
+					<li><a href="#">SUST CSE Natural Language Processing Lab</a></li>
 					<li><a href="#">Home</a></li>
 				</ol>
 			</div><!-- breadcrumbs end -->

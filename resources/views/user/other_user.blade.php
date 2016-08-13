@@ -117,7 +117,7 @@
 			/* do not add datatable method/function here , its always loaded from footer -- masiur */
 			$(document).on("click", ".deleteBtn", function() {
 				var deleteId = $(this).attr('deleteId');
-				var url = "<?php echo URL::route('user.student'); ?>";
+				var url = "<?php echo URL::route('user.other_user'); ?>";
 				$(".deleteForm").attr("action", url+'/'+deleteId);
 			});
 
