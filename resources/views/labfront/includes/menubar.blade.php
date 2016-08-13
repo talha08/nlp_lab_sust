@@ -44,11 +44,11 @@
                             <li>
                                 <a href="{!! route('labfront.student') !!}" class="Pages Collection" title="People">Members</a>
                                 <ul class="sub-menu">
-                                    <li><a href="{!! route('labfront.supervisor') !!}">Under Graduate</a></li>
+                                    <li><a href="{!! route('labfront.underStudent') !!}">Under Graduate</a></li>
                                     <li><a href="{!! route('labfront.student') !!}">Phd</a></li>
-                                    <li><a href="{!! route('labfront.alumni') !!}">MS</a></li>
-                                    <li><a href="{!! route('labfront.alumni') !!}">Visiting Scholar</a></li>
-                                    <li><a href="{!! route('labfront.alumni') !!}">Industry Affiliates</a></li>
+                                    <li><a href="{!! route('labfront.masterStudent') !!}">MS</a></li>
+                                    <li><a href="{!! route('labfront.scholar') !!}">Visiting Scholar</a></li>
+                                    <li><a href="{!! route('labfront.affiliates') !!}">Industry Affiliates</a></li>
                                 </ul>
                             </li>
 

@@ -65,6 +65,18 @@ class UsersController extends Controller
     }
 
 
+    /**
+     * List of all other user like scholar,affiliates
+     *
+     * @return $this
+     */
+    public function otherUser()
+    {
+        $user = User::where('status', 1)->where('is_teacher','=',5)->get();
+        return view('user.other_user', compact('user'))
+            ->with('title', 'Visiting Scholar and Industry Affiliates List');
+    }
+
 
 
     /**
@@ -149,7 +161,7 @@ class UsersController extends Controller
     public function create()
     {
         $level= [
-            'Under Graduates'=>'Under Graduates',
+            'Undergraduate'=>'Undergraduate',
             'Masters'=>'Masters',
             'Phd'=>'Phd',
         ];

@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('is_teacher')->default(0);  // 0 for student, 1 for teacher, 2 for others
+            $table->string('is_teacher')->default(0);  // 0 for student, 1 for teacher, 2 for alumni , 5 for others
             $table->string('password', 60);
             $table->boolean('status')->default(false);   //approved by admin or not
             $table->rememberToken();

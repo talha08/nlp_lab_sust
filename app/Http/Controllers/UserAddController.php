@@ -54,7 +54,10 @@ class UserAddController extends Controller
             $user->is_teacher = 1;
         }
         elseif($request->type == 2){   // others user mean  visiting scholars, industry affiliates
-            $user->is_teacher = 2;
+            $user->is_teacher = 5;
+        }
+        elseif($request->type == 3){   // others user mean  visiting scholars, industry affiliates
+            $user->is_teacher = 5;
         }
         else{
             $user->is_teacher = 0;     // students
@@ -69,9 +72,15 @@ class UserAddController extends Controller
                 $profile = new Teacher();
                 $profile->user_id = $user->id;
             }
-            if($request->type == 2 ){
+            elseif($request->type == 2 ){
                 $profile = new OtherUser();
                 $profile->user_id = $user->id;
+                $profile->user_type = 'Scholar';
+            }
+            elseif($request->type == 3 ){
+                $profile = new OtherUser();
+                $profile->user_id = $user->id;
+                $profile->user_type = 'Affiliates';
             }
             else{
                 $profile = new Student();

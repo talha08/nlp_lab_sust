@@ -30,9 +30,8 @@
 											<th>id</th>
 											<th>Name</th>
 											<th>Email</th>
-											<th>Study Level</th>
+											<th>User Type</th>
 											<th>Member Since</th>
-											<th>Make Alumni</th>
 											<th>Delete</th>
 										</tr>
 										</thead>
@@ -42,9 +41,8 @@
 												<td>{!! $users->id !!}</td>
 												<td><a style="color: teal;" href="{!!route('user.profile',$users->id)!!}"  >{!! $users->name !!}</a>
 												<td>{!! $users->email !!}</td>
-												<td>{!! $users->students->study_level !!}</td>
+												<td>{!! $users->otherUsers->user_type !!}</td>
 												<td>{!! \Carbon\Carbon::now()->diffForHumans($users->created_at) !!}</td>
-												<td><a class="btn btn-info btn-xs btn-archive Editbtn" href="{!!route('user.makeAlumni',$users->id)!!}"  style="margin-right: 3px;">Make Alumni</a></td>
 												<td><a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $users->id!!}"><i class="ion-trash-a" aria-hidden="true"></i></a></td>
 											</tr>
 										@endforeach

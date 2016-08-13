@@ -469,8 +469,8 @@
 
 
                                     <div class="form-group">
-                                        {!! Form::label('platfrom', 'Working Platform (Type and hit Enter) :', array('class' => 'control-label')) !!}<br/>
-                                        {!! Form::text('platfrom', null ,array('class' => 'tags','id'=>'tags'))!!}
+                                        {!! Form::label('platform', 'Working Platform (Type and hit Enter) :', array('class' => 'control-label')) !!}<br/>
+                                        {!! Form::text('platform', null ,array('class' => 'tags','id'=>'tags'))!!}
                                     </div><br/>
 
                                     <div class="form-group ">

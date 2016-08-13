@@ -43,21 +43,22 @@
 										<div class="leadership-wrapper"><!-- leadership single wrap -->
 
 											<figure class="leadership-photo">
-												<a href="{!! route('labfront.peopleProfile',$users->id ) !!}">
-													<img src="{!! asset($users->students->img_url)!!}" alt="{!! $users->name !!}" />
+												<a href="{!! route('labfront.peopleProfile',$users->user_id ) !!}">
+													<img src="{!! asset($users->img_url)!!}" alt="{!! $users->name !!}" />
 												</a>
 											</figure>
 											<div class="leadership-meta clearfix">
 
-												<h4 class="title-median"><a href="{!!  route('labfront.peopleProfile',$users->id ) !!}" title="Click to view full profile...">
+												<h4 class="title-median"><a href="{!!  route('labfront.peopleProfile',$users->user_id ) !!}" title="Click to view full profile...">
 														{!! $users->name !!}
 														{{--<small>Alumni</small>--}}
 													</a></h4>
 
-												<div class="leadership-position">Member Since {!! Carbon\Carbon::now()->diffForHumans($users->created_at) !!} </div>
+												<div class="leadership-position">Member Since {!!  \Carbon\Carbon::createFromTimeStamp(strtotime($users->created_at))->diffForHumans()  !!}</div>
+
 
 												<p class="leadership-bio">
-													{!! $users->students->position !!},<small> {!! $users->students->organization !!} </small><br>
+													{!! $users->position !!},<small> {!! $users->organization !!} </small><br>
 													<small>Shahjalal University of Science and Technology, Sylhet</small>
 												</p><br/>
 

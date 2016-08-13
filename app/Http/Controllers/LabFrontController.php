@@ -9,6 +9,7 @@ use App\PaperPeople;
 use App\Project;
 use App\ProjectsPeople;
 use App\Slider;
+use App\Student;
 use App\Tag;
 use App\User;
 use App\Welcome;
@@ -159,16 +160,81 @@ class LabFrontController extends Controller
 
 
 
+
+    /*==================================================*/
+    //Other user List
+    /*==================================================*/
+    public function userScholar(){
+        $user = \DB::table('users')
+            ->join('other_user', 'users.id', '=', 'other_user.user_id')
+            ->where('users.status',1)
+            ->where('users.is_teacher',5)    //scholar and affiliates
+            ->where('other_user.user_type',"Scholar")
+            ->simplePaginate(5);
+
+        $news = News::take(3)->orderBy('id','desc')->get();
+        return view('labfront.student',compact('user','news'))->with('title','Visiting Scholar');
+    }
+
+
+    public function userAffiliates(){
+        $user = \DB::table('users')
+            ->join('other_user', 'users.id', '=', 'other_user.user_id')
+            ->where('users.status',1)
+            ->where('users.is_teacher',5)  //scholar and affiliates
+            ->where('other_user.user_type',"Affiliates")
+            ->simplePaginate(5);
+
+        $news = News::take(3)->orderBy('id','desc')->get();
+        return view('labfront.student',compact('user','news'))->with('title','Industry Affiliates');
+    }
+
+
+
     /*==================================================*/
     //Student List
     /*==================================================*/
 
-    public function student(){
-           $user = User::with('students')->where('is_teacher', 0)
-                ->where('status',1)
+      public function phdStudent(){
+            $user = \DB::table('users')
+             ->join('students', 'users.id', '=', 'students.user_id')
+             ->where('users.status',1)
+             ->where('users.is_teacher',0)
+             ->where('students.study_level',"Phd")
                ->simplePaginate(5);
+
+
         $news = News::take(3)->orderBy('id','desc')->get();
-        return view('labfront.student',compact('user','news'))->with('title','Lab Student/Developer');
+        return view('labfront.student',compact('user','news'))->with('title','Phd Students');
+    }
+
+
+    public function mastersStudent(){
+        $user = \DB::table('users')
+            ->join('students', 'users.id', '=', 'students.user_id')
+            ->where('users.status',1)
+            ->where('users.is_teacher',0)
+            ->where('students.study_level',"Masters")
+            ->simplePaginate(5);
+
+
+        $news = News::take(3)->orderBy('id','desc')->get();
+        return view('labfront.student',compact('user','news'))->with('title','Masters(MS) Student' );
+    }
+
+
+
+    public function undergraduatesStudents(){
+        $user = \DB::table('users')
+            ->join('students', 'users.id', '=', 'students.user_id')
+            ->where('users.status',1)
+            ->where('users.is_teacher',0)
+            ->where('students.study_level',"Undergraduate")
+            ->simplePaginate(5);
+
+
+        $news = News::take(3)->orderBy('id','desc')->get();
+        return view('labfront.student',compact('user','news'))->with('title','Undergraduate Students');
     }
 
 
@@ -187,7 +253,7 @@ class LabFrontController extends Controller
 
 
     /*==================================================*/
-    //front peopleProfile
+    //front full  peopleProfile
     /*==================================================*/
 
     public function peopleProfile($id){

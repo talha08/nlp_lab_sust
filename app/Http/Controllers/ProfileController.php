@@ -23,7 +23,7 @@ class ProfileController extends Controller
     public function profile()
     {
         $level= [
-            'Under Graduates'=>'Under Graduates',
+            'Undergraduate'=>'Undergraduate',
             'Masters'=>'Masters',
             'Phd'=>'Phd',
         ];
@@ -101,7 +101,7 @@ class ProfileController extends Controller
 
                 'phone'=>$request->phone,
                 'position'=>$request->position,
-                'platfrom'=> $request->platfrom,
+                'platform'=> $request->platform,
                 'organization'=>$request->organization,
                 'linkedIn_user'=>$request->linkedIn_user,
                 'github_user'=>$request->github_user,

@@ -23,9 +23,9 @@ class CreateStudentsTable extends Migration
             $table->string('thumb_url')->default('/upload/profile/default/icon.jpg');
             $table->string('github_user')->nullable();
             $table->string('linkedIn_user')->nullable();
-            $table->text('platfrom')->nullable();
+            $table->text('platform')->nullable();
             $table->string('position')->default('Student');
-            $table->string('study_level'); // undergraduate,ms, phd,
+            $table->string('study_level')->default('Undergraduate'); // undergraduate,ms, phd,
             $table->string('organization')->default('Department of Computer Science and Engineering');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

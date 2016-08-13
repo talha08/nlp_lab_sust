@@ -8,6 +8,7 @@ class Student extends Model
 {
     protected $table ='students';
 
+
     /**
      * Student belongsTo User
      *

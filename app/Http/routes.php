@@ -146,6 +146,7 @@ Route::group(array('middleware' => 'auth'), function() {
 		Route::get('alumni-list', array('as' => 'user.alumni', 'uses' => 'UsersController@alumni'));
 		Route::delete('alumni-list/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
 		Route::get('makeAlumni/{id}', array('as' => 'user.makeAlumni', 'uses' => 'UsersController@makeAlumni'));
+		Route::get('affiliates-and-scholar', array('as' => 'user.other_user', 'uses' => 'UsersController@otherUser'));
           //here different delete for different user
 
 		//user profile
@@ -249,12 +250,18 @@ Route::get('home/news', array('as' => 'labfront.news', 'uses' => 'LabFrontContro
 Route::get('home/news/{meta_data}', array('as' => 'labfront.full_news', 'uses' => 'LabFrontController@fullNews'));
 
 
-
+//===================================================================================
 //people
-Route::get('people/supervisor', array('as' => 'labfront.supervisor', 'uses' => 'LabFrontController@supervisor'));
-Route::get('people/student', array('as' => 'labfront.student', 'uses' => 'LabFrontController@student'));
+Route::get('people/faculty', array('as' => 'labfront.supervisor', 'uses' => 'LabFrontController@supervisor'));
 Route::get('people/alumni', array('as' => 'labfront.alumni', 'uses' => 'LabFrontController@alumni'));
 
+//===================================================================================
+Route::get('people/members/scholar', array('as' => 'labfront.scholar', 'uses' => 'LabFrontController@userScholar'));
+Route::get('people/members/affiliates', array('as' => 'labfront.affiliates', 'uses' => 'LabFrontController@userAffiliates'));
+Route::get('people/members/undergraduates', array('as' => 'labfront.underStudent', 'uses' => 'LabFrontController@undergraduatesStudents'));
+Route::get('people/members/masters', array('as' => 'labfront.masterStudent', 'uses' => 'LabFrontController@mastersStudent'));
+Route::get('people/members/phd', array('as' => 'labfront.student', 'uses' => 'LabFrontController@phdStudent'));
+//===================================================================================
 
 
 //events
