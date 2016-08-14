@@ -45,40 +45,151 @@
 							<div class="col-lg-12 col-md-12">
 
 
-								@if(! empty($papers))
-									@foreach($papers as $paper)
-										<div class="up-event-wrapper"><!-- event summary -->
 
-											<h1 class="title-median"><a href="{!! route('labfront.paper_single',$paper->paper_meta_data ) !!}" title="{!! $paper->paper_title !!}">{!! $paper->paper_title !!}</a></h1>
 
-											<div class="up-event-meta clearfix">
-												<div class="up-event-date">{!! $paper->paper_type !!}</div>
-												<div class="up-event-date">{!! \App\Event::fullEndDate($paper->paper_publish_date) !!}</div>
+
+
+
+
+
+
+
+								{{--Tabber start --}}
+								<div class="row k-equal-height">
+									<!-- row -->
+									<div class="col-lg-12">
+										<!-- tabber -->
+										<ul class="nav nav-tabs nav-justified">
+											<!-- starts tab controls -->
+											<li class="active"><a href="#k-tab-download" data-toggle="tab">Journals</a>
+											</li>
+											<li><a href="#k-tab-profile" data-toggle="tab">Conference Paper</a>
+											</li>
+											<li><a href="#k-tab-settings" data-toggle="tab">Books</a>
+											</li>
+										</ul>
+										<!-- ends tab controls -->
+
+
+
+
+										<div class="tab-content">
+											<!-- starts tab containers -->
+
+
+
+
+
+
+											<div id="k-tab-download" class="tab-pane fade in active">
+												@foreach($journal as $journals)
+													<div class="up-event-wrapper"><!-- event summary -->
+
+														<h1 class="title-median"><a href="{!! route('labfront.paper_single',$journals->paper_meta_data ) !!}" title="{!! $journals->paper_title !!}">{!! $journals->paper_title !!}</a></h1>
+
+														<div class="up-event-meta clearfix">
+															<div class="up-event-date">{!! $journals->paper_type !!}</div>
+															<div class="up-event-date">{!! \App\Event::fullEndDate($journals->paper_publish_date) !!}</div>
+														</div>
+
+														<p>
+															{!! Str::limit($journals->paper_details,200) !!}
+															<a href="{!! route('labfront.paper_single',$journals->paper_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
+														</p>
+
+													</div><!-- event summary end -->
+												@endforeach
+													<div class="row gutter"><!-- row -->
+														<div class="col-lg-12">
+															<ul class="pagination pull-right"><!-- pagination -->
+																{!! $journal->render() !!}
+															</ul><!-- pagination end -->
+														</div>
+													</div><!-- row end -->
 											</div>
-
-											<p>
-												{!! Str::limit($paper->paper_details,200) !!}
-												<a href="{!! route('labfront.paper_single',$paper->paper_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
-											</p><br/>
-
-										</div><!-- event summary end -->
-									@endforeach
-								@else
-									<p>No Project Found on Database</p> <br/>
-								@endif
-
-							</div>
-
-						</div><!-- row end -->
+											<!-- tab 1 ends -->
 
 
 
-						<div class="row gutter"><!-- row -->
 
-							<div class="col-lg-12">
-								<ul class="pagination pull-right"><!-- pagination -->
-									{!! $papers->render() !!}
-								</ul><!-- pagination end -->
+
+
+
+											<div id="k-tab-profile" class="tab-pane fade">
+												<!-- tab 2 starts -->
+												@foreach($conference as $conferences)
+													<div class="up-event-wrapper"><!-- event summary -->
+
+														<h1 class="title-median"><a href="{!! route('labfront.paper_single',$conferences->paper_meta_data ) !!}" title="{!! $conferences->paper_title !!}">{!! $conferences->paper_title !!}</a></h1>
+
+														<div class="up-event-meta clearfix">
+															<div class="up-event-date">{!! $conferences->paper_type !!}</div>
+															<div class="up-event-date">{!! \App\Event::fullEndDate($conferences->paper_publish_date) !!}</div>
+														</div>
+
+														<p>
+															{!! Str::limit($conferences->paper_details,200) !!}
+															<a href="{!! route('labfront.paper_single',$conferences->paper_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
+														</p>
+
+													</div><!-- event summary end -->
+												@endforeach
+												<div class="row gutter"><!-- row -->
+													<div class="col-lg-12">
+														<ul class="pagination pull-right"><!-- pagination -->
+															{!! $conference->render() !!}
+														</ul><!-- pagination end -->
+													</div>
+												</div><!-- row end -->
+											</div>
+											<!-- tab 2 ends -->
+
+
+
+
+
+
+											{{--books --}}
+											<div id="k-tab-settings" class="tab-pane fade">
+												<!-- tab 3 starts -->
+												@foreach($book as $books)
+													<div class="up-event-wrapper"><!-- event summary -->
+
+														<h1 class="title-median"><a href="{!! route('labfront.paper_single',$books->paper_meta_data ) !!}" title="{!! $books->paper_title !!}">{!! $books->paper_title !!}</a></h1>
+
+														<div class="up-event-meta clearfix">
+															<div class="up-event-date">{!! $books->paper_type !!}</div>
+															<div class="up-event-date">{!! \App\Event::fullEndDate($books->paper_publish_date) !!}</div>
+														</div>
+
+														<p>
+															{!! Str::limit($books->paper_details,200) !!}
+															<a href="{!! route('labfront.paper_single',$books->paper_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
+														</p>
+
+													</div><!-- event summary end -->
+												@endforeach
+												<div class="row gutter"><!-- row -->
+													<div class="col-lg-12">
+														<ul class="pagination pull-right"><!-- pagination -->
+															{!! $book->render() !!}
+														</ul><!-- pagination end -->
+													</div>
+												</div><!-- row end -->
+
+											</div>
+											<!-- tab 3 ends -->
+											{{--blogs end--}}
+
+
+										</div>
+										<!-- ends tab containers -->
+									</div>
+								</div>
+								<!-- row end -->
+
+								{{--Tabber end --}}
+
 							</div>
 
 						</div><!-- row end -->
@@ -86,6 +197,24 @@
 					</div><!-- inner custom column end -->
 
 				</div><!-- doc body wrapper end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

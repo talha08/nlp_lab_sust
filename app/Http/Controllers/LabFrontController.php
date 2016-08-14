@@ -45,6 +45,16 @@ class LabFrontController extends Controller
 
 
 
+
+
+
+
+
+
+
+
+
+
     /*==================================================*/
     //View all blog list, descending order
     /*==================================================*/
@@ -56,6 +66,16 @@ class LabFrontController extends Controller
 
         return view('labfront.blog', compact('blog','recent','tag'))->with('title',"Blog | NLP Lab ");
     }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -76,6 +96,13 @@ class LabFrontController extends Controller
     }
 
 
+
+
+
+
+
+
+
     /*==================================================*/
     //Getting these Blog Associate which associate with
     // selected tag
@@ -94,6 +121,13 @@ class LabFrontController extends Controller
             return "Sorry, Page not Found ";
         }
     }
+
+
+
+
+
+
+
 
 
 
@@ -123,6 +157,19 @@ class LabFrontController extends Controller
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*==================================================*/
     //Blog Archive
     /*==================================================*/
@@ -146,6 +193,11 @@ class LabFrontController extends Controller
     }
 
 
+
+
+
+
+
     /*==================================================*/
     //Supervisor List
     /*==================================================*/
@@ -157,6 +209,11 @@ class LabFrontController extends Controller
         $news = News::take(3)->orderBy('id','desc')->get();
         return view('labfront.supervisor',compact('user','news'))->with('title','Lab Supervisors/Teachers');
     }
+
+
+
+
+
 
 
 
@@ -238,6 +295,13 @@ class LabFrontController extends Controller
     }
 
 
+
+
+
+
+
+
+
     /*==================================================*/
     //Alumni List
     /*==================================================*/
@@ -249,6 +313,13 @@ class LabFrontController extends Controller
         $news = News::take(3)->orderBy('id','desc')->get();
         return view('labfront.alumni',compact('user','news'))->with('title','Lab Alumni');
     }
+
+
+
+
+
+
+
 
 
 
@@ -265,6 +336,12 @@ class LabFrontController extends Controller
     }
 
 
+
+
+
+
+
+
     /*==================================================*/
     //Event List
     /*==================================================*/
@@ -274,6 +351,15 @@ class LabFrontController extends Controller
         $news = News::take(5)->orderBy('id','desc')->get();
         return view('labfront.events',compact('event','news'))->with('title','Event List');
     }
+
+
+
+
+
+
+
+
+
 
     /*==================================================*/
     //Event details
@@ -291,6 +377,18 @@ class LabFrontController extends Controller
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
     /*==================================================*/
     //News List
     /*==================================================*/
@@ -300,6 +398,13 @@ class LabFrontController extends Controller
         $event =  Event::take(5)->orderBy('id','desc')->get();
         return view('labfront.news',compact('event','news'))->with('title','News List');
     }
+
+
+
+
+
+
+
 
 
 
@@ -322,6 +427,11 @@ class LabFrontController extends Controller
 
 
 
+
+
+
+
+
     /*==================================================*/
     //Running Project List
     /*==================================================*/
@@ -333,6 +443,15 @@ class LabFrontController extends Controller
     }
 
 
+
+
+
+
+
+
+
+
+
     /*==================================================*/
     //Complete Project List
     /*==================================================*/
@@ -342,6 +461,13 @@ class LabFrontController extends Controller
         $news = News::take(5)->orderBy('id','desc')->get();
         return view('labfront.project',compact('projects','news'))->with('title','Complete Project');
     }
+
+
+
+
+
+
+
 
 
 
@@ -361,22 +487,34 @@ class LabFrontController extends Controller
     }
 
 
+
+
+
+
+
+
+
     /*==================================================*/
     //Publication/paper Section
     /*==================================================*/
 
     //show all paper
     public function paper(){
-        $papers =   Paper::orderBy('id', 'desc')->paginate(6);
-        $event =  Event::take(5)->orderBy('id','desc')->get();
-        return view('labfront.publication',compact('event','papers'))->with('title','All Publication');
+       // $papers =   Paper::orderBy('id', 'desc')->paginate(6);
+
+        $journal =   Paper::where('paper_type', 'journal')->simplePaginate(5);
+        $conference =   Paper::where('paper_type', 'conference')->simplePaginate(5);
+        $book =   Paper::orderBy('id', 'desc')->where('paper_type', 'book')->simplePaginate(5);
+
+        //$event =  Event::take(5)->orderBy('id','desc')->get();
+        return view('labfront.publication',compact('event','papers','journal','conference','book'))->with('title','All Publication');
     }
 
 
 
     //show all journal
     public function journal(){
-         $papers =   Paper::where('paper_type', 'journal')->paginate(6);
+        $papers =   Paper::where('paper_type', 'journal')->paginate(6);
         $event =  Event::take(5)->orderBy('id','desc')->get();
         return view('labfront.paper',compact('event','papers'))->with('title','Journal Lists');
     }
@@ -394,6 +532,9 @@ class LabFrontController extends Controller
         $event =  Event::take(5)->orderBy('id','desc')->get();
         return view('labfront.paper',compact('event','papers'))->with('title','Book Lists');
     }
+
+
+
 
 
     public function publicationSearch(Request $request){
