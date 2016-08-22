@@ -96,7 +96,7 @@
 															{!! Str::limit($journals->paper_details,200) !!}
 															<a href="{!! route('labfront.paper_single',$journals->paper_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
 														</p>
-
+														<hr>
 													</div><!-- event summary end -->
 												@endforeach
 													<div class="row gutter"><!-- row -->
@@ -131,7 +131,7 @@
 															{!! Str::limit($conferences->paper_details,200) !!}
 															<a href="{!! route('labfront.paper_single',$conferences->paper_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
 														</p>
-
+														<hr>
 													</div><!-- event summary end -->
 												@endforeach
 												<div class="row gutter"><!-- row -->
@@ -166,7 +166,7 @@
 															{!! Str::limit($books->paper_details,200) !!}
 															<a href="{!! route('labfront.paper_single',$books->paper_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
 														</p>
-
+														<hr>
 													</div><!-- event summary end -->
 												@endforeach
 												<div class="row gutter"><!-- row -->

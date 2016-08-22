@@ -16,7 +16,7 @@
 							<h3 class="panel-title">{!!$title!!}</h3>
 
                                         <span class="pull-right">
-                                               <a href="{!! route('project.create')!!}"><button class="btn btn-success">Upload Project</button></a>
+                                               <a href="{!! route('book.create')!!}"><button class="btn btn-success">Add New Resource</button></a>
                                         </span>
 						</div><br>
 
@@ -28,50 +28,60 @@
 
 									<table class="table table-striped table-bordered" id="datatable">
 										<thead>
+
 										<tr>
 											<th>id</th>
-											<th>Book Name</th>
-											{{--<th>Details</th>--}}
+											<th>Resource Name</th>
+											<th>Resource Type</th>
+											<th>Added By</th>
 											<th>Actions</th>
-
 										</tr>
+
 										</thead>
 										<tbody>
-										@foreach ($books as $book)
+										@foreach ($resources as $resource)
 											<tr>
-												<td>{!! $book->id !!}</td>
+												<td>{!! $resource->id !!}</td>
 
-												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$book->id}}" >{!!Str::limit($book->book_name,50) !!}</a></td>
+												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$resource->id}}" >{!!Str::limit($resource->resource_name,50) !!}</a></td>
 												{{--<td>{!!Str::limit($book->book_details,30) !!}</td>--}}
+												<td>{!! $resource->resource_type !!}</td>
+												<td>{!! $resource->user->name !!}</td>
 												<td>
-													<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('book.edit',$book->id)!!}"  style="margin-right: 3px;"><i class="ion-compose" aria-hidden="true"></i></a>
-													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $book->id!!}"><i class="ion-trash-a" aria-hidden="true"></i></a>
+													<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('book.edit',$resource->id)!!}"  style="margin-right: 3px;"><i class="ion-compose" aria-hidden="true"></i></a>
+													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $resource->id!!}"><i class="ion-trash-a" aria-hidden="true"></i></a>
 												</td>
 											</tr>
 
 											<!-- Modal -->
-											<div id="myModal_{{$book->id}}" class="modal fade" role="dialog">
+											<div id="myModal_{{$resource->id}}" class="modal fade" role="dialog">
 												<div class="modal-dialog">
 													<!-- Modal content-->
 													<div class="modal-content" >
 														<center>
 															<div class="modal-header">
 																<button type="button" class="close" data-dismiss="modal">&times;</button>
-																<h4 class="modal-title"><img class="" src="{!! $book->book_image !!}" alt="" align="left">
+																<h4 class="modal-title">
+																	{{--<img class="" src="" alt="" align="left">--}}
 																	<br/><br/>
-																	{{ $book->book_name}}
+																	{{ $resource->resource_name}}
 																</h4>
 															</div>
 															<div class="modal-body" >
 
 
-																<p>{{ $book->book_details}}</p>
+																<p>{{ $resource->resource_details}}</p>
 
-																<p><b>Link - 1: </b><a class="" href="{!!$book->book_link1!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$book->book_link1!!}</a></p><br/>
-																<p><b>Link - 2: </b><a class="" href="{!!$book->book_link2!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$book->book_link2!!}</a></p><br/>
-																<p><b>Link - 3: </b><a class="" href="{!!$book->book_link3!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$book->book_link3!!}</a></p><br/>
+																<p><b>Link - 1: </b><a class="" href="{!!$resource->resource_link1!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link1!!}</a></p><br/>
+																<p><b>Link - 2: </b><a class="" href="{!!$resource->resource_link2!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link2!!}</a></p><br/>
+																<p><b>Link - 3: </b><a class="" href="{!!$resource->resource_link3!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link3!!}</a></p><br/>
 
-
+																@foreach($resource->resourceFile as $file)
+																	{!! $file->resource_file_title !!}
+																	<a class="btn btn-info btn-xs btn-archive" href="{!! $file->resource_file!!}" target="_blank">
+																		<i class="fa fa-download" aria-hidden="true"></i>
+																	</a><br><br/>
+																@endforeach
 
 
 															</div>

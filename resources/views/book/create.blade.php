@@ -16,7 +16,7 @@
 						<h3 class="panel-title">{!!$title!!}</h3>
 
                     <span class="pull-right">
-						<a href="{!! route('book.index')!!}"><button class="btn btn-success">All Books</button></a>
+						<a href="{!! route('book.index')!!}"><button class="btn btn-success">Resource List</button></a>
                     </span>
 					</div>
 
@@ -30,38 +30,65 @@
 
 									{!! Form::open(array('route' => 'book.store',  'files' => true) ) !!}
 
+
+
 									<div class="form-group">
-										{!! Form::label('book_name', 'Title* :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('book_name', '',array('class' => 'form-control','placeholder' =>  'Project title here'))!!}
+										{!! Form::label('resource_type', 'Select Paper Type* :', array('class' => 'col-md-2 control-label')) !!}
+										{!!Form::select('resource_type', $resourceType, '',array('class' => 'select2', 'autofocus'))!!}
+									</div><br/>
+
+									<div class="form-group">
+										{!! Form::label('resource_name', 'Title* :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::text('resource_name', '',array('class' => 'form-control','placeholder' =>  'Resource title here'))!!}
 									</div><br/>
 
 
 
 									<div class="form-group">
-										{!! Form::label('book_link1', 'Book First Url :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('book_link1', '',array('class' => 'form-control','placeholder' =>  'put book url here...'))!!}
+										{!! Form::label('resource_link1', 'Resource First Url :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::text('resource_link1', '',array('class' => 'form-control','placeholder' =>  'put resource url here...'))!!}
 									</div><br/>
 
 									<div class="form-group">
-										{!! Form::label('book_link12', 'Book Second Url (optional):', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('book_link2', '',array('class' => 'form-control','placeholder' =>  'put book url here...'))!!}
+										{!! Form::label('resource_link12', 'Resource Second Url (optional):', array('class' => 'control-label')) !!}<br/>
+										{!!Form::text('resource_link2', '',array('class' => 'form-control','placeholder' =>  'put resource url here...'))!!}
 									</div><br/>
 
 									<div class="form-group">
-										{!! Form::label('book_link3', 'Book Third Url (optional):', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('book_link3', '',array('class' => 'form-control','placeholder' =>  'put book url here...'))!!}
+										{!! Form::label('resource_link3', 'Resource Third Url (optional):', array('class' => 'control-label')) !!}<br/>
+										{!!Form::text('resource_link3', '',array('class' => 'form-control','placeholder' =>  'put resource url here...'))!!}
 									</div><br/>
 
 									<div class="form-group">
-										{!! Form::label('book_details', 'Details :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('book_details', '',array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+										{!! Form::label('resource_details', 'Details :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::textarea('resource_details', '',array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
 
 
 
 
+									<h4><b>File & Image  Attachment: (Optional) </b></h4><br>
+
 									<div class="form-group">
-										{!! Form::submit('Submit Paper', array('class' => 'btn btn-primary')) !!}
+										{!! Form::label('resource_file_title', 'File Title* :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::text('resource_file_title', '',array('class' => 'form-control','placeholder' =>  'Resource file title here'))!!}
+									</div><br/>
+
+									<div class="form-group">
+										{!! Form::label('file', 'File Upload :', array('class' => 'control-label')) !!}
+										{!! Form::file('file[]', array('multiple'=>true)) !!}
+									</div><br/>
+
+
+									<div class="form-group">
+										{!! Form::label('image', 'Resource Image (if any):', array('class' => 'control-label')) !!}
+										{!! Form::file('image') !!}
+									</div><br/>
+
+
+
+									<div class="form-group">
+										{!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
 									</div>
 
 

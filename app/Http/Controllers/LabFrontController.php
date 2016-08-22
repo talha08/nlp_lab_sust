@@ -507,7 +507,7 @@ class LabFrontController extends Controller
         $book =   Paper::orderBy('id', 'desc')->where('paper_type', 'book')->simplePaginate(5);
 
         //$event =  Event::take(5)->orderBy('id','desc')->get();
-        return view('labfront.publication',compact('event','papers','journal','conference','book'))->with('title','All Publication');
+        return view('labfront.publication',compact('event','papers','journal','conference','book'))->with('title','Publications');
     }
 
 

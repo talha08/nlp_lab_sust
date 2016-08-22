@@ -45,7 +45,7 @@ class User extends Model implements AuthenticatableContract,
 
 
     /**
-     * One to Many relationship with Teacher
+     * One to One relationship with Teacher
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -55,7 +55,7 @@ class User extends Model implements AuthenticatableContract,
 
 
     /**
-     * One to Many relationship with Student
+     * One to One relationship with Student
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -81,8 +81,8 @@ class User extends Model implements AuthenticatableContract,
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function books(){
-        return $this->hasMany('App\Book','user_id','id');
+    public function resource(){
+        return $this->hasMany('App\Resource','user_id','id');
     }
 
     /**

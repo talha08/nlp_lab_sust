@@ -104,13 +104,13 @@ Route::group(array('middleware' => 'auth'), function()
 
 
 
-	//books section
-	Route::get('book', array('as' => 'book.index', 'uses' => 'BookController@index'));
-	Route::get('book/create', array('as' => 'book.create', 'uses' => 'BookController@create'));
-	Route::post('book', array('as' => 'book.store', 'uses' => 'BookController@store'));
-	Route::get('book/{id}/edit', array('as' => 'book.edit', 'uses' => 'BookController@edit'));
-	Route::put('book/{id}/update', array('as' => 'book.update', 'uses' => 'BookController@update'));
-	Route::delete('book/{id}', array('as' => 'book.delete', 'uses' => 'BookController@destroy'));
+	//resource Section
+	Route::get('resource', array('as' => 'book.index', 'uses' => 'BookController@index'));
+	Route::get('resource/create', array('as' => 'book.create', 'uses' => 'BookController@create'));
+	Route::post('resource', array('as' => 'book.store', 'uses' => 'BookController@store'));
+	Route::get('resource/{id}/edit', array('as' => 'book.edit', 'uses' => 'BookController@edit'));
+	Route::put('resource/{id}/update', array('as' => 'book.update', 'uses' => 'BookController@update'));
+	Route::delete('resource/{id}', array('as' => 'book.delete', 'uses' => 'BookController@destroy'));
 
 
 });

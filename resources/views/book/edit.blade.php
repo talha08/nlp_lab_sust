@@ -16,7 +16,7 @@
 						<h3 class="panel-title">{!!$title!!}</h3>
 
                     <span class="pull-right">
-						<a href="{!! route('book.index')!!}"><button class="btn btn-success">All Books</button></a>
+						<a href="{!! route('book.index')!!}"><button class="btn btn-success">Resource List</button></a>
                     </span>
 					</div>
 
@@ -28,45 +28,52 @@
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="panel-body">
 
-									{!!Form::model($book,['route' => ['book.update',$book->id], 'method' => 'put' ])!!}
+									{!!Form::model($resource,['route' => ['book.update',$resource->id], 'method' => 'put' ])!!}
+
+
 
 									<div class="form-group">
-										{!! Form::label('book_name', 'Title* :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('book_name', null,array('class' => 'form-control','placeholder' =>  'Project title here'))!!}
+										{!! Form::label('resource_type', 'Select Paper Type* :', array('class' => 'col-md-2 control-label')) !!}
+										{!!Form::select('resource_type', $resourceType,null ,array('class' => 'select2', 'autofocus'))!!}
+									</div><br/>
+
+									<div class="form-group">
+										{!! Form::label('resource_name', 'Title* :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::text('resource_name', null,array('class' => 'form-control','placeholder' =>  'Resource title here'))!!}
 									</div><br/>
 
 
 
 									<div class="form-group">
-										{!! Form::label('book_link1', 'Book First Url :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('book_link1',null,array('class' => 'form-control','placeholder' =>  'put book url here...'))!!}
+										{!! Form::label('resource_link1', 'Resource First Url :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::text('resource_link1', null,array('class' => 'form-control','placeholder' =>  'put resource url here...'))!!}
 									</div><br/>
 
 									<div class="form-group">
-										{!! Form::label('book_link12', 'Book Second Url (optional):', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('book_link2',null,array('class' => 'form-control','placeholder' =>  'put book url here...'))!!}
+										{!! Form::label('resource_link12', 'Resource Second Url (optional):', array('class' => 'control-label')) !!}<br/>
+										{!!Form::text('resource_link2',null,array('class' => 'form-control','placeholder' =>  'put resource url here...'))!!}
 									</div><br/>
 
 									<div class="form-group">
-										{!! Form::label('book_link3', 'Book Third Url (optional):', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('book_link3', null,array('class' => 'form-control','placeholder' =>  'put book url here...'))!!}
+										{!! Form::label('resource_link3', 'Resource Third Url (optional):', array('class' => 'control-label')) !!}<br/>
+										{!!Form::text('resource_link3',null,array('class' => 'form-control','placeholder' =>  'put resource url here...'))!!}
 									</div><br/>
 
 									<div class="form-group">
-										{!! Form::label('book_details', 'Details :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('book_details', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+										{!! Form::label('resource_details', 'Details :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::textarea('resource_details', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
 
-
-
-
 									<div class="form-group">
-										{!! Form::submit('Submit Paper', array('class' => 'btn btn-primary')) !!}
+										{!! Form::submit('Update Resource', array('class' => 'btn btn-primary')) !!}
 									</div>
 
 
 
+
+
 									{!! Form::close() !!}
+
 
 								</div>
 							</div>

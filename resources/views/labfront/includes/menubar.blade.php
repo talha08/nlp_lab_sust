@@ -69,8 +69,8 @@
                             <li>
                                 <a href="#" class="Pages Collection" title="Research Area">Research Area</a>
                                 <ul class="sub-menu">
-                                    <li><a href="{!! route('labfront.runningProject') !!}">Current Projects</a></li>
-                                    <li><a href="{!! route('labfront.completeProject') !!}">Previous Projects</a></li>
+                                    <li><a href="{!! route('labfront.runningProject') !!}" title="Current Projects">Current Projects</a></li>
+                                    <li><a href="{!! route('labfront.completeProject') !!}" title="Previous Projects">Previous Projects</a></li>
                                 </ul>
                             </li>
 
@@ -78,15 +78,15 @@
                             <li>
                                 <a href="{!! route('labfront.publication') !!}" class="Pages Collection" title="Publication">Publication</a>
                                 <ul class="sub-menu">
-                                    <li><a href="{!! route('labfront.journal') !!}">Journal</a></li>
-                                    <li><a href="{!! route('labfront.conference') !!}">Conference</a></li>
-                                    <li><a href="{!! route('labfront.books') !!}">Books</a></li>
+                                    <li><a href="{!! route('labfront.journal') !!}" title="Journal">Journal</a></li>
+                                    <li><a href="{!! route('labfront.conference') !!}" title="Conference">Conference</a></li>
+                                    <li><a href="{!! route('labfront.books') !!}" title="Books">Books</a></li>
                                 </ul>
                             </li>
 
 
                             {{--<li><a href="{!! route('labfront.paper') !!}">Papers</a></li>--}}
-                            <li><a href="{!! route('labfront.award') !!}">Awards</a></li>
+                            <li><a href="{!! route('labfront.award') !!}" title="Awards">Awards</a></li>
                         </ul>
                     </li>
 

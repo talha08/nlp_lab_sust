@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         //$this->call(AwardTableSeeder::class);
         $this->call(EventTableSeeder::class);
        // $this->call(EventFileTableSeeder::class);
-        $this->call(BookTableSeeder::class);
+       // $this->call(BookTableSeeder::class);
         $this->call(SliderTableSeeder::class);
         $this->call(WelcomeSeederTable::class);
 
