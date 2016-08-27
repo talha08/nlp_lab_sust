@@ -233,6 +233,8 @@ Route::get('home', array('as' => 'labfront.index', 'uses' => 'LabFrontController
 Route::get('peopleProfile/{id}', array('as' => 'labfront.peopleProfile', 'uses' => 'LabFrontController@peopleProfile'));
 
 
+//join us
+Route::get('join-us', array('as' => 'labfront.joinUs', 'uses' => 'ContactController@joinUs'));
 
 //contact section
 Route::get('contact', array('as' => 'labfront.contact', 'uses' => 'ContactController@contact'));
@@ -286,9 +288,12 @@ Route::post('home/search/publication', array('as' => 'labfront.searchPublication
 
 
 
-
-
-
+//resource
+Route::get('home/resource/software', array('as' => 'labfront.resource', 'uses' => 'FrontViewController@software'));
+Route::get('home/resource/tutorial', array('as' => 'labfront.tutorial', 'uses' => 'FrontViewController@tutorial'));
+Route::get('home/resource/presentation', array('as' => 'labfront.presentation', 'uses' => 'FrontViewController@presentation'));
+Route::get('home/resource/book', array('as' => 'labfront.book', 'uses' => 'FrontViewController@book'));
+Route::get('home/resource/details/{meta_data}', array('as' => 'labfront.resource_single', 'uses' => 'FrontViewController@fullPaper'));
 
 //award
 Route::get('home/award', array('as' => 'labfront.award', 'uses' => 'LabFrontController@award'));

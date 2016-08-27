@@ -45,8 +45,9 @@
                                 <a href="{!! route('labfront.student') !!}" class="Pages Collection" title="People">Members</a>
                                 <ul class="sub-menu">
                                     <li><a href="{!! route('labfront.underStudent') !!}">Under Graduate</a></li>
-                                    <li><a href="{!! route('labfront.student') !!}">Phd</a></li>
                                     <li><a href="{!! route('labfront.masterStudent') !!}">MS</a></li>
+                                    <li><a href="{!! route('labfront.student') !!}">Phd</a></li>
+
                                     <li><a href="{!! route('labfront.scholar') !!}">Visiting Scholar</a></li>
                                     <li><a href="{!! route('labfront.affiliates') !!}">Industry Affiliates</a></li>
                                 </ul>
@@ -97,11 +98,11 @@
                     <li>
                         <a href="#" class="Pages Collection" title="Resource">Resource</a>
                         <ul class="sub-menu">
-                            <li><a href="{!! route('labfront.news') !!}" title="News">Publication</a></li>
-                            <li><a href="{!! route('labfront.events') !!}" title="Events">Software</a></li>
-                            <li><a href="{!! route('labfront.events') !!}" title="Events">Tutorial</a></li>
-                            <li><a href="{!! route('labfront.events') !!}" title="Events">Presentation</a></li>
-                            <li><a href="{!! route('labfront.events') !!}" title="Events">Books</a></li>
+                            <li><a href="{!! route('labfront.publication') !!}" title="News">Publication</a></li>
+                            <li><a href="{!! route('labfront.resource') !!}" title="Events">Software</a></li>
+                            <li><a href="{!! route('labfront.tutorial') !!}" title="Events">Tutorial</a></li>
+                            <li><a href="{!! route('labfront.presentation') !!}" title="Events">Presentation</a></li>
+                            <li><a href="{!! route('labfront.book') !!}" title="Events">Books</a></li>
                         </ul>
                     </li>
 
@@ -143,20 +144,16 @@
                         </li>
                     @else
                         <li>
-                            <a href="#" title="Account">Join Us</a>
-                            <ul class="sub-menu">
-                                <li><a href="{!! route('login') !!}">Login</a></li>
-                                <li><a href="{!! route('user.create') !!}">Sign Up</a></li>
-                                <li><a href="{!! route('labfront.contact') !!}">Contact</a></li>
+                            <a href="{!! route('labfront.joinUs') !!}" title="Join us">Join Us</a>
+                            {{--<ul class="sub-menu">--}}
+                                {{--<li><a href="{!! route('login') !!}">Login</a></li>--}}
+                                {{--<li><a href="{!! route('user.create') !!}">Sign Up</a></li>--}}
+                                {{--<li><a href="{!! route('labfront.contact') !!}">Contact</a></li>--}}
 
-                            </ul>
+                            {{--</ul>--}}
                         </li>
 
                     @endif
-
-
-
-
 
 
 

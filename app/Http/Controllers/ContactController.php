@@ -17,7 +17,7 @@ class ContactController extends Controller
 
     public function contact()
     {
-        return view('labfront.contact')->with('title',"Contact | Data Science Lab");
+        return view('labfront.contact')->with('title',"Contact | NLP Lab");
     }
 
 
@@ -60,5 +60,15 @@ class ContactController extends Controller
             return \Redirect::to('contact')->withErrors($validator)->with('title','Contact | Data Science Lab')->with('error','Something Went Wrong, Please Try Again');
         }
     }
+
+
+
+
+    public function joinUs(){
+        return view('labfront.joinUs')->with('title',"Join Us | NLP Lab");
+    }
+
+
+
 
 }
