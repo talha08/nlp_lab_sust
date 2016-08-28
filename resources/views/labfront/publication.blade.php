@@ -111,7 +111,7 @@
 																		<br>
 																		Published at : 	{!! $journal->paper_publish_date !!}
 																		<br>
-																		<a href="{!! route('labfront.paper_single',$journal->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">..MORE</a>
+																		<a href="{!! route('labfront.paper_single',$journal->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">.....MORE</a>
 																	</td>
 
 
@@ -179,7 +179,7 @@
 																			<br>
 																			Published at : 	{!! $conference->paper_publish_date !!}
 																			<br>
-																			<a href="{!! route('labfront.paper_single',$conference->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">..MORE</a>
+																			<a href="{!! route('labfront.paper_single',$conference->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">.....MORE</a>
 																		</td>
 
 
@@ -246,7 +246,7 @@
 																		<br>
 																		Published at : 	{!! $book->paper_publish_date !!}
 																		<br>
-																		<a href="{!! route('labfront.paper_single',$book->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">..MORE</a>
+																		<a href="{!! route('labfront.paper_single',$book->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">.....MORE</a>
 																	</td>
 
 
