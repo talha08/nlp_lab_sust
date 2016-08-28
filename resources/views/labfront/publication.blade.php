@@ -48,13 +48,8 @@
 
 
 
-
-
-
-
-
-
 								{{--Tabber start --}}
+
 								<div class="row k-equal-height">
 									<!-- row -->
 									<div class="col-lg-12">
@@ -76,11 +71,7 @@
 										<div class="tab-content">
 											<!-- starts tab containers -->
 
-
-
-
-
-
+											<!-- tab 2 starts -->
 											<div id="k-tab-download" class="tab-pane fade in active">
 												<div class="up-event-wrapper"><!-- event summary -->
 
@@ -114,20 +105,14 @@
 																		<a href="{!! route('labfront.paper_single',$journal->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">.....MORE</a>
 																	</td>
 
-
 																	<td>{!! $journal->paper_title !!}</td>
-
 																	<td>
 																		@foreach($journal->users as $user)
 																			{!! $user->name !!} &nbsp;,
 																		@endforeach
 																	</td>
 
-
-
 																	<td>{!! \App\Paper::year($journal->paper_publish_date) !!}</td>
-
-
 
 																</tr>
 															@endforeach
@@ -146,11 +131,9 @@
 
 
 
-
+											<!-- tab 2 starts -->
 											<div id="k-tab-profile" class="tab-pane fade active">
-												<!-- tab 2 starts -->
-
-													<div class="up-event-wrapper"><!-- event summary -->
+												<div class="up-event-wrapper"><!-- event summary -->
 														<!-- search Table start -->
 														<div class="tab-pane fade active in" id="papers">
 															{{--<div>--}}
@@ -169,7 +152,6 @@
 																<tbody>
 																@foreach($conferences as $conference)
 																	<tr>
-
 																		<td ><b>{!! $conference->paper_title  !!} </b> ,
 																			<br>
 																			Author:
@@ -182,21 +164,14 @@
 																			<a href="{!! route('labfront.paper_single',$conference->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">.....MORE</a>
 																		</td>
 
-
 																		<td class="hide">{!! $conference->paper_title !!}</td>
-
 																		<td class="hide">
 																			@foreach($conference->users as $user)
 																				{!! $user->name !!} &nbsp;,
 																			@endforeach
 																		</td>
 
-
-
 																		<td class="hide">{!! \App\Paper::year($conference->paper_publish_date) !!}</td>
-
-
-
 																	</tr>
 																@endforeach
 
@@ -214,7 +189,7 @@
 
 
 
-											{{--books --}}
+											<!-- tab 3 starts -->
 											<div id="k-tab-settings" class="tab-pane fade">
 												<!-- tab 3 starts -->
 												<div class="up-event-wrapper"><!-- event summary -->
@@ -224,7 +199,6 @@
 														<table id="pubsTable2" class="table table-striped searchHighlight">
 
 															<thead>
-
 															<tr>
 																<th></th>
 																<th></th>
@@ -236,7 +210,6 @@
 															<tbody>
 															@foreach($books as $book)
 																<tr>
-
 																	<td ><b>{!! $book->paper_title  !!} </b> ,
 																		<br>
 																		Author:
@@ -249,24 +222,16 @@
 																		<a href="{!! route('labfront.paper_single',$book->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">.....MORE</a>
 																	</td>
 
-
 																	<td class="hide">{!! $book->paper_title !!}</td>
-
 																	<td class="hide">
 																		@foreach($book->users as $user)
 																			{!! $user->name !!} &nbsp;,
 																		@endforeach
 																	</td>
 
-
-
 																	<td class="hide">{!! \App\Paper::year($book->paper_publish_date) !!}</td>
-
-
-
 																</tr>
 															@endforeach
-
 															</tbody>
 														</table>
 													</div>
@@ -275,7 +240,9 @@
 												</div><!-- event summary end -->
 											</div>
 											<!-- tab 3 ends -->
-											{{--blogs end--}}
+
+
+
 
 
 										</div>
@@ -300,20 +267,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+					<!-- Side bar Starts -->
 
 
 				<div id="k-sidebar" class="col-lg-4 col-md-4"><!-- sidebar wrapper -->
@@ -329,79 +283,29 @@
 
 
 
-
-
 									<!-- search box start -->
 
 									<div class="col-sm-12 col-md-12">
-									<div class="input-group">
-									<input type="text" class="form-control" placeholder="Title" id="titlebox">
-									<input type="text" class="form-control" placeholder="Author(s)" id="authorbox">
-
-									</div>
+										<div class="input-group">
+											<input type="text" class="form-control" placeholder="Title" id="titlebox">
+											<input type="text" class="form-control" placeholder="Author(s)" id="authorbox">
+										</div>
 									</div>
 
 									<div class="col-sm-12 col-md-12">
-									<div class="input-group">
-									<input type="text" class="form-control span6" placeholder="1999" pattern="[0-9]*" maxlength="4" id="year_min">
-									<span class="input-group-btn" style="width:0px;"></span>
-									<input type="text" class="form-control span6" placeholder="2016" pattern="[0-9]*" maxlength="4" id="year_max">
+										<div class="input-group">
+											<input type="text" class="form-control span6" placeholder="1999" pattern="[0-9]*" maxlength="4" id="year_min">
+											<span class="input-group-btn" style="width:0px;"></span>
+											<input type="text" class="form-control span6" placeholder="2016" pattern="[0-9]*" maxlength="4" id="year_max">
+										</div>
 									</div>
-									</div>
-
-									<!-- search box end -->
-										<br><br>
 
 
-									{{--<!-- search box start -->--}}
+									<br><br>
 
-									{{--<div class="col-sm-12 col-md-12">--}}
-										{{--<div class="input-group">--}}
-											{{--<input type="text" class="form-control" placeholder="Title" id="titlebox2">--}}
-											{{--<input type="text" class="form-control" placeholder="Author(s)" id="authorbox2">--}}
-
-										{{--</div>--}}
-									{{--</div>--}}
-
-									{{--<div class="col-sm-12 col-md-12">--}}
-										{{--<div class="input-group">--}}
-											{{--<input type="text" class="form-control span6" placeholder="1999" pattern="[0-9]*" maxlength="4" id="year_min2">--}}
-											{{--<span class="input-group-btn" style="width:0px;"></span>--}}
-											{{--<input type="text" class="form-control span6" placeholder="2016" pattern="[0-9]*" maxlength="4" id="year_max2">--}}
-										{{--</div>--}}
-									{{--</div>--}}
-
-									{{--<!-- search box end -->--}}
-
-									{{--<br><br>--}}
-									{{--<!-- search box start -->--}}
-
-									{{--<div class="col-sm-12 col-md-12">--}}
-										{{--<div class="input-group">--}}
-											{{--<input type="text" class="form-control" placeholder="Title" id="titlebox3">--}}
-											{{--<input type="text" class="form-control" placeholder="Author(s)" id="authorbox3">--}}
-
-										{{--</div>--}}
-									{{--</div>--}}
-
-									{{--<div class="col-sm-12 col-md-12">--}}
-										{{--<div class="input-group">--}}
-											{{--<input type="text" class="form-control span6" placeholder="1999" pattern="[0-9]*" maxlength="4" id="year_min3">--}}
-											{{--<span class="input-group-btn" style="width:0px;"></span>--}}
-											{{--<input type="text" class="form-control span6" placeholder="2016" pattern="[0-9]*" maxlength="4" id="year_max3">--}}
-										{{--</div>--}}
-									{{--</div>--}}
-
-									<!-- search box end -->
-
-
+								<!-- search box end -->
 
 							</li>
-
-
-
-
-
 
 						</ul><!-- widgets end -->
 
