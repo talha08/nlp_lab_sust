@@ -219,7 +219,7 @@
 												<!-- tab 3 starts -->
 												<div class="up-event-wrapper"><!-- event summary -->
 													<!-- search Table start -->
-													<div class="tab-pane fade active in" id="papers2">
+													<div class="tab-pane fade active in" id="papers">
 
 														<table id="pubsTable2" class="table table-striped searchHighlight">
 
