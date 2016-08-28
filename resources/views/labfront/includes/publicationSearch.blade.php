@@ -100,8 +100,8 @@
 
 	$.fn.dataTable.ext.search.push(
 			function( settings, data, dataIndex ) {
-				var min = parseInt( $('#year_min1').val(), 10 );
-				var max = parseInt( $('#year_max1').val(), 10 );
+				var min = parseInt( $('#year_min').val(), 10 );
+				var max = parseInt( $('#year_max').val(), 10 );
 				var year = parseInt( data[3] ) || 0;
 
 				if ( max < 1000 || min < 1000 ){
@@ -120,8 +120,8 @@
 			}
 	);
 
-	var titlesearch1 = '';
-	var authorsearch1 = '';
+	var titlesearch = '';
+	var authorsearch = '';
 
 
 	$('document').ready(function() {
@@ -140,11 +140,11 @@
 			"bPaginate":false
 		});
 
-		$("#papertab1").click(function() {
-			$("#searcharea1").fadeIn();
+		$("#papertab").click(function() {
+			$("#searcharea").fadeIn();
 		});
-		$("#booktab1").click(function() {
-			$("#searcharea1").fadeOut();
+		$("#booktab").click(function() {
+			$("#searcharea").fadeOut();
 		});
 
 
@@ -173,7 +173,7 @@
 			}
 		} );
 
-		$('#year_min1, #year_max1').keyup(function() {
+		$('#year_min, #year_max').keyup(function() {
 			table.fnDraw();
 		});
 

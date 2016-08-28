@@ -152,7 +152,8 @@
 
 													<div class="up-event-wrapper"><!-- event summary -->
 														<!-- search Table start -->
-														<div class="tab-pane fade active in" id="papers1" style="display: none;">
+														<div class="tab-pane fade active in" id="papers">
+															{{--<div>--}}
 															<table id="pubsTable1" class="table table-striped searchHighlight">
 
 																<thead>
@@ -182,9 +183,9 @@
 																		</td>
 
 
-																		<td>{!! $conference->paper_title !!}</td>
+																		<td class="hide">{!! $conference->paper_title !!}</td>
 
-																		<td>
+																		<td class="hide">
 																			@foreach($conference->users as $user)
 																				{!! $user->name !!} &nbsp;,
 																			@endforeach
@@ -192,7 +193,7 @@
 
 
 
-																		<td>{!! \App\Paper::year($conference->paper_publish_date) !!}</td>
+																		<td class="hide">{!! \App\Paper::year($conference->paper_publish_date) !!}</td>
 
 
 
@@ -201,6 +202,7 @@
 
 																</tbody>
 															</table>
+
 														</div>
 														<!-- search Table end -->
 													</div><!-- event summary end -->
@@ -217,7 +219,8 @@
 												<!-- tab 3 starts -->
 												<div class="up-event-wrapper"><!-- event summary -->
 													<!-- search Table start -->
-													<div class="tab-pane fade active in" id="papers2" style="display: none;">
+													<div class="tab-pane fade active in" id="papers2">
+
 														<table id="pubsTable2" class="table table-striped searchHighlight">
 
 															<thead>
@@ -247,9 +250,9 @@
 																	</td>
 
 
-																	<td>{!! $book->paper_title !!}</td>
+																	<td class="hide">{!! $book->paper_title !!}</td>
 
-																	<td>
+																	<td class="hide">
 																		@foreach($book->users as $user)
 																			{!! $user->name !!} &nbsp;,
 																		@endforeach
@@ -257,7 +260,7 @@
 
 
 
-																	<td>{!! \App\Paper::year($book->paper_publish_date) !!}</td>
+																	<td class="hide">{!! \App\Paper::year($book->paper_publish_date) !!}</td>
 
 
 
@@ -324,7 +327,7 @@
 
 								<h1 class="title-widget">Search Publication</h1>
 
-								<ul class="list-unstyled">
+
 
 
 
@@ -347,8 +350,51 @@
 									</div>
 
 									<!-- search box end -->
+										<br><br>
 
-								</ul>
+
+									{{--<!-- search box start -->--}}
+
+									{{--<div class="col-sm-12 col-md-12">--}}
+										{{--<div class="input-group">--}}
+											{{--<input type="text" class="form-control" placeholder="Title" id="titlebox2">--}}
+											{{--<input type="text" class="form-control" placeholder="Author(s)" id="authorbox2">--}}
+
+										{{--</div>--}}
+									{{--</div>--}}
+
+									{{--<div class="col-sm-12 col-md-12">--}}
+										{{--<div class="input-group">--}}
+											{{--<input type="text" class="form-control span6" placeholder="1999" pattern="[0-9]*" maxlength="4" id="year_min2">--}}
+											{{--<span class="input-group-btn" style="width:0px;"></span>--}}
+											{{--<input type="text" class="form-control span6" placeholder="2016" pattern="[0-9]*" maxlength="4" id="year_max2">--}}
+										{{--</div>--}}
+									{{--</div>--}}
+
+									{{--<!-- search box end -->--}}
+
+									{{--<br><br>--}}
+									{{--<!-- search box start -->--}}
+
+									{{--<div class="col-sm-12 col-md-12">--}}
+										{{--<div class="input-group">--}}
+											{{--<input type="text" class="form-control" placeholder="Title" id="titlebox3">--}}
+											{{--<input type="text" class="form-control" placeholder="Author(s)" id="authorbox3">--}}
+
+										{{--</div>--}}
+									{{--</div>--}}
+
+									{{--<div class="col-sm-12 col-md-12">--}}
+										{{--<div class="input-group">--}}
+											{{--<input type="text" class="form-control span6" placeholder="1999" pattern="[0-9]*" maxlength="4" id="year_min3">--}}
+											{{--<span class="input-group-btn" style="width:0px;"></span>--}}
+											{{--<input type="text" class="form-control span6" placeholder="2016" pattern="[0-9]*" maxlength="4" id="year_max3">--}}
+										{{--</div>--}}
+									{{--</div>--}}
+
+									<!-- search box end -->
+
+
 
 							</li>
 
