@@ -501,13 +501,12 @@ class LabFrontController extends Controller
     //show all paper
     public function paper(){
        // $papers =   Paper::orderBy('id', 'desc')->paginate(6);
-
-        $journal =   Paper::where('paper_type', 'journal')->simplePaginate(5);
-        $conference =   Paper::where('paper_type', 'conference')->simplePaginate(5);
-        $book =   Paper::orderBy('id', 'desc')->where('paper_type', 'book')->simplePaginate(5);
+         $journals =   Paper::with('users')->where('paper_type', 'journal')->get();
+         $conferences =   Paper::with('users')->where('paper_type', 'conference')->get();
+        $books =   Paper::with('users')->where('paper_type', 'book')->get();
 
         //$event =  Event::take(5)->orderBy('id','desc')->get();
-        return view('labfront.publication',compact('event','papers','journal','conference','book'))->with('title','Publications');
+        return view('labfront.publication',compact('event','papers','journals','conferences','books'))->with('title','Publications');
     }
 
 

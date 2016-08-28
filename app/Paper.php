@@ -8,6 +8,8 @@ class Paper extends Model
 {
     protected $table='paper';
 
+    //protected $dates = ['paper_publish_date'];
+
     /**
      * For User and Paper Many To Many RelationShip
      *
@@ -24,5 +26,13 @@ class Paper extends Model
      */
     public function paperFile(){
         return $this->hasMany('App\PaperFile','paper_id','id');
+    }
+
+
+
+    //parse created_at date and return full date
+    public static function year($date){
+        $dt = \Carbon\Carbon::parse($date);
+        return  $dt->formatLocalized(' %Y');//day date month year
     }
 }

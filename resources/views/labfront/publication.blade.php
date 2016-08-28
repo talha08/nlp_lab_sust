@@ -63,7 +63,7 @@
 											<!-- starts tab controls -->
 											<li class="active"><a href="#k-tab-download" data-toggle="tab">Journals</a>
 											</li>
-											<li><a href="#k-tab-profile" data-toggle="tab">Conference Paper</a>
+											<li ><a href="#k-tab-profile" data-toggle="tab">Conference Paper</a>
 											</li>
 											<li><a href="#k-tab-settings" data-toggle="tab">Books</a>
 											</li>
@@ -82,30 +82,62 @@
 
 
 											<div id="k-tab-download" class="tab-pane fade in active">
-												@foreach($journal as $journals)
-													<div class="up-event-wrapper"><!-- event summary -->
+												<div class="up-event-wrapper"><!-- event summary -->
 
-														<h1 class="title-median"><a href="{!! route('labfront.paper_single',$journals->paper_meta_data ) !!}" title="{!! $journals->paper_title !!}">{!! $journals->paper_title !!}</a></h1>
+													<!-- search Table start -->
+													<div class="tab-pane fade active in" id="papers" style="display: none;">
+														<table id="pubsTable" class="table table-striped searchHighlight">
 
-														<div class="up-event-meta clearfix">
-															<div class="up-event-date">{!! $journals->paper_type !!}</div>
-															<div class="up-event-date">{!! \App\Event::fullEndDate($journals->paper_publish_date) !!}</div>
-														</div>
+															<thead>
 
-														<p>
-															{!! Str::limit($journals->paper_details,200) !!}
-															<a href="{!! route('labfront.paper_single',$journals->paper_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
-														</p>
-														<hr>
-													</div><!-- event summary end -->
-												@endforeach
-													<div class="row gutter"><!-- row -->
-														<div class="col-lg-12">
-															<ul class="pagination pull-right"><!-- pagination -->
-																{!! $journal->render() !!}
-															</ul><!-- pagination end -->
-														</div>
-													</div><!-- row end -->
+															<tr>
+																<th></th>
+																<th></th>
+																<th></th>
+																<th></th>
+															</tr>
+															</thead>
+
+															<tbody>
+															@foreach($journals as $journal)
+																<tr>
+
+																	<td ><b>{!! $journal->paper_title  !!} </b> ,
+																		<br>
+																		Author:
+																		@foreach($journal->users as $user)
+																			{!! $user->name !!} &nbsp;
+																		@endforeach
+																		<br>
+																		Published at : 	{!! $journal->paper_publish_date !!}
+																		<br>
+																		<a href="{!! route('labfront.paper_single',$journal->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">..MORE</a>
+																	</td>
+
+
+																	<td>{!! $journal->paper_title !!}</td>
+
+																	<td>
+																		@foreach($journal->users as $user)
+																			{!! $user->name !!} &nbsp;,
+																		@endforeach
+																	</td>
+
+
+
+																	<td>{!! \App\Paper::year($journal->paper_publish_date) !!}</td>
+
+
+
+																</tr>
+															@endforeach
+
+															</tbody>
+														</table>
+													</div>
+													<!-- search Table end -->
+
+												</div><!-- event summary end -->
 											</div>
 											<!-- tab 1 ends -->
 
@@ -115,32 +147,63 @@
 
 
 
-											<div id="k-tab-profile" class="tab-pane fade">
+											<div id="k-tab-profile" class="tab-pane fade active">
 												<!-- tab 2 starts -->
-												@foreach($conference as $conferences)
+
 													<div class="up-event-wrapper"><!-- event summary -->
+														<!-- search Table start -->
+														<div class="tab-pane fade active in" id="papers1" style="display: none;">
+															<table id="pubsTable1" class="table table-striped searchHighlight">
 
-														<h1 class="title-median"><a href="{!! route('labfront.paper_single',$conferences->paper_meta_data ) !!}" title="{!! $conferences->paper_title !!}">{!! $conferences->paper_title !!}</a></h1>
+																<thead>
 
-														<div class="up-event-meta clearfix">
-															<div class="up-event-date">{!! $conferences->paper_type !!}</div>
-															<div class="up-event-date">{!! \App\Event::fullEndDate($conferences->paper_publish_date) !!}</div>
+																<tr>
+																	<th></th>
+																	<th></th>
+																	<th></th>
+																	<th></th>
+																</tr>
+																</thead>
+
+																<tbody>
+																@foreach($conferences as $conference)
+																	<tr>
+
+																		<td ><b>{!! $conference->paper_title  !!} </b> ,
+																			<br>
+																			Author:
+																			@foreach($conference->users as $user)
+																				{!! $user->name !!} &nbsp;
+																			@endforeach
+																			<br>
+																			Published at : 	{!! $conference->paper_publish_date !!}
+																			<br>
+																			<a href="{!! route('labfront.paper_single',$conference->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">..MORE</a>
+																		</td>
+
+
+																		<td>{!! $conference->paper_title !!}</td>
+
+																		<td>
+																			@foreach($conference->users as $user)
+																				{!! $user->name !!} &nbsp;,
+																			@endforeach
+																		</td>
+
+
+
+																		<td>{!! \App\Paper::year($conference->paper_publish_date) !!}</td>
+
+
+
+																	</tr>
+																@endforeach
+
+																</tbody>
+															</table>
 														</div>
-
-														<p>
-															{!! Str::limit($conferences->paper_details,200) !!}
-															<a href="{!! route('labfront.paper_single',$conferences->paper_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
-														</p>
-														<hr>
+														<!-- search Table end -->
 													</div><!-- event summary end -->
-												@endforeach
-												<div class="row gutter"><!-- row -->
-													<div class="col-lg-12">
-														<ul class="pagination pull-right"><!-- pagination -->
-															{!! $conference->render() !!}
-														</ul><!-- pagination end -->
-													</div>
-												</div><!-- row end -->
 											</div>
 											<!-- tab 2 ends -->
 
@@ -152,31 +215,61 @@
 											{{--books --}}
 											<div id="k-tab-settings" class="tab-pane fade">
 												<!-- tab 3 starts -->
-												@foreach($book as $books)
-													<div class="up-event-wrapper"><!-- event summary -->
+												<div class="up-event-wrapper"><!-- event summary -->
+													<!-- search Table start -->
+													<div class="tab-pane fade active in" id="papers2" style="display: none;">
+														<table id="pubsTable2" class="table table-striped searchHighlight">
 
-														<h1 class="title-median"><a href="{!! route('labfront.paper_single',$books->paper_meta_data ) !!}" title="{!! $books->paper_title !!}">{!! $books->paper_title !!}</a></h1>
+															<thead>
 
-														<div class="up-event-meta clearfix">
-															<div class="up-event-date">{!! $books->paper_type !!}</div>
-															<div class="up-event-date">{!! \App\Event::fullEndDate($books->paper_publish_date) !!}</div>
-														</div>
+															<tr>
+																<th></th>
+																<th></th>
+																<th></th>
+																<th></th>
+															</tr>
+															</thead>
 
-														<p>
-															{!! Str::limit($books->paper_details,200) !!}
-															<a href="{!! route('labfront.paper_single',$books->paper_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
-														</p>
-														<hr>
-													</div><!-- event summary end -->
-												@endforeach
-												<div class="row gutter"><!-- row -->
-													<div class="col-lg-12">
-														<ul class="pagination pull-right"><!-- pagination -->
-															{!! $book->render() !!}
-														</ul><!-- pagination end -->
+															<tbody>
+															@foreach($books as $book)
+																<tr>
+
+																	<td ><b>{!! $book->paper_title  !!} </b> ,
+																		<br>
+																		Author:
+																		@foreach($book->users as $user)
+																			{!! $user->name !!} &nbsp;
+																		@endforeach
+																		<br>
+																		Published at : 	{!! $book->paper_publish_date !!}
+																		<br>
+																		<a href="{!! route('labfront.paper_single',$book->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">..MORE</a>
+																	</td>
+
+
+																	<td>{!! $book->paper_title !!}</td>
+
+																	<td>
+																		@foreach($book->users as $user)
+																			{!! $user->name !!} &nbsp;,
+																		@endforeach
+																	</td>
+
+
+
+																	<td>{!! \App\Paper::year($book->paper_publish_date) !!}</td>
+
+
+
+																</tr>
+															@endforeach
+
+															</tbody>
+														</table>
 													</div>
-												</div><!-- row end -->
+													<!-- search Table end -->
 
+												</div><!-- event summary end -->
 											</div>
 											<!-- tab 3 ends -->
 											{{--blogs end--}}
@@ -234,35 +327,26 @@
 								<ul class="list-unstyled">
 
 
-									{!! Form::open(array('route' => 'labfront.searchPublication') ) !!}
-									<div class="form-group">
-										{!!Form::text('paper_type', '',array('class' => 'form-control','id'=>'select2','placeholder' =>  'Paper Type'))!!}
+
+									<!-- search box start -->
+
+									<div class="col-sm-12 col-md-12">
+									<div class="input-group">
+									<input type="text" class="form-control" placeholder="Title" id="titlebox">
+									<input type="text" class="form-control" placeholder="Author(s)" id="authorbox">
+
+									</div>
 									</div>
 
-									<div class="form-group">
-										{!!Form::text('paper_title', '',array('class' => 'form-control','placeholder' =>  'Paper Title'))!!}
+									<div class="col-sm-12 col-md-12">
+									<div class="input-group">
+									<input type="text" class="form-control span6" placeholder="1999" pattern="[0-9]*" maxlength="4" id="year_min">
+									<span class="input-group-btn" style="width:0px;"></span>
+									<input type="text" class="form-control span6" placeholder="2016" pattern="[0-9]*" maxlength="4" id="year_max">
+									</div>
 									</div>
 
-									<div class="form-group">
-										{!!Form::text('paper_author', '',array('class' => 'form-control','placeholder' =>  'Paper Author Name'))!!}
-									</div>
-
-
-
-									<div class="form-group col-md-6">
-										{!!Form::text('date_start', '',array('class' => 'form-control','id'=>'datepicker','placeholder' =>  'Start Date'))!!}
-									</div>
-									<div class="form-group col-md-6">
-										{!!Form::text('date_end', '',array('class' => 'form-control','id'=>'datepicker2','placeholder' =>  'End Date'))!!}
-									</div><br/>
-
-
-
-									<div class="form-group">
-										{!! Form::submit('Search', array('class' => 'btn btn-primary')) !!}
-									</div>
-									{!! Form::close() !!}
-
+									<!-- search box end -->
 
 								</ul>
 
@@ -295,7 +379,31 @@
 	{!! Html::style('assets/timepicker/bootstrap-datepicker.min.css') !!}
 	{!! Html::style('assets/select2/select2.css') !!}
 
+	<style>
+		.dataTables_filter {
+			display: none;
+		}
 
+		.highlight {
+			/*    text-decoration: underline;*/
+			font-weight: bold;
+			color: #8C1515;
+
+		}
+
+		table {
+			border-spacing: 2px;
+			border-collapse: separate;
+		}
+
+		th {
+			background-color: #FAF5F5;
+
+		}
+
+		table td.hide { display: none; } /* hidden columns for sorting etc */
+
+	</style>
 @stop
 
 
@@ -304,20 +412,11 @@
 	{!! Html::script('assets/timepicker/bootstrap-datepicker.js') !!}
 	{!! Html::script('assets/select2/select2.min.js') !!}
 
+	{!! Html::script('http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js') !!}
+	{!! Html::script('http://cdn.datatables.net/plug-ins/1.10.7/features/searchHighlight/dataTables.searchHighlight.min.js') !!}
+	{!! Html::script('http://bartaz.github.io/sandbox.js/jquery.highlight.js') !!}
 
-	<script type="text/javascript">
 
-		jQuery(document).ready(function() {
-
-			jQuery('#datepicker').datepicker();
-			jQuery('#datepicker2').datepicker();
-
-			// Select2
-			jQuery(".select2").select2({
-				width: '100%'
-			});
-		});
-
-	</script>
+	@include('labfront.includes.publicationSearch')
 
 @stop
