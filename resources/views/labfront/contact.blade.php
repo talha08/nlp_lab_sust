@@ -50,11 +50,11 @@
             <br>
             <br>
             <p>
-                Phone <br/>
-                <span class="muted">(+88) 0196*******</span><br/>
+                {{--Phone <br/>--}}
+                {{--<span class="muted">(+88) 0196*******</span><br/>--}}
 
-                Email <br/>
-                <span class="muted">support@nlplab.sust.edu</span>
+                {{--Email <br/>--}}
+                {{--<span class="muted">support@nlplab.sust.edu</span>--}}
             </p>
         </div>
 

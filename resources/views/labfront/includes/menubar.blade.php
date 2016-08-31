@@ -9,8 +9,9 @@
 
                 <h1 class="k-logo">
                     <a href="{!! route('labfront.index') !!}" title="Home Page">
+                            <br/>
+                        <img src="{!! asset('logo.png') !!}" alt="Site Logo" class="img-responsive" height="80" width="80" style=" top: 10px" />
 
-                        <img src="{!! asset('labfront/img/front.png') !!}" alt="Site Logo" class="img-responsive" />
                     </a>
                 </h1>
 

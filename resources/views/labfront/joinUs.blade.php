@@ -32,13 +32,7 @@
 									<h1>Why With Us?</h1>
 									<hr/>
 									<p>
-										For example, a lot's happened since Moz was founded in 2004,
-										so they chose to share those milestones using a timeline.
-										They did a great job by using a fun and clean design, clear headers,
-										concise blurbs, and little graphics to break up the text. We love how humbly
-										they preface the timeline, too, with a thank you to their community:
-										"We owe a huge thanks to our community for joining us on this awesome
-										journey, and we hope that you’ll continue to be a part of our story."
+										Our first Meetup we will discuss overview and goals of this group with potential hands on activity towards the end. Looking forward to seeing you there.
 									</p>
 
 									<br/>

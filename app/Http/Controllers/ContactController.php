@@ -48,8 +48,8 @@ class ContactController extends Controller
             \Mail::send('emails.contact', $data, function($message) use ($data)
             {
                 //$user = User::findOrFail(1)->pluck('email');
-                $message->from($data['email'],'User email From SUST Data Science Lab');
-                $message->to('talhaqc@gmail.com')->cc('talhaqc@gmail.com')->subject('Your Reminder!');
+                $message->from($data['email'],'User email From SUST NLP Lab');
+                $message->to('saif.acm@gmail.com')->cc('saif.acm@gmail.com')->subject('Your Reminder!');
 
             });
 
