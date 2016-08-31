@@ -57,6 +57,7 @@ class ProfileController extends Controller
             ->with('level', $level);
 
 
+
     }
 
 
@@ -108,7 +109,8 @@ class ProfileController extends Controller
                 'about_me'=>$request->about_me,
                 'study_level'=>$request->study_level,
                 'year'=>$request->year,
-                'semester'=>$request->semester
+                'semester'=>$request->semester,
+                'reg'=>$request->reg
 
             ]);
 

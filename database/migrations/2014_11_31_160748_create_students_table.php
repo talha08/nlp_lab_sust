@@ -19,6 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('year')->nullable();
             $table->string('semester')->nullable();
+            $table->string('reg')->nullable();
             $table->string('img_url')->default('/upload/profile/default/avatar.jpg');
             $table->string('thumb_url')->default('/upload/profile/default/icon.jpg');
             $table->string('github_user')->nullable();

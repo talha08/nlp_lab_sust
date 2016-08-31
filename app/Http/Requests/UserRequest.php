@@ -32,6 +32,7 @@ class UserRequest extends Request
             'phone'                 => 'required',
             'year'                  => 'required',
             'semester'              => 'required',
+            'reg'                   => 'required',
 
 
         ];

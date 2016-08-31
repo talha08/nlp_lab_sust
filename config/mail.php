@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -11,11 +11,11 @@ return array(
     | sending of e-mail. You may specify which one you're using throughout
     | your application here. By default, Laravel is setup for SMTP mail.
     |
-    | Supported: "smtp", "mail", "sendmail", "mailgun", "mandrill", "log"
+    | Supported: "smtp", "mail", "sendmail", "mailgun", "mandrill", "ses", "log"
     |
     */
 
-    'driver' => 'mailgun',
+    'driver' => env('MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return array(
     |
     */
 
-    'host' => 'smtp.mailgun.org',
+    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return array(
     |
     */
 
-    'port' => 587,
+    'port' => env('MAIL_PORT', 587),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
     |
     */
 
-    'from' => array('address' => 'talhaqc@gmail.com', 'name' => 'Data Science Lab, CSE, SUST'),
+    'from' => ['address' => 'noreply@sust.edu', 'name' => "SUST CSE NLP Lab"],
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return array(
     |
     */
 
-    'encryption' => 'tls',
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
     |
     */
 
-    'username' => 'postmaster@sandbox491c4df5f90144028179302c7a7f7b7c.mailgun.org',
+    'username' => env('MAIL_USERNAME'),
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
     |
     */
 
-    'password' => '34aa062ba02e64772f4ea60ca8c2395d',
+    'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
@@ -121,4 +121,4 @@ return array(
 
     'pretend' => false,
 
-);
+];

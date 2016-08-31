@@ -23,7 +23,7 @@
 
             <div class="k-breadcrumbs col-lg-12 clearfix"><!-- breadcrumbs -->
                 <ol class="breadcrumb">
-                    <li><a href="#">SUST cse data Science Lab</a></li>
+                    <li><a href="#">SUST CSE NLP Lab</a></li>
                     <li><a href="#">Home</a></li>
                 </ol>
             </div><!-- breadcrumbs end -->
@@ -48,11 +48,10 @@
 
                     <div class="panel-body">
                         {!! Form::open(array('route' => 'user.store', 'method' => 'post', 'id' =>'form_id', 'class' => 'form-signin', 'files'=>true)) !!}
-                        <div id="wizard-vertical">
+
 
 
                             <h3>Account</h3>
-                            <section id="myForm">
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Complete Name *</label>
                                     <div class="col-lg-10">
@@ -85,13 +84,16 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-12 control-label ">(*) Mandatory</label>
                                 </div>
-                            </section>
+
+
+
+
+
+
 
 
 
                             <h3>Education</h3>
-                            <section>
-
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Study Level *</label>
                                     <div class="col-lg-10">
@@ -100,18 +102,26 @@
                                 </div>
 
                                 <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="address1">Year <small>(Only for Under Graduates)</small></label>
+                                    <label class="col-lg-2 control-label " for="address1">Year </label>
                                     <div class="col-lg-10">
                                         {!! Form::select('year', $year,'', array('class' => 'select2', 'placeholder' => 'Select your Education year...')) !!}
                                     </div><br>
                                 </div>
 
                                 <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="address1">Semester <small>(Only for Under Graduates)</small></label>
+                                    <label class="col-lg-2 control-label " for="address1">Semester </label>
                                     <div class="col-lg-10">
                                         {!! Form::select('semester', $semester,'', array('class' => 'select2', 'placeholder' => 'Select your Education semester...')) !!}
                                     </div><br>
                                 </div>
+
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="address1">Registration Number </label>
+                                    <div class="col-lg-10">
+                                        {!! Form::text('reg','', array('class' => 'form-control','placeholder' => 'Enter your registration Number')) !!}
+                                    </div><br>
+                                </div>
+
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Working Platforms & Skills *</label>
                                     <div class="col-lg-10">
@@ -122,11 +132,13 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-12 control-label ">(*) Mandatory</label>
                                 </div>
-                            </section>
 
 
-                            <h3>Contact</h3>
-                            <section>
+
+
+
+
+                           <h3>Contact</h3>
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Phone *</label>
                                     <div class="col-lg-10">
@@ -149,19 +161,25 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-12 control-label ">(*) Mandatory</label>
                                 </div>
-                            </section>
 
 
-                            <h3>Upload Image</h3>
-                            <section>
+
+
+
+                             <h3>Upload Image</h3>
                                 <center>
                                     <fieldset>
                                         <img class="preview" id="preview" alt=" " src="{!!asset('upload/profile/default/avatar.jpg')!!}">
                                         <br/>
                                         <input type="file" name="image" id="imgInp" onchange="loadFile(event);">
                                     </fieldset>
-                                </center>
-                            </section>
+                                </center><br/><br/>
+
+
+
+                        <div class="form-group">
+                            {!! Form::submit('Apply For Membership', array('class' => 'btn btn-lg btn-success btn-login btn-block')) !!}
+                        </div><br/><br/>
 
 
                         </div> <!-- End #wizard-vertical -->
@@ -193,6 +211,7 @@
     {!! Html::style('assets/tagsinput/jquery.tagsinput.css') !!}
             <!--Select Input-->
     {!! Html::style('assets/select2/select2.css') !!}
+
 
 
 @stop

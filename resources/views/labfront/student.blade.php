@@ -58,8 +58,30 @@
 
 
 												<p class="leadership-bio">
-													{!! $users->position !!},<small> {!! $users->organization !!} </small><br>
-													<small>Shahjalal University of Science and Technology, Sylhet</small>
+													  		@if($users->is_teacher == 0 )
+																@if($users->year != null && $users->semester != null )
+
+																 <b>{!! $users->year !!}</b> year
+																<b> {!! $users->semester !!}</b> semester
+																 {!! $users->position !!},<br>
+																@endif
+
+															 {!! $users->organization !!}
+															<br>
+
+
+															<small>Shahjalal University of Science and Technology, Sylhet</small>
+
+
+															@elseif($users->is_teacher == 1)
+															{!! $users->position !!},<small> {!! $users->organization !!} </small><br>
+														    <small>Shahjalal University of Science and Technology, Sylhet</small>
+
+														  	@else
+														  	{!! $users->position !!},<small> {!! $users->organization !!} </small><br>
+
+															@endif
+
 												</p><br/>
 
 											</div>

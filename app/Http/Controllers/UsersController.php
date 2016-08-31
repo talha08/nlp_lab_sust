@@ -209,6 +209,11 @@ class UsersController extends Controller
               $student->linkedIn_user = $request->linkedIn_user;
               $student->platform = $request->platform;
 
+
+          if($request->has('reg')) {
+              $student->reg = $request->reg;
+          }
+
           if($request->has('year')) {
               $student->year = $request->year;
           }

@@ -22,6 +22,7 @@ class CreateTeachersTable extends Migration
             $table->string('github_user')->nullable();
             $table->string('linkedIn_user')->nullable();
             $table->string('position')->nullable();
+            $table->string('reg')->nullable();
             $table->boolean('in_leave')->default(0);
             $table->string('organization')->default('Department of Computer Science and Engineering');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

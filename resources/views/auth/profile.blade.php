@@ -458,6 +458,12 @@
                                     </div><br>
 
                                     <div class="form-group ">
+                                        {!! Form::label('reg', 'Registration Number :', array('class' => 'col-md-4 control-label')) !!}
+                                        {!! Form::text('reg', null, array('class' => 'form-control', 'placeholder' => '2012331008...')) !!}
+                                    </div><br>
+
+
+                                    <div class="form-group ">
                                         {!! Form::label('linkedIn_user', 'LinkedIn Account :', array('class' => 'col-md-4 control-label')) !!}
                                         {!! Form::text('linkedIn_user', null, array('class' => 'form-control', 'placeholder' => 'www.linkedin.com/xyz...')) !!}
                                     </div><br>

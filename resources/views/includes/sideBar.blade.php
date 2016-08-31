@@ -302,18 +302,18 @@
 
 
                     {{--paper--}}
-                    <li class="{!! Menu::areActiveRoutes(['paper.index', 'paper.create']) !!}"><a href="#"><i class="ion-ios7-bookmarks-outline"></i> <span class="nav-label">Publication</span></a>
-                        <ul class="list-unstyled">
+                    {{--<li class="{!! Menu::areActiveRoutes(['paper.index', 'paper.create']) !!}"><a href="#"><i class="ion-ios7-bookmarks-outline"></i> <span class="nav-label">Publication</span></a>--}}
+                        {{--<ul class="list-unstyled">--}}
 
-                            <li class="{!! Menu::isActiveRoute('paper.index') !!}">
-                                <a href="{!!  URL::route( 'paper.index') !!}">Publication List</a>
-                            </li>
+                            {{--<li class="{!! Menu::isActiveRoute('paper.index') !!}">--}}
+                                {{--<a href="{!!  URL::route( 'paper.index') !!}">Publication List</a>--}}
+                            {{--</li>--}}
 
-                            <li class="{!! Menu::isActiveRoute('paper.create') !!}">
-                                <a href="{!!  URL::route( 'paper.create') !!}">New Publication</a>
-                            </li>
-                        </ul>
-                    </li>
+                            {{--<li class="{!! Menu::isActiveRoute('paper.create') !!}">--}}
+                                {{--<a href="{!!  URL::route( 'paper.create') !!}">New Publication</a>--}}
+                            {{--</li>--}}
+                        {{--</ul>--}}
+                    {{--</li>--}}
                     {{--paper end--}}
 
                     @endrole
