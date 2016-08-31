@@ -53,8 +53,8 @@
                                 </div>
 
                                 <div class="m-contact-tel-fax">
-                                    <span class="m-contact-tel">Tel: <span itemprop="tel">631-551-3678</span></span>
-                                    <span class="m-contact-fax">Fax: <span itemprop="fax">631-551-3688</span></span>
+                                    <span class="m-contact-tel">Tel: <span itemprop="tel">###</span></span>
+                                    <span class="m-contact-fax">Fax: <span itemprop="fax">###</span></span>
                                 </div>
 
                             </div>
