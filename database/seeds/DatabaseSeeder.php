@@ -21,19 +21,19 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(TeacherTableSeeder::class);
-        $this->call(StudentTableSeeder::class);
+       // $this->call(StudentTableSeeder::class);
         $this->call(EntrustTableSeeder::class);
         $this->call(TagTableSeeder::class);
-        $this->call(BlogTableSeeder::class);
-        $this->call(ProjectCatTableSeeder::class);
+        //$this->call(BlogTableSeeder::class);
+       // $this->call(ProjectCatTableSeeder::class);
         //$this->call(ProjectTableSeeder::class);
         //$this->call(PaperTableSeeder::class);
-        $this->call(NewsTableSeeder::class);
+      //  $this->call(NewsTableSeeder::class);
         //$this->call(AwardTableSeeder::class);
-        $this->call(EventTableSeeder::class);
+       // $this->call(EventTableSeeder::class);
        // $this->call(EventFileTableSeeder::class);
        // $this->call(BookTableSeeder::class);
-        $this->call(SliderTableSeeder::class);
+       // $this->call(SliderTableSeeder::class);
         $this->call(WelcomeSeederTable::class);
 
 

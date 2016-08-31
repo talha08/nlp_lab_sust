@@ -35,8 +35,8 @@ class ProjectController extends Controller
     public function create()
     {
         $fund = [
-            '1' => 'Funded Project',
-            '0' => 'Not Funded Project'
+            '1' => 'Funding Project',
+            '0' => 'Not Funding Project'
         ];
         $teacher = User::where('is_teacher','=',1 )->lists('name','id')->all();
         //developer can be a student or alumni
@@ -101,8 +101,8 @@ class ProjectController extends Controller
     {
 
         $fund = [
-            '1' => 'Funded Project',
-            '0' => 'Not Funded Project'
+            '1' => 'Funding Project',
+            '0' => 'Not Funding Project'
         ];
 
         $teacher = User::where('is_teacher','=',1 )->lists('name','id')->all();

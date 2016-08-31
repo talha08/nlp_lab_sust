@@ -47,7 +47,7 @@
 
 
 									<fieldset>
-										<label>UPLOAD PICTURE:</label>
+										<label>UPLOAD PICTURE: <p style="color: red">(height = 1140 , width = 400)</p></label>
 										<br/>
 										<img class="preview" id="preview" alt=" " src="{!!asset('/upload/default/slider/upload.png')!!}">
 										<br/>

@@ -13,9 +13,9 @@ class TeacherTableSeeder extends Seeder
     public function run()
     {
         Teacher::create(['user_id'=> 1,'position' => 'Lecturer']);
-        Teacher::create(['user_id'=> 2,'position' => 'Lecturer']);
-        Teacher::create(['user_id'=> 3,'position' => 'Lecturer']);
-        Teacher::create(['user_id'=> 4,'position' => 'Lecturer']);
+      //  Teacher::create(['user_id'=> 2,'position' => 'Lecturer']);
+     //   Teacher::create(['user_id'=> 3,'position' => 'Lecturer']);
+     //   Teacher::create(['user_id'=> 4,'position' => 'Lecturer']);
 
     }
 }
