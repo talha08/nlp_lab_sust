@@ -5,7 +5,7 @@
     Computer Science and Engineering Department,
     Shahjalal University of Science and Technology, Sylhet.">
 
-    <meta name="author" content="Md. Abu Talha, SUST CSE 12 Batch ">
+    <meta name="author" content=" ">
     <meta name="keyword" content="Sust,Natarul,Language,Processing,Lab,Cse,Sylhet, Ebent, News, Bangladesh, Award, Contest, Thesis">
 
     {!! Html::favicon('favicon.ico') !!}
