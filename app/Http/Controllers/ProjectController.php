@@ -34,10 +34,14 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $fund = [
+            '1' => 'Funded Project',
+            '0' => 'Not Funded Project'
+        ];
         $teacher = User::where('is_teacher','=',1 )->lists('name','id')->all();
         //developer can be a student or alumni
         $students = User::where('is_teacher','=',0 )->orWhere('is_teacher','=',2 )->lists('name','id')->all();
-        return view('project.create',compact('teacher','students'))->with('title',"Create New Project");
+        return view('project.create',compact('teacher','students','fund'))->with('title',"Create New Project");
     }
 
 
@@ -54,6 +58,7 @@ class ProjectController extends Controller
         $project->project_title = $request->project_title;
         $project->project_details = $request->project_details;
         $project->project_url = $request->project_url;
+        $project->is_founded = $request->is_founded;
         $project->project_meta_data =  str_slug($request->project_title);
 
         $language = implode(",", $request->project_language);
@@ -94,12 +99,18 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
+
+        $fund = [
+            '1' => 'Funded Project',
+            '0' => 'Not Funded Project'
+        ];
+
         $teacher = User::where('is_teacher','=',1 )->lists('name','id')->all();
         //developer can be a student or alumni
         $students = User::where('is_teacher','=',0 )->orWhere('is_teacher','=',2 )->lists('name','id')->all();
         $x= ProjectsPeople::where('project_id',$id)->lists('user_id','user_id')->all();
         $projects = Project::findOrFail($id);
-        return view('project.edit', compact('projects','teacher','students','x'))->with('title',"Edit Project");
+        return view('project.edit', compact('projects','teacher','students','x','fund'))->with('title',"Edit Project");
     }
 
 
@@ -115,6 +126,7 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         $project->project_title = $request->project_title;
         $project->project_details = $request->project_details;
+        $project->is_founded = $request->is_founded;
         //$project->project_status = $request->project_status;
         $project->project_url = $request->project_url;
         $project->project_meta_data =  str_slug($request->project_title);
@@ -145,6 +157,8 @@ class ProjectController extends Controller
         Project::destroy($id);
         return redirect()->route('project.index')->with('success',"Project Successfully deleted");
     }
+
+
 
 
     public function changeStatus($id){

@@ -35,6 +35,10 @@
 								<div class="events-title-meta clearfix">
 									<h1 class="page-title">{!! $project->project_title !!}</h1>
 									<div class="event-meta">
+										@if($project->is_founded == 1)
+											<div class="up-event-date">Funding Project</div>
+										@endif
+
 										<span class="event-from">Start - {!! \App\Project::fullDate($project->id) !!}</span>
 										@if($project->project_status ==0)
 											<span class="event-divider">to</span>

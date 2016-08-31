@@ -70,6 +70,16 @@
 															<div class="modal-body" >
 
 
+																<p><b>Funding Status: </b>
+
+																	@if($project->is_founded ==1)
+																		Funding Project
+																		@else
+																	    Not Funding Project
+																	@endif
+
+																</p><br/>
+
 																<p>{{ $project->project_details}}</p><br/>
 																<b>Project Link: </b><p><a class="" href="{!!$project->project_url!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$project->project_url!!}</a></p><br/>
 

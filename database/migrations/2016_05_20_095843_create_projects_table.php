@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
             $table->boolean('project_status')->default(1); //1 mean running project, 0 Complete
             $table->text('project_url')->nullable();
             $table->text('project_language')->nullable();
+            $table->text('is_founded')->nullable();
             $table->string('project_image')->default('/upload/default/big.jpg');
             $table->string('project_meta_data')->unique();
             $table->timestamps();

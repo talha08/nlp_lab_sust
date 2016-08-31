@@ -32,6 +32,11 @@
 									{!!Form::model($projects,['route' => ['project.update',$projects->id], 'method' => 'put' ])!!}
 
 									<div class="form-group">
+										{!! Form::label('is_founded', 'Project Founding :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::select('is_founded', $fund,null,array('class' => 'select2','autofocus'))!!}
+									</div><br/>
+
+									<div class="form-group">
 										{!! Form::label('project_title', 'Title :', array('class' => 'control-label')) !!}<br/>
 										{!! Form::text('project_title', null,array('class' => 'form-control','placeholder' =>  'Project title here'))!!}
 									</div><br/>
@@ -71,7 +76,7 @@
 
 
 									<div class="form-group">
-										{!! Form::submit('Submit Project', array('class' => 'btn btn-primary')) !!}
+										{!! Form::submit('Update Project', array('class' => 'btn btn-primary')) !!}
 									</div>
 
 

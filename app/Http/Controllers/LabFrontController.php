@@ -565,7 +565,7 @@ class LabFrontController extends Controller
     public function award(){
         $awards =   Award::orderBy('id', 'desc')->paginate(6);
         $event =  Event::take(5)->orderBy('id','desc')->get();
-        return view('labfront.award',compact('event','awards'))->with('title','Award List');
+        return view('labfront.award',compact('event','awards'))->with('title','Award');
     }
 
 

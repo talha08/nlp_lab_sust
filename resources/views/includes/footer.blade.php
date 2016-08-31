@@ -1,6 +1,6 @@
 <!-- Footer Start -->
 <footer class="footer">
-	Copyright &copy; Software House, CSE , SUST, Sylhet, Bangladesh. All rights reserved.
+	Copyright &copy; NLP Lab, CSE , SUST, Sylhet, Bangladesh. All rights reserved.
 </footer>
 <!-- Footer Ends -->
 

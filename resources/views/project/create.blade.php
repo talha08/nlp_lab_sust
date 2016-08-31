@@ -31,6 +31,13 @@
 									{!! Form::open(array('route' => 'project.store',  'files' => true) ) !!}
 
 									<div class="form-group">
+										{!! Form::label('is_founded', 'Project Founding Status:', array('class' => 'control-label')) !!}<br/>
+										{!!Form::select('is_founded', $fund,'',array('class' => 'select2','autofocus'))!!}
+									</div><br/>
+
+
+
+									<div class="form-group">
 										{!! Form::label('project_title', 'Title :', array('class' => 'control-label')) !!}<br/>
 										{!!Form::text('project_title', '',array('class' => 'form-control','placeholder' =>  'Project title here'))!!}
 									</div><br/>
