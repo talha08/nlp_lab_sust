@@ -60,7 +60,7 @@
 							<img src="{!! asset($slide->img_url) !!}" width="1140" height="400" alt="Image slide 3" />
 							<div class="{!!$slide->slider_position !!}">
 								<div class="caption-content">
-									<h3 class="caption-title">{!!$slide->slider_title !!}e</h3>
+									<h3 class="caption-title">{!!$slide->slider_title !!}</h3>
 									<p>
 										{!!$slide->slider_desc !!}
 									</p>

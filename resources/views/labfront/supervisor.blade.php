@@ -49,7 +49,7 @@
 											<div class="leadership-meta clearfix">
 
 												<h4 class="title-median"><a href="{!!  route('labfront.peopleProfile',$users->id ) !!}" title="Click to view full profile...">
-														{!! $users->name !!}<small>Teacher</small>
+														{{--{!! $users->name !!}<small>Teacher</small>--}}
 													</a></h4>
 
 												<div class="leadership-position">Member Since {!! Carbon\Carbon::now()->diffForHumans($users->created_at) !!} </div>

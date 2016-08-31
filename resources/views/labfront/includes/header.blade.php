@@ -1,8 +1,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shahjalal University of Science and Technology, Sylhet.
-    Computer Science and Engineering Department,natural Language Processing Lab. ">
+    <meta name="description" content="Natural language Processing Lab,
+    Computer Science and Engineering Department,
+    Shahjalal University of Science and Technology, Sylhet.">
 
     <meta name="author" content="Md. Abu Talha, SUST CSE 12 Batch ">
     <meta name="keyword" content="Sust,Natarul,Language,Processing,Lab,Cse,Sylhet, Ebent, News, Bangladesh, Award, Contest, Thesis">
