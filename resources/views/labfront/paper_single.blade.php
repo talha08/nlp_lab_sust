@@ -65,7 +65,8 @@
 
 									<br/><br/><b>Paper Link: </b><p><a class="" href="{!!$paper->paper_url!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$paper->paper_url!!}</a></p>
 
-									@if(!empty($paper->paper_pdf))
+
+									@if(!empty($paper->paper_pdf) && Auth::user())
 									<br/><br/><b>File: </b><p>
 										{!! $paper->paper_pdf !!}
 										<a class="btn btn-info btn-xs btn-archive" href="{!! $paper->paper_pdf!!}" target="_blank">
@@ -74,7 +75,7 @@
 									@endif
 
 
-
+									 @if(!empty(count($paper->paperFile)) && Auth::user())
 										<br/><h3>Paper Attachment:</h3>
 										@foreach($paper->paperFile as $file)
 												{!! $file->paper_file_title !!}
@@ -82,6 +83,7 @@
 													<i class="fa fa-download" aria-hidden="true"></i>
 												</a><br><br/>
 										@endforeach
+									   @endif
 
 
 								</div><br/>

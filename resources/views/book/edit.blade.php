@@ -42,6 +42,10 @@
 										{!!Form::text('resource_name', null,array('class' => 'form-control','placeholder' =>  'Resource title here'))!!}
 									</div><br/>
 
+									<div class="form-group">
+										{!! Form::label('resource_author', 'Resource Author :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::text('resource_author[]', null,array('class' => 'tags','id'=>'tags','multiple', 'autofocus'))!!}
+									</div><br/>
 
 
 									<div class="form-group">
@@ -60,9 +64,17 @@
 									</div><br/>
 
 									<div class="form-group">
+										{!! Form::label('tags_list', 'Select Tag :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::select('tags_list[]', $tagList, $x,array('class' => 'tag_list','multiple', 'autofocus'))!!}
+									</div><br/>
+
+									<div class="form-group">
 										{!! Form::label('resource_details', 'Details :', array('class' => 'control-label')) !!}<br/>
 										{!!Form::textarea('resource_details', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
+
+
+
 
 									<div class="form-group">
 										{!! Form::submit('Update Resource', array('class' => 'btn btn-primary')) !!}
@@ -91,19 +103,18 @@
 
 
 @stop
-
 @section('style')
-
-	{!! Html::style('assets/select2/select2.css') !!}
+	{!! Html::style('assets/tagsinput/jquery.tagsinput.css') !!}
+	{{--{!! Html::style('assets/select2/select2.css') !!}--}}
 	{!! Html::style('assets/summernote/summernote.css') !!}
-
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @stop
 
 
 @section('script')
-
-
-	{!! Html::script('assets/select2/select2.min.js') !!}
+	{!! Html::script('assets/tagsinput/jquery.tagsinput.min.js') !!}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+	{{--{!! Html::script('assets/select2/select2.min.js') !!}--}}
 	{!! Html::script('assets/summernote/summernote.min.js') !!}
 
 	<script type="text/javascript">
@@ -118,16 +129,46 @@
 
 				focus: true                 // set focus to editable area after initializing summernote
 			});
-
-			// Select2
-			jQuery(".select2").select2({
-				width: '100%'
+			// Tags Input
+			jQuery('#tags').tagsInput({
+				width:'auto',
+				height: 40
 			});
+
+//			// Select2
+//			jQuery(".select2").select2({
+//				width: '100%'
+//			});
+//
+//			jQuery(".tag_list").select2({
+//				width: '100%'
+//				//tags: true
+//			});
+
+
+
 		});
 
+
+		$('.select2').select2({
+			width: '100%',
+			theme: "classic"
+
+		});
+
+		$('.tag_list').select2({
+			//tags:true,
+			width: '100%',
+			theme: "classic",
+			placeholder: 'Choose Tag or Insert New'
+
+		});
 	</script>
 
+
+
 @stop
+
 
 
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Resource;
+use App\ResourceTag;
+use App\Tag;
 use App\ResourceFile;
 use Illuminate\Http\Request;
 
@@ -33,13 +35,16 @@ class BookController extends Controller
     public function create()
     {
         $resourceType =[
+            'publication' => 'publication',
             'software' => 'software',
             'tutorial' => 'tutorial',
             'presentation' => 'presentation',
             'book' => 'book',
         ];
 
-        return view('book.create', compact('resourceType'))->with('title',"Add new Resource");
+        $tag_lists = Tag::lists('name','name');
+
+        return view('book.create', compact('resourceType','tag_lists'))->with('title',"Add new Resource");
     }
 
 
@@ -60,17 +65,33 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
+        //return $request->all();
+
+
+
+           foreach ($request->tags_list as $tag_list) {
+               $tag = Tag::where('name',$tag_list)->first();
+               if(empty($tag)){
+                   Tag::create([
+                       'name' => $tag_list
+                   ]);
+               }
+           }
+           $tagIds = Tag::whereIn('name',$request->tags_list)->lists('id');
+
+
 
         $resource = new Resource();
         $resource->resource_type = $request->resource_type;
         $resource->resource_name = $request->resource_name;
+        $author = implode(",", $request->resource_author);
+        $resource->resource_author = $author;
         $resource->resource_link1 = $request->resource_link1;
         $resource->resource_link2 = $request->resource_link2;
         $resource->resource_link3 = $request->resource_link3;
         $resource->resource_details = $request->resource_details;
         $resource->user_id =  \Auth::user()->id;
-        $resource->resource_meta_data =  md5($request->resource_name);
+        $resource->resource_meta_data =   str_slug($request->resource_name).'-'.rand(6738267,25366783977);
 
         //image save
         if( $request->hasFile('image')) {
@@ -84,9 +105,9 @@ class BookController extends Controller
             //resize and crop image using Image Intervention
             // Image::make($file)->crop(558, 221, 30, 30)->save(public_path($img_url));
             Image::make($file)->resize(200, 200)->save(public_path($img_url));
-
             $resource->resource_image_url = $img_url;
         }
+
         if($resource->save()){
 
             //file save
@@ -107,7 +128,8 @@ class BookController extends Controller
                 }
             }
 
-
+            //many to many relation
+            $resource->tags()->attach($tagIds->toArray());
 
             return redirect()->route('book.index')->with('success', 'Resource Successfully Created');
         }
@@ -132,15 +154,18 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-
+        $tag_lists = Tag::lists('name','name');
         $resourceType =[
+            'publication' => 'publication',
             'software' => 'software',
             'tutorial' => 'tutorial',
             'presentation' => 'presentation',
             'book' => 'book',
         ];
+        $tagList = Tag::lists('name','id')->all();
+        $x= ResourceTag::where('resource_id',$id)->lists('tag_id','tag_id')->all();
         $resource = Resource::findOrFail($id);
-        return view('book.edit', compact('resource','resourceType'))->with('title',"Edit Resource");
+        return view('book.edit', compact('resource','resourceType','tag_lists','x','tagList'))->with('title',"Edit Resource");
     }
 
 
@@ -162,19 +187,36 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // return $request->all();
+       // return $request->all();
+
+
+//            foreach ($request->tags_list as $tag_list) {
+//                $tag = Tag::where('name',$tag_list)->first();
+//                if(empty($tag)){
+//                    Tag::create([
+//                        'name' => $tag_list
+//                    ]);
+//                }
+//            }
+//            $tagIds = Tag::whereIn('name',$request->tags_list)->lists('id');
+
+
 
         $resource = Resource::findOrFail($id);
         $resource->resource_type = $request->resource_type;
         $resource->resource_name = $request->resource_name;
+        $author = implode(",", $request->resource_author);
+        $resource->resource_author = $author;
         $resource->resource_link1 = $request->resource_link1;
         $resource->resource_link2 = $request->resource_link2;
         $resource->resource_link3 = $request->resource_link3;
         $resource->resource_details = $request->resource_details;
         $resource->user_id =  \Auth::user()->id;
-        $resource->resource_meta_data =  md5($request->resource_name);
+        $resource->resource_meta_data =   str_slug($request->resource_name).'-'.rand(6738267,25366783977);
 
         if($resource->save()){
+            //many to many relation
+           $resource->tags()->sync($request->tags_list);
             return redirect()->route('book.index')->with('success', 'Resource Successfully Updated');
         }else{
             return redirect()->back()->with('error', 'Something went wrong');
@@ -183,6 +225,9 @@ class BookController extends Controller
 
 
     }
+
+
+
 
     /**
      * Remove the specified resource from storage.

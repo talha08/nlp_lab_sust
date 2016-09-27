@@ -16,7 +16,9 @@ class CreateResourceTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->string('resource_name');
+            $table->string('resource_author');
             $table->string('resource_type');
+            $table->string('resource_view')->default(0);
             $table->text('resource_details');
             $table->string('resource_image')->default('/upload/default/resource.jpg');
             $table->string('resource_link1')->nullable();

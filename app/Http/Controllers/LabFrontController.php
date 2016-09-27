@@ -112,7 +112,7 @@ class LabFrontController extends Controller
             $tag= Tag::all();
             $recent= Blog::take(3)->orderBy('id','desc')->get(); //recent 3 news
             $blog = Blog::where('tag','=',$tag_name)->orderBy('id', 'desc')->paginate(5);
-            $bing = str_slug($tag_name, "+");;
+            $bing = str_slug($tag_name, "+");
             return view('labfront.blog', compact('blog','recent','tag','bing'))->with('title',"Tag :||: $tag_name" );
 
         }

@@ -31,7 +31,7 @@
 						<div class="row gutter"><!-- row -->
 
 
-   {{--blog main content--}}
+                  {{--blog main content--}}
 					@if(!empty($blog->count()))
 							@foreach($blog as $new_blog)
 							<div class="k-article-summary col-lg-12 col-md-12">
@@ -62,7 +62,7 @@
 
 							</div>
 							@endforeach
-					@else
+					          @else
 								@if(!empty($bing))
 								<div class="k-article-summary col-lg-12 col-md-12">
 									<div class="news-body">
@@ -74,7 +74,7 @@
 								@else
 									<div class="k-article-summary col-lg-12 col-md-12">
 										<div class="news-body">
-											<h1>Whoops, No Blog Post Found With this Tag or Keyword!!</h1>
+											<h1>Whoops, No Blog Post Found!!</h1>
 										</div>
 									</div>
 								@endif

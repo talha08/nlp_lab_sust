@@ -25,4 +25,12 @@ class Resource extends Model
         return $this->hasMany('App\ResourceFile','resource_id','id');
     }
 
+
+    // many to many relation with tag
+    public function tags(){
+        return $this->belongsToMany('App\Tag','resource_tag','resource_id','tag_id');
+    }
+
+
+
 }

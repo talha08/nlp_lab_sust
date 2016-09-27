@@ -241,14 +241,6 @@ Route::get('contact', array('as' => 'labfront.contact', 'uses' => 'ContactContro
 Route::post('contact','ContactController@getContactUsForm');
 
 
-//blog section
-Route::get('blog-all', array('as' => 'labfront.blog', 'uses' => 'LabFrontController@blog'));
-Route::get('blog-details/{meta_data}', array('as' => 'labfront.blog_details', 'uses' => 'LabFrontController@frontBlogDetails'));
-Route::get('blog-all/{tag}', array('as' => 'labfront.tag', 'uses' => 'LabFrontController@tagAssociateBlog'));
-Route::get('blog/archive', array('as' => 'labfront.archive_blog', 'uses' => 'LabFrontController@archive'));
-Route::post('blog-all', array('as' => 'search.action', 'uses' => 'LabFrontController@search'));
-
-
 //news
 Route::get('home/news', array('as' => 'labfront.news', 'uses' => 'LabFrontController@news'));
 Route::get('home/news/{meta_data}', array('as' => 'labfront.full_news', 'uses' => 'LabFrontController@fullNews'));
@@ -294,6 +286,22 @@ Route::get('home/resource/tutorial', array('as' => 'labfront.tutorial', 'uses' =
 Route::get('home/resource/presentation', array('as' => 'labfront.presentation', 'uses' => 'FrontViewController@presentation'));
 Route::get('home/resource/book', array('as' => 'labfront.book', 'uses' => 'FrontViewController@book'));
 Route::get('home/resource/details/{meta_data}', array('as' => 'labfront.resource_single', 'uses' => 'FrontViewController@fullPaper'));
+
+
+Route::get('home/resource/publication', array('as' => 'labfront.publicationOthers', 'uses' => 'FrontViewController@publication'));
+Route::get('home/resource/publication/tag-search/{tag}', array('as' => 'labfront.publicationtag', 'uses' => 'FrontViewController@tagAssociatePublication'));
+Route::get('home/resource/publication/details/{meta_data}', array('as' => 'labfront.publicationOthetDetails', 'uses' => 'FrontViewController@publicationOthetDetails'));
+
+
+
+//blog section
+Route::get('blog-all', array('as' => 'labfront.blog', 'uses' => 'LabFrontController@blog'));
+Route::get('blog-details/{meta_data}', array('as' => 'labfront.blog_details', 'uses' => 'LabFrontController@frontBlogDetails'));
+Route::get('blog-all/{tag}', array('as' => 'labfront.tag', 'uses' => 'LabFrontController@tagAssociateBlog'));
+Route::get('blog/archive', array('as' => 'labfront.archive_blog', 'uses' => 'LabFrontController@archive'));
+Route::post('blog-all', array('as' => 'search.action', 'uses' => 'LabFrontController@search'));
+
+
 
 //award
 Route::get('home/award', array('as' => 'labfront.award', 'uses' => 'LabFrontController@award'));

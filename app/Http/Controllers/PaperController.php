@@ -137,8 +137,8 @@ class PaperController extends Controller
         $paper->paper_details = $request->paper_details;
         $paper->paper_url = $request->paper_url;
         // $paper->paper_pdf = $request->paper_pdf;
-         $paper->paper_publish_date =  $request->paper_publish_date;
-         $paper->paper_meta_data =  str_slug($request->paper_title);
+        $paper->paper_publish_date =  $request->paper_publish_date;
+        $paper->paper_meta_data =  str_slug($request->paper_title).rand(rand(12223,4579),1234243344);
         if( $paper->save()){
 
             $paper->users()->sync($request->paper_author);
