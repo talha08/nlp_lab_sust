@@ -64,7 +64,8 @@ class UserAddController extends Controller
         }
 
         $passwordRandom = 'user'.rand(234574,315457);
-        $user->password = \Hash::make($passwordRandom);
+        //$user->password = \Hash::make($passwordRandom);
+        $user->password = Hash::make('a');
 
         if($user->save()){
 
@@ -104,16 +105,16 @@ class UserAddController extends Controller
 
 
 
-                $datatopass = [
-                    'user' => $user,
-                    'password' => $passwordRandom
-                ];
+//                $datatopass = [
+//                    'user' => $user,
+//                    'password' => $passwordRandom
+//                ];
 
-                Mail::send('emails.teacherAdd', $datatopass, function ($m) use ($user) {
-                    $m->from('noreply@nlp.sust.edu', 'Membership At NLP Lab');
-
-                    $m->to($user->email, $user->name)->subject('Membership At NLP Lab!');
-                });
+//                Mail::send('emails.teacherAdd', $datatopass, function ($m) use ($user) {
+//                    $m->from('noreply@nlp.sust.edu', 'Membership At NLP Lab');
+//
+//                    $m->to($user->email, $user->name)->subject('Membership At NLP Lab!');
+//                });
 
 
                 return redirect()->route('auth.userAdd')
