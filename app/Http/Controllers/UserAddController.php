@@ -27,7 +27,18 @@ class UserAddController extends Controller
      */
     public function userAdd()
     {
-        return view('auth.userAdd')
+        $order = [
+            '1' => 'Professor',
+            '2' => 'Associate Professor',
+            '3' => 'Assistant Professor',
+            '4' => 'Lecturer',
+            '5' => 'Undergraduate Student',
+            '6' => 'Masters Student',
+            '7' => 'Phd Student',
+            '8' => 'Visiting Scholar',
+            '9' => 'Industry Affiliates',
+        ];
+        return view('auth.userAdd',compact('order'))
             ->with('title', 'Add Teacher, Student, Visiting Scholar, Industry Affiliates ');
     }
 
@@ -49,19 +60,33 @@ class UserAddController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->status = 1;
+        $user->order = $request->order;
 
-        if($request->type == 1 ){      //teachers
+
+
+        if($request->order == 1 ){      //professor
             $user->is_teacher = 1;
         }
-        elseif($request->type == 2){   // others user mean  visiting scholars, industry affiliates
+        elseif($request->order == 2){    //associate pro
+            $user->is_teacher = 1;
+        }
+        elseif($request->order == 3){   //assistant pro
+            $user->is_teacher = 1;
+        }
+        elseif($request->order == 4 ){      //lecturer
+            $user->is_teacher = 1;
+        }
+        elseif($request->order == 8){   //visiting scholars
             $user->is_teacher = 5;
         }
-        elseif($request->type == 3){   // others user mean  visiting scholars, industry affiliates
+        elseif($request->order == 9){   //  industry affiliates
             $user->is_teacher = 5;
         }
         else{
             $user->is_teacher = 0;     // students
         }
+
+
 
         $passwordRandom = 'user'.rand(234574,315457);
         //$user->password = \Hash::make($passwordRandom);
@@ -69,25 +94,78 @@ class UserAddController extends Controller
 
         if($user->save()){
 
-            if($request->type == 1 ){
+            if($request->order == 1 ){
                 $profile = new Teacher();
                 $profile->user_id = $user->id;
+                $profile->position = "Professor";
 
-                $role = Role::find(1);  //role attach 2
+                $role = Role::find(1);  //role attach 1
                 $user->attachRole($role);
             }
-            elseif($request->type == 2 ){
-                $profile = new OtherUser();
+            elseif($request->order == 2 ){
+                $profile = new Teacher();
                 $profile->user_id = $user->id;
-                $profile->user_type = 'Scholar';
+                $profile->position = "Associate Professor";
+
+                $role = Role::find(1);  //role attach 1
+                $user->attachRole($role);
+            }
+            elseif($request->order == 3 ){
+                $profile = new Teacher();
+                $profile->user_id = $user->id;
+                $profile->position = "Assistant Professor";
+
+                $role = Role::find(1);  //role attach 1
+                $user->attachRole($role);
+            }
+            elseif($request->order == 4 ){
+                $profile = new Teacher();
+                $profile->user_id = $user->id;
+                $profile->position = "Lecturer";
+
+                $role = Role::find(1);  //role attach 1
+                $user->attachRole($role);
+            }
+
+            elseif($request->order == 5){
+                $profile = new Student();
+                $profile->user_id = $user->id;
+                $profile->position = "Undergraduate Student";
+
+                $role = Role::find(2);  //role attach 2
+                $user->attachRole($role);
+            } elseif($request->order == 6){
+                $profile = new Student();
+                $profile->user_id = $user->id;
+                $profile->position = "Masters Student";
 
                 $role = Role::find(2);  //role attach 2
                 $user->attachRole($role);
             }
-            elseif($request->type == 3 ){
+            elseif($request->order == 7){
+                $profile = new Student();
+                $profile->user_id = $user->id;
+                $profile->position = "Phd Student";
+
+                $role = Role::find(2);  //role attach 2
+                $user->attachRole($role);
+            }
+            elseif($request->order == 8 ){
+                $profile = new OtherUser();
+                $profile->user_id = $user->id;
+                $profile->user_type = 'Scholar';
+                $profile->position = 'Position';
+
+
+                $role = Role::find(2);  //role attach 2
+                $user->attachRole($role);
+            }
+            elseif($request->order == 9 ){
                 $profile = new OtherUser();
                 $profile->user_id = $user->id;
                 $profile->user_type = 'Affiliates';
+                $profile->position = 'Position';
+
 
                 $role = Role::find(2);  //role attach 2
                 $user->attachRole($role);
@@ -95,6 +173,7 @@ class UserAddController extends Controller
             else{
                 $profile = new Student();
                 $profile->user_id = $user->id;
+                $profile->position = "Student";
 
                 $role = Role::find(2);  //role attach 2
                 $user->attachRole($role);

@@ -42,12 +42,17 @@
 									</div><br>
 
 									<div class="form-group">
-										{!!  Form::label('type', 'Select User Type :', array()) !!}<br/>
-										{!!  Form::radio('type', '0')  !!} Student &nbsp;&nbsp;
-										{!!  Form::radio('type', '1')  !!} Teacher &nbsp;&nbsp;
-										{!!  Form::radio('type', '2')  !!} Visiting Scholar &nbsp;&nbsp;
-										{!!  Form::radio('type', '3')  !!} Industry Affiliates
+										{!! Form::label('order', 'Designation :', array('class' => 'col-md-4 control-label')) !!}<br/>
+										{!! Form::select('order', $order, '', array('class' => 'select2','autofocus')) !!}
 									</div><br>
+
+									{{--<div class="form-group">--}}
+										{{--{!!  Form::label('type', 'Select User Type :', array()) !!}<br/>--}}
+										{{--{!!  Form::radio('type', '0')  !!} Student &nbsp;&nbsp;--}}
+										{{--{!!  Form::radio('type', '1')  !!} Teacher &nbsp;&nbsp;--}}
+										{{--{!!  Form::radio('type', '2')  !!} Visiting Scholar &nbsp;&nbsp;--}}
+										{{--{!!  Form::radio('type', '3')  !!} Industry Affiliates--}}
+									{{--</div><br>--}}
 
 									<div class="form-group">
 										{!! Form::submit('Add User', array('class' => 'btn btn-primary')) !!}

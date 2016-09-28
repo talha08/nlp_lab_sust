@@ -205,6 +205,7 @@ class LabFrontController extends Controller
     public function supervisor(){
         $user = User::where('is_teacher', 1)
                 ->where('status',1)
+                ->orderBy('order')
                 ->simplePaginate(5);
         $news = News::take(3)->orderBy('id','desc')->get();
         return view('labfront.supervisor',compact('user','news'))->with('title','Faculty');
@@ -227,6 +228,7 @@ class LabFrontController extends Controller
             ->where('users.status',1)
             ->where('users.is_teacher',5)    //scholar and affiliates
             ->where('other_user.user_type',"Scholar")
+            ->orderBy('order')
             ->simplePaginate(5);
 
         $news = News::take(3)->orderBy('id','desc')->get();
@@ -240,6 +242,7 @@ class LabFrontController extends Controller
             ->where('users.status',1)
             ->where('users.is_teacher',5)  //scholar and affiliates
             ->where('other_user.user_type',"Affiliates")
+            ->orderBy('order')
             ->simplePaginate(5);
 
         $news = News::take(3)->orderBy('id','desc')->get();
