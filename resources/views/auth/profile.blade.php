@@ -195,11 +195,11 @@
                                     {!! Form::text('github_user', null, array('class' => 'form-control', 'placeholder' => 'www.github.com/xyz...')) !!}
                                 </div><br>
 
-                                <div class="form-group ">
-                                    {!! Form::label('about_me', 'About Yourself :', array('class' => 'col-md-4 control-label')) !!}
-                                    {!! Form::textarea('about_me', null, array('class' => 'form-control', 'placeholder' => 'Write About Yourself...')) !!}
-                                </div><br>
 
+							       <div class="form-group ">
+                                       {!! Form::label('about_me', 'About Yourself :', array('class' => 'control-label')) !!}<br>
+								       {!! Form::textarea('about_me', null, array('id'=>'editor','class' => '', 'placeholder' => 'About'))  !!}
+                                   </div><br>
 
 
                                 <div class="form-group text-right">
@@ -480,14 +480,14 @@
                                     </div><br/>
 
                                     <div class="form-group ">
-                                        {!! Form::label('about_me', 'About Yourself :', array('class' => 'col-md-4 control-label')) !!}
-                                        {!! Form::textarea('about_me', null, array('class' => 'form-control', 'placeholder' => 'Write About Yourself...')) !!}
-                                    </div><br>
+                                        {!! Form::label('about_me', 'About Yourself :', array('class' => 'control-label')) !!}<br>
+                                        {!! Form::textarea('about_me', null, array('id'=>'editor','class' => '', 'placeholder' => 'About'))  !!}
+								   </div><br>
 
 
 
-                                    <div class="form-group text-right">
-                                        {!! Form::submit('Update', array('class' => 'btn btn-lg btn-login btn-block btn-purple ', 'type'=>'submit')) !!}
+								   <div class="form-group text-right">
+									   {!! Form::submit('Update', array('class' => 'btn btn-lg btn-login btn-block btn-purple ', 'type'=>'submit')) !!}
                                     </div>
 
                                 </div>
@@ -603,6 +603,7 @@
     {!! Html::script('assets/datatables/jquery.dataTables.min.js') !!}
     {!! Html::script('assets/datatables/dataTables.bootstrap.js') !!}
 
+    {!!  Html::script('js/ckeditor/ckeditor.js') !!}
 
                 <!--photo upload-->
     {!! Html::script('js/photo_upload.js') !!}
@@ -612,6 +613,10 @@
     {!! Html::script('assets/select2/select2.min.js') !!}
     //for Datatable
     <script type="text/javascript">
+
+        CKEDITOR.replace( 'editor', {
+            "filebrowserImageUploadUrl": "{!! asset('js/ckeditor/plugins/imgupload.php') !!}"
+        } );
 
         $(document).ready(function() {
             $('#datatable').dataTable();
@@ -633,8 +638,11 @@
 
         });
 
-    </script>
 
+
+
+
+</script>
 
 
 
