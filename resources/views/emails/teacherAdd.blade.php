@@ -93,6 +93,8 @@
 										You are added as a
 										@if($user->is_teacher ==1)
 											Supervisor
+										@elseif($user->is_teacher ==5)
+											Visiting Scholar/ Industry Affiliates
 										@else
 											Student
 										@endif
