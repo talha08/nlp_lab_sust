@@ -34,9 +34,8 @@
 											<th>Resource Name</th>
 											<th>Resource Type</th>
 											<th>Added By</th>
-											@if(Auth::user()->id == $resource->user->id)
 											<th>Actions</th>
-											@endif
+
 										</tr>
 
 										</thead>
@@ -54,6 +53,8 @@
 													<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('book.edit',$resource->id)!!}"  style="margin-right: 3px;"><i class="ion-compose" aria-hidden="true"></i></a>
 													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $resource->id!!}"><i class="ion-trash-a" aria-hidden="true"></i></a>
 												</td>
+												@else
+													<td>--</td>
 												@endif
 											</tr>
 
