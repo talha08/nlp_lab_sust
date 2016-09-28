@@ -184,16 +184,17 @@ class UserAddController extends Controller
 
 
 
-//                $datatopass = [
-//                    'user' => $user,
-//                    'password' => $passwordRandom
-//                ];
+                $datatopass = [
+                    'user' => $user,
+                    //'password' => $passwordRandom
+                    'password' => 'a'
+                ];
 
-//                Mail::send('emails.teacherAdd', $datatopass, function ($m) use ($user) {
-//                    $m->from('noreply@nlp.sust.edu', 'Membership At NLP Lab');
-//
-//                    $m->to($user->email, $user->name)->subject('Membership At NLP Lab!');
-//                });
+                Mail::send('emails.teacherAdd', $datatopass, function ($m) use ($user) {
+                    $m->from('noreply@nlp.sust.edu', 'Membership At NLP Lab');
+
+                    $m->to($user->email, $user->name)->subject('Membership At NLP Lab!');
+                });
 
 
                 return redirect()->route('auth.userAdd')
