@@ -110,7 +110,7 @@
 														</div>
 														<div class="panel-collapse collapse" id="collapseThree">
 															<div class="panel-body">
-															<b>Email: </b>{!! $user->teachers->email !!}<br/>
+															<b>Email: </b>{!! $user->email !!}<br/>
 															<b>Phone :</b>{!! $user->teachers->phone !!}<br/>
 															<b>Linked In: </b>{!! $user->teachers->linkedIn_user !!}<br/>
 															<b>Github :</b>{!! $user->teachers->github_user !!}<br/>
