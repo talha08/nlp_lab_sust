@@ -59,8 +59,6 @@
 
                                 @include('includes.alert')
 
-                                <h3>About Me: </h3>
-                                <span class="designation">{!!$user->teachers->about_me!!} </span>
 
                                 {{--Basic Information--}}
                                 <table class="table table-condensed">
@@ -115,6 +113,8 @@
 
                                     </tbody>
                                 </table>
+                                <h3>About Me: </h3>
+                                <span class="designation">{!!$user->teachers->about_me!!} </span>
 
 
                             </div> <!-- end profile-desk -->
@@ -374,6 +374,8 @@
 
                                     <h3>About Me: </h3>
                                     <span class="designation">{!!$user->students->about_me!!} </span>
+
+
                                 </div> <!-- end profile-desk -->
                             </div> <!-- about-me -->
 
