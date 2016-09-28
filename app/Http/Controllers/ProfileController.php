@@ -168,8 +168,8 @@ class ProfileController extends Controller
                 }
             }
 
-            $avatar_url = 'upload/profile/avatar/avatar-'.Auth::user()->id. '.' . $image->getClientOriginalExtension();
-            $icon_url = 'upload/profile/icon/icon-'.Auth::user()->id . '.' . $image->getClientOriginalExtension();
+            $avatar_url = 'upload/profile/avatar/avatar-'.Auth::user()->id.rand(135,348).'.' . $image->getClientOriginalExtension();
+            $icon_url = 'upload/profile/icon/icon-'.Auth::user()->id . rand(135,348).'.' . $image->getClientOriginalExtension();
 
             //resize image using Intervention
             Image::make($image)->resize(200, 200)->save(public_path($avatar_url));
