@@ -71,26 +71,37 @@ class UserAddController extends Controller
             if($request->type == 1 ){
                 $profile = new Teacher();
                 $profile->user_id = $user->id;
+
+                $role = Role::find(1);  //role attach 2
+                $user->attachRole($role);
             }
             elseif($request->type == 2 ){
                 $profile = new OtherUser();
                 $profile->user_id = $user->id;
                 $profile->user_type = 'Scholar';
+
+                $role = Role::find(2);  //role attach 2
+                $user->attachRole($role);
             }
             elseif($request->type == 3 ){
                 $profile = new OtherUser();
                 $profile->user_id = $user->id;
                 $profile->user_type = 'Affiliates';
+
+                $role = Role::find(2);  //role attach 2
+                $user->attachRole($role);
             }
             else{
                 $profile = new Student();
                 $profile->user_id = $user->id;
+
+                $role = Role::find(2);  //role attach 2
+                $user->attachRole($role);
             }
 
             if($profile->save()){
 
-                $role = Role::find(2);  //role attach 2
-                $user->attachRole($role);
+
 
 
                 $datatopass = [
