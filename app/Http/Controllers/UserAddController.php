@@ -65,7 +65,7 @@ class UserAddController extends Controller
 
         $passwordRandom = 'user'.rand(234574,315457);
         //$user->password = \Hash::make($passwordRandom);
-        $user->password = Hash::make('a');
+        $user->password = \Hash::make('a');
 
         if($user->save()){
 
