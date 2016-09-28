@@ -21,5 +21,9 @@ class Tag extends Model
     }
 
 
+    // many to many relation with resource table
+    public function paper(){
+        return $this->belongsToMany('App\Paper','paper_tag','paper_id','tag_id');
+    }
 
 }

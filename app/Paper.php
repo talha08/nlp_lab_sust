@@ -35,4 +35,10 @@ class Paper extends Model
         $dt = \Carbon\Carbon::parse($date);
         return  $dt->formatLocalized(' %Y');//day date month year
     }
+
+    //many to many relation with tag
+    public function tags(){
+        return $this->belongsToMany('App\Tag','paper_tag','paper_id','tag_id');
+    }
+
 }
