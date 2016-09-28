@@ -300,6 +300,21 @@
                         </ul>
                     </li>
 
+                    {{--book--}}
+                    <li class="{!! Menu::areActiveRoutes(['book.index', 'book.create']) !!}"><a href="#"><i class="fa fa-book"></i> <span class="nav-label">Resource</span></a>
+                        <ul class="list-unstyled">
+
+                            <li class="{!! Menu::isActiveRoute('book.index') !!}">
+                                <a href="{!!  URL::route( 'book.index') !!}">Resource List</a>
+                            </li>
+
+                            <li class="{!! Menu::isActiveRoute('book.create') !!}">
+                                <a href="{!!  URL::route( 'book.create') !!}">New Resource</a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{--book end--}}
+
 
                     {{--paper--}}
                     {{--<li class="{!! Menu::areActiveRoutes(['paper.index', 'paper.create']) !!}"><a href="#"><i class="ion-ios7-bookmarks-outline"></i> <span class="nav-label">Publication</span></a>--}}
