@@ -93,11 +93,11 @@
 															@foreach($journals as $journal)
 																<tr>
 
-																	<td ><b>{!! $journal->paper_title  !!} </b> ,
+																	<td ><b><a href="{!! route('labfront.paper_single',$journal->paper_meta_data ) !!}" style="color: #017ebc" target="_blank" title="read more">{!! $journal->paper_title  !!}</a> </b>
 																		<br>
-																		Author:
+																		Authors:
 																		@foreach($journal->users as $user)
-																			{!! $user->name !!} &nbsp;
+																			{!! $user->name !!}, &nbsp;
 																		@endforeach
 																		<br>
 																		Published at : 	{!! $journal->paper_publish_date !!}
@@ -152,16 +152,16 @@
 																<tbody>
 																@foreach($conferences as $conference)
 																	<tr>
-																		<td ><b>{!! $conference->paper_title  !!} </b> ,
+																		<td ><b> <a href="{!! route('labfront.paper_single',$conference->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">{!! $conference->paper_title  !!} </a></b>
 																			<br>
-																			Author:
+																			Authors:
 																			@foreach($conference->users as $user)
 																				{!! $user->name !!} &nbsp;
 																			@endforeach
 																			<br>
 																			Published at : 	{!! $conference->paper_publish_date !!}
 																			<br>
-																			<a href="{!! route('labfront.paper_single',$conference->paper_meta_data ) !!}" class="moretag" target="_blank" title="read more">.....MORE</a>
+																			<a href="{!! route('labfront.paper_single',$conference->paper_meta_data ) !!}" style="color: #017ebc" target="_blank" title="read more">.....MORE</a>
 																		</td>
 
 																		<td class="hide">{!! $conference->paper_title !!}</td>
@@ -210,9 +210,9 @@
 															<tbody>
 															@foreach($books as $book)
 																<tr>
-																	<td ><b>{!! $book->paper_title  !!} </b> ,
+																	<td ><b> <a href="{!! route('labfront.paper_single',$book->paper_meta_data ) !!}" style="color: #017ebc" target="_blank" title="read more">{!! $book->paper_title  !!}</a></b>
 																		<br>
-																		Author:
+																		Authors:
 																		@foreach($book->users as $user)
 																			{!! $user->name !!} &nbsp;
 																		@endforeach

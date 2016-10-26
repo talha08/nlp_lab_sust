@@ -78,6 +78,8 @@ class ProfileController extends Controller
                 'linkedIn_user'=>$request->linkedIn_user,
                 'github_user'=>$request->github_user,
                 'about_me'=>$request->about_me,
+                'academia'=>$request->academia,
+                'researchgate'=>$request->researchgate,
 
             ]);
 

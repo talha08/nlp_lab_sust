@@ -37,7 +37,7 @@
 
 							<div class="col-lg-12 col-md-12">
 
-								@if(! empty($user))
+								@if(count($user)!= 0)
 									@foreach($user as $users)
 										<div class="leadership-wrapper"><!-- leadership single wrap -->
 

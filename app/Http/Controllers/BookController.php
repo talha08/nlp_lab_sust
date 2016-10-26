@@ -35,11 +35,11 @@ class BookController extends Controller
     public function create()
     {
         $resourceType =[
-            'publication' => 'publication',
-            'software' => 'software',
-            'tutorial' => 'tutorial',
-            'presentation' => 'presentation',
-            'book' => 'book',
+            'publication' => 'Publication',
+            'software' => 'Software',
+            'tutorial' => 'Tutorial',
+            'presentation' => 'Presentation',
+            'book' => 'Book',
         ];
 
         $tag_lists = Tag::lists('name','name');
@@ -134,7 +134,7 @@ class BookController extends Controller
             return redirect()->route('book.index')->with('success', 'Resource Successfully Created');
         }
 
-        return redirect()->back()->with('success', 'Book Successfully Added');
+        return redirect()->back()->with('error', 'Something went wrong');
     }
 
 
@@ -156,11 +156,11 @@ class BookController extends Controller
     {
         $tag_lists = Tag::lists('name','name');
         $resourceType =[
-            'publication' => 'publication',
-            'software' => 'software',
-            'tutorial' => 'tutorial',
-            'presentation' => 'presentation',
-            'book' => 'book',
+            'publication' => 'Publication',
+            'software' => 'Software',
+            'tutorial' => 'Tutorial',
+            'presentation' => 'Presentation',
+            'book' => 'Book',
         ];
         $tagList = Tag::lists('name','id')->all();
         $x= ResourceTag::where('resource_id',$id)->lists('tag_id','tag_id')->all();

@@ -49,22 +49,25 @@
 
 
 
-									<br/><b>Supervisors: </b><br>
+									<br/><b>Authors: </b><br>
 									@foreach($paper->users as $user=> $value)
 										@if($value->is_teacher == 1)
-											<a href="{!!  route('labfront.peopleProfile',$value->id ) !!}" title="Click to view full profile...">{{ $value->name }}</a>,&nbsp;
+											<a href="{!!  route('labfront.peopleProfile',$value->id ) !!}" title="Click to view full publication...">{{ $value->name }}</a>,&nbsp;
+										@elseif($value->is_teacher == 100)
+											<a href="#" style="color: #017ebc" title="Not Registered Profile...">{{ $value->name }}</a>,&nbsp;
 										@endif
 									@endforeach
 
-									<br/><br/><b>Students: </b><br/>
-									@foreach($paper->users as $user=> $value)
-										@if($value->is_teacher != 1)
-											<a href="{!!  route('labfront.peopleProfile',$value->id ) !!}" title="Click to view full profile...">{{ $value->name }}</a>,&nbsp;
-										@endif
-									@endforeach
+									{{--<br/><br/><b>Students: </b><br/>--}}
+									{{--@foreach($paper->users as $user=> $value)--}}
+										{{--@if($value->is_teacher != 1)--}}
+											{{--<a href="{!!  route('labfront.peopleProfile',$value->id ) !!}" title="Click to view full profile...">{{ $value->name }}</a>,&nbsp;--}}
+										{{--@endif--}}
+									{{--@endforeach--}}
 
+									@if(!empty($paper->paper_url))
 									<br/><br/><b>Paper Link: </b><p><a class="" href="{!!$paper->paper_url!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$paper->paper_url!!}</a></p>
-
+									@endif
 
 									@if(!empty($paper->paper_pdf) && Auth::user())
 									<br/><br/><b>File: </b><p>
@@ -83,6 +86,7 @@
 													<i class="fa fa-download" aria-hidden="true"></i>
 												</a><br><br/>
 										@endforeach
+										No Attachment Found
 									   @endif
 
 

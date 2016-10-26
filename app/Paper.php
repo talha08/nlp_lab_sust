@@ -41,4 +41,8 @@ class Paper extends Model
         return $this->belongsToMany('App\Tag','paper_tag','paper_id','tag_id');
     }
 
+    public function paperAuthor(){
+        return $this->hasMany('App\PaperAuthor', 'paper_id', 'id');
+    }
+
 }

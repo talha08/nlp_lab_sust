@@ -66,7 +66,7 @@ class FrontViewController extends Controller
              $pub = ResourceTag::where('tag_id',$tag_id)->lists('resource_id','resource_id');
              $resources = Resource::where('resource_type', 'publication')->whereIn('id',$pub)->simplePaginate(10);
 
-            $bing = str_slug($tag_name." schoolar papers", "+" );
+            $bing = $tag_name;
 
             return view('labfront.publicationOthers', compact('resources','tag','bing'))->with('title',"Publication :||: $tag_name" );
 

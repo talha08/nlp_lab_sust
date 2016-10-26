@@ -62,8 +62,8 @@
 									<div class="k-article-summary col-lg-12 col-md-12">
 										<div class="news-body">
 											<h1>Whoops, No Publication Found With this Tag or Keyword!!</h1>
-											<h5>Some Bing Results For You....</h5>
-											<iframe src="http://www.bing.com/search?q={!! $bing !!}" width="700" height="800"></iframe>
+											<h5>Some IEEE <em>Xplore</em> Results For You....</h5>
+											<iframe src="http://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText={!! $bing !!}" width="700" height="800"  allowfullscreen style=" border-width:0 " frameborder="0" ></iframe>
 										</div>
 									</div>
 								@else
@@ -161,3 +161,15 @@
 
 
 @endsection
+
+@section('style')
+	<style>
+		iframe, object, embed {
+			width: 100%;
+			display: block !important;
+			position: relative;
+		}
+
+
+	</style>
+@stop

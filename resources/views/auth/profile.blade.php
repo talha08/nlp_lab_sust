@@ -20,7 +20,7 @@
                             <h3 class="text-white mb-2 m-t-10 ellipsis">{!! $user->name !!}</h3>
                             <h5 class="text-white"> {!!$user->teachers->position!!}</h5>
                         </div>
-                    </div>
+                     </div>
                      @else
                         <div class="col-sm-6 clearfix">
                             <span class="img-wrapper pull-left m-r-15"> {!! Html::image(Auth::user()->students->img_url, 'alt', array('alt'=> '', 'class' => 'img-circle','width'=> '100', 'height'=>'100')) !!}</span>
@@ -106,10 +106,21 @@
                                         <td><a href="#" class="ng-binding">{!!$user->teachers->linkedIn_user!!}</a></td>
                                     </tr>
 
+                                    {{--<tr>--}}
+                                        {{--<td><b>Github Account</b></td>--}}
+                                        {{--<td><a href="#" class="ng-binding">{!!$user->teachers->github_user!!}</a></td>--}}
+                                    {{--</tr> --}}
+
                                     <tr>
-                                        <td><b>GIthub Account</b></td>
-                                        <td><a href="#" class="ng-binding">{!!$user->teachers->github_user!!}</a></td>
+                                        <td><b>ResearchGate Account</b></td>
+                                        <td><a href="#" class="ng-binding">{!!$user->teachers->researchgate!!}</a></td>
                                     </tr>
+
+                                    <tr>
+                                        <td><b>Academia Account</b></td>
+                                        <td><a href="#" class="ng-binding">{!!$user->teachers->academia!!}</a></td>
+                                    </tr>
+
 
                                     </tbody>
                                 </table>
@@ -190,13 +201,25 @@
                                     {!! Form::text('linkedIn_user', null, array('class' => 'form-control', 'placeholder' => 'www.linkedin.com/xyz...')) !!}
                                 </div><br>
 
+                                {{--<div class="form-group ">--}}
+                                    {{--{!! Form::label('github_user', 'Github Account :', array('class' => 'col-md-4 control-label')) !!}--}}
+                                    {{--{!! Form::text('github_user', null, array('class' => 'form-control', 'placeholder' => 'www.github.com/xyz...')) !!}--}}
+                                {{--</div><br>--}}
+
                                 <div class="form-group ">
-                                    {!! Form::label('github_user', 'Github Account :', array('class' => 'col-md-4 control-label')) !!}
-                                    {!! Form::text('github_user', null, array('class' => 'form-control', 'placeholder' => 'www.github.com/xyz...')) !!}
+                                    {!! Form::label('academia', 'Academia Account :', array('class' => 'col-md-4 control-label')) !!}
+                                    {!! Form::text('academia', null, array('class' => 'form-control', 'placeholder' => 'https://sust.academia.edu/xyz')) !!}
                                 </div><br>
 
 
-							       <div class="form-group ">
+                                <div class="form-group ">
+                                    {!! Form::label('researchgate', 'ResearchGate Account :', array('class' => 'col-md-4 control-label')) !!}
+                                    {!! Form::text('researchgate', null, array('class' => 'form-control', 'placeholder' => 'https://www.researchgate.net/xyz...')) !!}
+                                </div><br>
+
+
+
+                                <div class="form-group ">
                                        {!! Form::label('about_me', 'About Yourself :', array('class' => 'control-label')) !!}<br>
 								       {!! Form::textarea('about_me', null, array('id'=>'editor','class' => '', 'placeholder' => 'About'))  !!}
                                    </div><br>

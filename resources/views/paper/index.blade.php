@@ -45,8 +45,11 @@
 												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$paper->id}}" >{!! $paper->paper_title !!}</a></td>
 												<td>{!! $paper->paper_type !!}</td>
 												{{--<td>{!!Str::limit($paper->paper_details,20) !!}</td>--}}
+
 												<td><a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('paper.edit',$paper->id)!!}"  style="margin-right: 3px;"><i class="ion-compose" aria-hidden="true"></i></a>
-												<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $paper->id!!}"><i class="ion-trash-a" aria-hidden="true"></i></a></td>
+												<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $paper->id!!}"><i class="ion-trash-a" aria-hidden="true"></i></a>
+												</td>
+
 											</tr>
 
 											<!-- Modal -->
@@ -66,29 +69,34 @@
 																<p>{{ $paper->paper_details}}</p>
 																<p><b>Published at : {{ $paper->paper_publish_date}} </b></p>
 																<p><b>Paper Url: </b><a class="" href="{!!$paper->paper_url!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$paper->paper_url!!}</a></p><br/>
-																<b>Supervisors: </b><br>
+																<b>Author: </b><br>
 																@foreach($paper->users as $user=> $value)
-																	@if($value->is_teacher == 1)
+																	{{--@if($value->is_teacher == 1)--}}
 																		{{ $value->name }}<br/>
-																	@endif
+																	{{--@endif--}}
 																@endforeach
-																<b>Students: </b><br>
-																@foreach($paper->users as $user=> $value)
-																	@if($value->is_teacher != 1)
-																		{{ $value->name }}<br/>
-																	@endif
-																@endforeach
+																{{--<b>Students: </b><br>--}}
+																{{--@foreach($paper->users as $user=> $value)--}}
+																	{{--@if($value->is_teacher != 1)--}}
+																		{{--{{ $value->name }}<br/>--}}
+																	{{--@endif--}}
+																{{--@endforeach--}}
 
 
 
 																<br>
 																<p><b>Attachment Section: </b></p>
-																@foreach($paper->paperFile as $file)
-																	{!! $file->paper_file_title !!}
-																	<a class="btn btn-info btn-xs btn-archive" href="{!! $file->paper_file!!}" target="_blank">
-																		<i class="fa fa-download" aria-hidden="true"></i>
-																	</a><br><br/>
-																@endforeach
+																@if(!empty($paper->paperFile))
+																	@foreach($paper->paperFile as $file)
+																		{!! $file->paper_file_title !!}
+																		<a class="btn btn-info btn-xs btn-archive" href="{!! $file->paper_file!!}" target="_blank">
+																			<i class="fa fa-download" aria-hidden="true"></i>
+																		</a><br><br/>
+																	@endforeach
+																@else
+																	No Attachment Found
+																@endif
+
 
 
 															</div>

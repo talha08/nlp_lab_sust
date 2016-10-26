@@ -35,14 +35,14 @@ class PaperController extends Controller
     public function create()
     {
         $paperType =[
-            'journal' => 'journal',
-            'conference' => 'conference',
-            'book' => 'book',
+            'journal' => 'Journal',
+            'conference' => 'Conference',
+            'book' => 'Book',
         ];
-         $teacher = User::where('is_teacher','=',1 )->lists('name','id')->all();
+        $teacher = User::lists('name','name');
         //developer can be a student or alumni
-         $students = User::where('is_teacher','=',0 )->orWhere('is_teacher','=',2 )->lists('name','id')->all();
-        return view('paper.create', compact('students','teacher', 'paperType'))->with('title',"Create New Paper");
+       // $students = User::where('is_teacher','=',0 )->orWhere('is_teacher','=',2 )->lists('name','id')->all();
+        return view('paper.create', compact('teacher', 'paperType'))->with('title',"Add New Publication");
     }
 
 
@@ -54,6 +54,26 @@ class PaperController extends Controller
      */
     public function store(PaperRequest $request)
     {
+
+        //for adding unknown user
+        foreach ($request->paper_supervisor as $supervisor) {
+            $tag = User::where('name',$supervisor)->first();
+            if(empty($tag)){
+                $author = new User();
+                $author->name = $supervisor;
+                $author->order = 100;
+                $author->email = str_slug($supervisor).'@gmail.com' ;
+                $author->is_teacher = 100;
+                $author->password = \Hash::make('a');
+                $author->status = false;
+                $author->save();
+            }
+        }
+        $userIds = User::whereIn('name',$request->paper_supervisor)->lists('id');
+
+
+
+
         $paper = new Paper();
         $paper->paper_title = $request->paper_title;
         $paper->paper_details = $request->paper_details;
@@ -61,7 +81,7 @@ class PaperController extends Controller
         $paper->paper_type = $request->paper_type;
         $paper->paper_meta_data =  str_slug($request->paper_title);
         $paper->paper_publish_date =  $request->paper_publish_date;
-       // $paper->paper_pdf = $request->paper_pdf;
+        // $paper->paper_pdf = $request->paper_pdf;
         if($paper->save()){
 
             //file save
@@ -78,14 +98,13 @@ class PaperController extends Controller
                     $paperFile->paper_file_title = $request->paper_file_title;
                     $paperFile->paper_file = '/upload/paperFile/' . $fileName;
                     $paperFile->save();
-                   // return redirect()->back()->with('success', "File Successfully Added");
+                    // return redirect()->back()->with('success', "File Successfully Added");
                 }
             }
 
 
             //author many to many
-            $paper->users()->attach($request->paper_author);
-            $paper->users()->attach($request->paper_supervisor);
+            $paper->users()->attach($userIds->toArray());
 
             return redirect()->route('paper.index')->with('success', 'Paper Successfully Created');
         }
@@ -107,17 +126,24 @@ class PaperController extends Controller
     {
 
         $paperType =[
-            'journal' => 'journal',
-            'conference' => 'conference',
-            'book' => 'book',
+            'journal' => 'Journal',
+            'conference' => 'Conference',
+            'book' => 'Book',
         ];
 
-        $teacher = User::where('is_teacher','=',1 )->lists('name','id')->all();
+        $teacher = User::lists('name','name');
         //developer can be a student or alumni
-        $students = User::where('is_teacher','=',0 )->orWhere('is_teacher','=',2 )->lists('name','id')->all();
-        $x= PaperPeople::where('paper_id',$id)->lists('user_id','user_id')->all();
+       // $students = User::where('is_teacher','=',0 )->orWhere('is_teacher','=',2 )->lists('name','id')->all();
+
+        $associateAuthors= PaperPeople::where('paper_id',$id)->lists('user_id','user_id')->all();
+        foreach($associateAuthors as $aa){
+            $x[] = User::where('id',$aa)->pluck('name');
+        }
+
+
+
         $paper = paper::findOrFail($id);
-        return view('paper.edit', compact('paper','students','teacher','x','paperType'))->with('title',"Edit Paper");
+        return view('paper.edit', compact('paper','teacher','x','paperType'))->with('title',"Edit Paper");
     }
 
 
@@ -132,6 +158,26 @@ class PaperController extends Controller
      */
     public function update(PaperRequest $request, $id)
     {
+
+
+        //for adding unknown user
+        foreach ($request->paper_supervisor as $supervisor) {
+            $tag = User::where('name',$supervisor)->first();
+            if(empty($tag)){
+                $author = new User();
+                $author->name = $supervisor;
+                $author->order = 100;
+                $author->email = str_slug($supervisor).'@gmail.com' ;
+                $author->is_teacher = 100;
+                $author->password = \Hash::make('a');
+                $author->status = false;
+                $author->save();
+            }
+        }
+        $userIds = User::whereIn('name',$request->paper_supervisor)->lists('id');
+
+
+
         $paper = Paper::findOrFail($id);
         $paper->paper_title = $request->paper_title;
         $paper->paper_details = $request->paper_details;
@@ -141,8 +187,8 @@ class PaperController extends Controller
         $paper->paper_meta_data =  str_slug($request->paper_title).rand(rand(12223,4579),1234243344);
         if( $paper->save()){
 
-            $paper->users()->sync($request->paper_author);
-            $paper->users()->attach($request->paper_supervisor);
+            $paper->users()->sync($userIds->toArray());
+
 
             return redirect()->route('paper.index')->with('success', 'Paper Successfully Updated');
         }

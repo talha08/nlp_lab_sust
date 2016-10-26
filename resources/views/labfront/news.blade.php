@@ -55,7 +55,7 @@
 
 					<div class="row gutter k-equal-height"><!-- row -->
 
-
+                  @if(count($news) !=0)
 						@foreach($news as $newsList)
 						<div class="news-mini-wrap col-lg-6 col-md-6"><!-- news mini-wrap -->
 
@@ -79,6 +79,9 @@
 
 						</div><!-- news mini-wrap end -->
 						@endforeach
+					  @else
+						<p>No News Found on Database</p>
+					  @endif
 
 
 

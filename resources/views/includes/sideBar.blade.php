@@ -61,6 +61,8 @@
                     {{--end of blog--}}
 
 
+
+                    @if(Auth::user()->id == 1)
                     {{--user--}}
                     <li class="{!! Menu::areActiveRoutes(['user.student','user.teacher','user.other_user','user.alumni','user.applyList','auth.userAdd']) !!}"><a href="#"><i
                                     class="ion-person-stalker"></i> <span class="nav-label">Users</span></a>
@@ -91,6 +93,7 @@
                         </ul>
                     </li>
                     {{--user  end--}}
+                    @endif
 
 
 

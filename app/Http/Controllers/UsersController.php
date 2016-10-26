@@ -120,7 +120,7 @@ class UsersController extends Controller
      */
     public function applyList()
     {
-        $user = User::where('status', 0)->get();
+        $user = User::where('status', 0)->where('order', '!=' ,100)->get();
         return view('user.applyList', compact('user'))
             ->with('title', 'All Apply List');
     }

@@ -32,7 +32,7 @@
 
 							<div class="col-lg-12 col-md-12">
 
-								<h1 class="page-title">{!! $title !!} || {!! $user->name !!}</h1><!-- category title -->
+								<h1 class="page-title"> {!! $user->name !!}</h1><!-- category title -->
 
 							</div>
 
@@ -50,7 +50,7 @@
 												 <br/>
 												<img src="{!! asset($user->teachers->img_url)!!}" height="150" width="150"  alt="{!! $user->name !!}" />
 												 <br/><br/>
-												 <b><p style="text-indent: 2em;">Teacher</p></b>
+												 {{--<b><p style="text-indent: 2em;">Teacher</p></b>--}}
 
 
 											</figure>
@@ -111,9 +111,14 @@
 														<div class="panel-collapse collapse" id="collapseThree">
 															<div class="panel-body">
 															<b>Email: </b>{!! $user->email !!}<br/>
-															<b>Phone :</b>{!! $user->teachers->phone !!}<br/>
+															<b>Phone : </b>{!! $user->teachers->phone !!}<br/>
 															<b>Linked In: </b>{!! $user->teachers->linkedIn_user !!}<br/>
-															<b>Github :</b>{!! $user->teachers->github_user !!}<br/>
+															@if($user->teachers->academia != null)
+															<b>Academia : </b>{!! $user->teachers->academia !!}<br/>
+															@endif
+															@if($user->teachers->researchgate != null)
+															<b>Researchgate : </b>{!! $user->teachers->researchgate !!}<br/>
+															@endif
 														     </div>
 														</div>
 													</div>
@@ -193,7 +198,7 @@
 												<br/>
 												<img src="{!! asset($user->otherUsers->img_url)!!}" height="150" width="150"  alt="{!! $user->name !!}" />
 												<br/><br/>
-												<b><p style="text-indent: 2em;">{!! $user->otherUsers->user_type !!}</p></b>
+												{{--<b><p style="text-indent: 2em;">{!! $user->otherUsers->user_type !!}</p></b>--}}
 											</figure>
 											<br/>
 
@@ -337,11 +342,11 @@
 											<br/>
 											<img src="{!! asset($user->students->img_url)!!}" height="150" width="150"  alt="{!! $user->name !!}" />
 											<br/><br/>
-											@if($user->is_teacher == 0)
-												<b><p style="text-indent: 2em;">Student</p></b>
-											@elseif($user->is_teacher == 2)
-												<b><p style="text-indent: 2em;">Alumni</p></b>
-											@endif
+											{{--@if($user->is_teacher == 0)--}}
+												{{--<b><p style="text-indent: 2em;">Student</p></b>--}}
+											{{--@elseif($user->is_teacher == 2)--}}
+												{{--<b><p style="text-indent: 2em;">Alumni</p></b>--}}
+											{{--@endif--}}
 										</figure>
 										<br/>
 
