@@ -258,8 +258,12 @@
 															<div class="panel-body">
 																<b>Email: </b>{!! $user->otherUsers->email !!}<br/>
 																<b>Phone :</b>{!! $user->otherUsers->phone !!}<br/>
+																@if($user->otherUsers->linkedIn_user != null)
 																<b>Linked In: </b>{!! $user->otherUsers->linkedIn_user !!}<br/>
+																@endif
+															    @if($user->otherUsers->github_user != null)
 																<b>Github :</b>{!! $user->otherUsers->github_user !!}<br/>
+																@endif
 															</div>
 														</div>
 													</div>
