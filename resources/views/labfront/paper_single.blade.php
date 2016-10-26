@@ -76,9 +76,9 @@
 										<a class="btn btn-info btn-xs btn-archive" href="{!! $paper->paper_pdf!!}" target="_blank">
 											<i class="fa fa-download" aria-hidden="true"></i>
 										</a><br><br/>
-									    @else
-											<br><br>
-												<center><em>Only Lab members can access this publication</em></center>
+									    {{--@else--}}
+											{{--<br><br>--}}
+												{{--<center><em>Only Lab members can access this publication</em></center>--}}
 										@endif
 									@endif
 
@@ -93,7 +93,7 @@
 												</a><br><br/>
 										@endforeach
 										@else
-											<br><br>
+											<br><br><br><br><br><br>
 											<center><em>Only Lab members can access this publication</em></center>
 										@endif
 
