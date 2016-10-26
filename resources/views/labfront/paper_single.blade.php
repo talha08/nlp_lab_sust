@@ -86,7 +86,7 @@
 													<i class="fa fa-download" aria-hidden="true"></i>
 												</a><br><br/>
 										@endforeach
-										No Attachment Found
+
 									   @endif
 
 
