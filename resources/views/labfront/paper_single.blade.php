@@ -65,7 +65,7 @@
 										{{--@endif--}}
 									{{--@endforeach--}}
 
-									@if(!empty($paper->paper_url))
+									@if($paper->paper_url != null)
 									<br/><br/><b>Paper Link: </b><p><a class="" href="{!!$paper->paper_url!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$paper->paper_url!!}</a></p>
 									@endif
 
