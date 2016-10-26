@@ -66,7 +66,7 @@
 									{{--@endforeach--}}
 
 									@if($paper->paper_url != null)
-									<br/><br/><b>Paper Link: </b><p><a class="" href="{!!$paper->paper_url!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$paper->paper_url!!}</a></p>
+									<br/><br/><b>Publication Link: </b><p><a class="" href="{!!$paper->paper_url!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$paper->paper_url!!}</a></p>
 									@endif
 
 									@if($paper->paper_pdf != null)
@@ -85,7 +85,7 @@
 
 									 @if(!empty(count($paper->paperFile)) )
 										@if(Auth::user())
-										<br/><h3>Paper Attachment:</h3>
+										<br/><h3>Publication Attachment:</h3>
 										@foreach($paper->paperFile as $file)
 												{!! $file->paper_file_title !!}
 												<a class="btn btn-info btn-xs btn-archive" href="{!! $file->paper_file!!}" target="_blank">
