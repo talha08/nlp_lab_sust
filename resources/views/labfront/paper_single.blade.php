@@ -69,7 +69,7 @@
 									<br/><br/><b>Paper Link: </b><p><a class="" href="{!!$paper->paper_url!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$paper->paper_url!!}</a></p>
 									@endif
 
-									@if(!empty($paper->paper_pdf))
+									@if($paper->paper_pdf != null)
 										@if(Auth::user())
 										<br/><br/><b>File: </b><p>
 										{!! $paper->paper_pdf !!}
@@ -78,12 +78,13 @@
 										</a><br><br/>
 									    @else
 											<br><br>
-												<center><em>Only Lab member can access this publication</em></center>
+												<center><em>Only Lab members can access this publication</em></center>
 										@endif
 									@endif
 
 
-									 @if(!empty(count($paper->paperFile)) && Auth::user())
+									 @if(!empty(count($paper->paperFile)) )
+										@if(Auth::user())
 										<br/><h3>Paper Attachment:</h3>
 										@foreach($paper->paperFile as $file)
 												{!! $file->paper_file_title !!}
@@ -91,6 +92,10 @@
 													<i class="fa fa-download" aria-hidden="true"></i>
 												</a><br><br/>
 										@endforeach
+										@else
+											<br><br>
+											<center><em>Only Lab members can access this publication</em></center>
+										@endif
 
 									   @endif
 
