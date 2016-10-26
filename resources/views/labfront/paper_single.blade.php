@@ -52,7 +52,7 @@
 									<br/><b>Authors: </b><br>
 									@foreach($paper->users as $user=> $value)
 										@if($value->is_teacher == 1)
-											<a href="{!!  route('labfront.peopleProfile',$value->id ) !!}" title="Click to view full publication...">{{ $value->name }}</a>,&nbsp;
+											<a href="{!!  route('labfront.peopleProfile',$value->id ) !!}" title="Click to view full profile...">{{ $value->name }}</a>,&nbsp;
 										@elseif($value->is_teacher == 100)
 											<a href="#" style="color: #017ebc" title="Not Registered Profile...">{{ $value->name }}</a>,&nbsp;
 										@endif
