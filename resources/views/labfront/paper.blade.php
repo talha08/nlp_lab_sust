@@ -64,7 +64,7 @@
 										</div><!-- event summary end -->
 									@endforeach
 								@else
-									No Project Found on Database <br/>
+									No Publication Found on Database <br/>
 								@endif
 
 							</div>
