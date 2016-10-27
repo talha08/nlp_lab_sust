@@ -125,7 +125,7 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Working Platforms & Skills </label>
                                     <div class="col-lg-10">
-                                        {!! Form::text('platform', '', array('class' => 'tags','id'=>'tags','multiple', 'required', 'autofocus')) !!}
+                                        {!! Form::text('platform', '', array('class' => 'tags','id'=>'tags','multiple',  'autofocus')) !!}
                                     </div><br>
                                 </div>
 
@@ -148,13 +148,13 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">GitHub </label>
                                     <div class="col-lg-10">
-                                        {!! Form::text('github_user', '', array('class' => 'form-control',  'required','placeholder' => 'Your github username...')) !!}
+                                        {!! Form::text('github_user', '', array('class' => 'form-control', 'placeholder' => 'Your github username...')) !!}
                                     </div><br>
                                 </div>
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">LinkedIn </label>
                                     <div class="col-lg-10">
-                                        {!! Form::text('linkedIn_user', '', array('class' => 'form-control',  'required','placeholder' => 'Your linkedin username...')) !!}
+                                        {!! Form::text('linkedIn_user', '', array('class' => 'form-control', 'placeholder' => 'Your linkedin username...')) !!}
                                     </div><br>
                                 </div><br>
 
