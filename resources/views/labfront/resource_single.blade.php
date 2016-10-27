@@ -49,22 +49,26 @@
 
 
 
+									@if($resource->resource_link1 != null)
+										<br/><br/><b>Paper Link-1: </b><p><a class="" href="{!!$resource->resource_link1!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link1!!}</a></p>
+									@endif
+									@if($resource->resource_link2 != null)
+										<br/><br/><b>Paper Link-2: </b><p><a class="" href="{!!$resource->resource_link2!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link2!!}</a></p>
+									@endif
+									@if($resource->resource_link3 != null)
+										<br/><br/><b>Paper Link-3: </b><p><a class="" href="{!!$resource->resource_link3!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link3!!}</a></p>
+									@endif
 
-									<br/><br/><b>Paper Link-1: </b><p><a class="" href="{!!$resource->resource_link1!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link1!!}</a></p>
-									<br/><br/><b>Paper Link-2: </b><p><a class="" href="{!!$resource->resource_link2!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link2!!}</a></p>
-									<br/><br/><b>Paper Link-3: </b><p><a class="" href="{!!$resource->resource_link3!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link3!!}</a></p>
 
-
-
-
-										<br/><h3>Resource Attachment:</h3>
-										@foreach($resource->resourceFile as $file)
-											{!! $file->resource_file_title !!}
-											<a class="btn btn-info btn-xs btn-archive" href="{!! $file->resource_file!!}" target="_blank">
-												<i class="fa fa-download" aria-hidden="true"></i>
-											</a><br><br/>
-										@endforeach
-
+										@if(count($resource->resourceFile) != 0)
+											<br/><h3>Resource Attachment:</h3>
+											@foreach($resource->resourceFile as $file)
+												{!! $file->resource_file_title !!}
+												<a class="btn btn-info btn-xs btn-archive" href="{!! $file->resource_file!!}" target="_blank">
+													<i class="fa fa-download" aria-hidden="true"></i>
+												</a><br><br/>
+											@endforeach
+										@endif
 
 								</div><br/>
 

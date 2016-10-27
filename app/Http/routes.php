@@ -301,6 +301,10 @@ Route::get('blog-all/{tag}', array('as' => 'labfront.tag', 'uses' => 'LabFrontCo
 Route::get('blog/archive', array('as' => 'labfront.archive_blog', 'uses' => 'LabFrontController@archive'));
 Route::post('blog-all', array('as' => 'search.action', 'uses' => 'LabFrontController@search'));
 
+//error page
+Route::get('error', array('as' => 'error', 'uses' => 'LabFrontController@error'));
+Route::get('home/error', array('as' => 'labfront.error', 'uses' => 'LabFrontController@frontError'));
+
 
 
 //award

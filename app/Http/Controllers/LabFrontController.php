@@ -16,6 +16,7 @@ use App\Welcome;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\Http\Requests\BlogRequest;
+use Mockery\CountValidator\Exception;
 use Redirect;
 use Carbon\Carbon;
 use App\Http\Requests;
@@ -586,6 +587,24 @@ class LabFrontController extends Controller
             return "Sorry, Page not Found ";
         }
 
+    }
+
+
+
+    /*==================================================*/
+    //Backend Error Page
+    /*==================================================*/
+
+    public function error(){
+        return view('error')->with('title','Error');
+    }
+
+    /*==================================================*/
+    //Front end Error Page
+    /*==================================================*/
+
+    public function frontError(){
+        return view('labfront.error')->with('title','Error');
     }
 
 

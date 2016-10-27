@@ -32,7 +32,7 @@
 
 
 							{{--blog main content--}}
-							@if(!empty($resources->count()))
+							@if(count($resources) != null)
 								@foreach($resources as $resource)
 									<div class="k-article-summary col-lg-12 col-md-12">
 

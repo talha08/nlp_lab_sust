@@ -58,9 +58,9 @@
 
                                     <div class="k-article-summary col-lg-12 col-md-12">
                                         <div class="news-body">
-                                            <h1>Whoops, No Blog Post Found With this Tag or Keyword!!</h1>
-                                            <h5>Some Bing Results For You....</h5>
-                                            <iframe src="http://www.bing.com/search?q={!! $bing !!}" width="700" height="800"></iframe>
+                                            <h1>Whoops, No Blog Post Found!!</h1>
+                                            {{--<h5>Some Bing Results For You....</h5>--}}
+                                            {{--<iframe src="http://www.bing.com/search?q={!! $bing !!}" width="700" height="800"></iframe>--}}
                                         </div>
                                     </div>
 
