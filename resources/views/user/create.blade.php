@@ -55,7 +55,7 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Complete Name *</label>
                                     <div class="col-lg-10">
-                                        {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Your complete name...')) !!}
+                                        {!! Form::text('name', '', array('class' => 'form-control', 'required','placeholder' => 'Your complete name...')) !!}
                                     </div><br>
                                 </div>
 
@@ -63,21 +63,21 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="email2">Email *</label>
                                     <div class="col-lg-10">
-                                        {!! Form::email('email', '', array('id'=>'email2','class' => 'required email form-control', 'placeholder' => 'Your email here...')) !!}
+                                        {!! Form::email('email', '', array('id'=>'email2','class' => 'required email form-control',  'required','placeholder' => 'Your email here...')) !!}
                                     </div><br>
                                 </div>
 
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Password *</label>
                                     <div class="col-lg-10">
-                                        {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Input Password...')) !!}
+                                        {!! Form::password('password', array('class' => 'form-control',  'required','placeholder' => 'Input Password...')) !!}
                                     </div><br>
                                 </div>
 
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Confirm Password *</label>
                                     <div class="col-lg-10">
-                                        {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password...')) !!}
+                                        {!! Form::password('password_confirmation', array('class' => 'form-control',  'required','placeholder' => 'Confirm Password...')) !!}
                                     </div><br>
                                 </div>
 
@@ -97,35 +97,35 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Study Level *</label>
                                     <div class="col-lg-10">
-                                        {!! Form::select('study_level', $level,'', array('class' => 'select2', 'placeholder' => 'Select your Study Level...')) !!}
+                                        {!! Form::select('study_level', $level,'', array('class' => 'select2',  'required','placeholder' => 'Select your Study Level...')) !!}
                                     </div><br>
                                 </div>
 
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Year* </label>
                                     <div class="col-lg-10">
-                                        {!! Form::select('year', $year,'', array('class' => 'select2', 'placeholder' => 'Select your Education year...')) !!}
+                                        {!! Form::select('year', $year,'', array('class' => 'select2',  'required','placeholder' => 'Select your Education year...')) !!}
                                     </div><br>
                                 </div>
 
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Semester* </label>
                                     <div class="col-lg-10">
-                                        {!! Form::select('semester', $semester,'', array('class' => 'select2', 'placeholder' => 'Select your Education semester...')) !!}
+                                        {!! Form::select('semester', $semester,'', array('class' => 'select2',  'required','placeholder' => 'Select your Education semester...')) !!}
                                     </div><br>
                                 </div>
 
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Registration Number* </label>
                                     <div class="col-lg-10">
-                                        {!! Form::text('reg','', array('class' => 'form-control','placeholder' => 'Enter your registration Number')) !!}
+                                        {!! Form::text('reg','', array('class' => 'form-control', 'required','placeholder' => 'Enter your registration Number')) !!}
                                     </div><br>
                                 </div>
 
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Working Platforms & Skills </label>
                                     <div class="col-lg-10">
-                                        {!! Form::text('platform', '', array('class' => 'tags','id'=>'tags','multiple', 'autofocus')) !!}
+                                        {!! Form::text('platform', '', array('class' => 'tags','id'=>'tags','multiple', 'required', 'autofocus')) !!}
                                     </div><br>
                                 </div>
 
@@ -142,19 +142,19 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">Phone *</label>
                                     <div class="col-lg-10">
-                                        {!! Form::text('phone', '', array('class' => 'form-control', 'placeholder' => 'Your phone number...')) !!}
+                                        {!! Form::text('phone', '', array('class' => 'form-control',  'required','placeholder' => 'Your phone number...')) !!}
                                     </div><br>
                                 </div>
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">GitHub </label>
                                     <div class="col-lg-10">
-                                        {!! Form::text('github_user', '', array('class' => 'form-control', 'placeholder' => 'Your github username...')) !!}
+                                        {!! Form::text('github_user', '', array('class' => 'form-control',  'required','placeholder' => 'Your github username...')) !!}
                                     </div><br>
                                 </div>
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="address1">LinkedIn </label>
                                     <div class="col-lg-10">
-                                        {!! Form::text('linkedIn_user', '', array('class' => 'form-control', 'placeholder' => 'Your linkedin username...')) !!}
+                                        {!! Form::text('linkedIn_user', '', array('class' => 'form-control',  'required','placeholder' => 'Your linkedin username...')) !!}
                                     </div><br>
                                 </div><br>
 
