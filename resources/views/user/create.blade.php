@@ -42,7 +42,7 @@
                 <div class="panel panel-default">
                     @include('includes.alert')
                     <div class="panel-heading">
-                        <h3 class="panel-title">Sign Up Form</h3>
+                        <h3 class="panel-title">Member Registration Form</h3>
                     </div>
 
 
@@ -102,28 +102,28 @@
                                 </div>
 
                                 <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="address1">Year </label>
+                                    <label class="col-lg-2 control-label " for="address1">Year* </label>
                                     <div class="col-lg-10">
                                         {!! Form::select('year', $year,'', array('class' => 'select2', 'placeholder' => 'Select your Education year...')) !!}
                                     </div><br>
                                 </div>
 
                                 <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="address1">Semester </label>
+                                    <label class="col-lg-2 control-label " for="address1">Semester* </label>
                                     <div class="col-lg-10">
                                         {!! Form::select('semester', $semester,'', array('class' => 'select2', 'placeholder' => 'Select your Education semester...')) !!}
                                     </div><br>
                                 </div>
 
                                 <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="address1">Registration Number </label>
+                                    <label class="col-lg-2 control-label " for="address1">Registration Number* </label>
                                     <div class="col-lg-10">
                                         {!! Form::text('reg','', array('class' => 'form-control','placeholder' => 'Enter your registration Number')) !!}
                                     </div><br>
                                 </div>
 
                                 <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="address1">Working Platforms & Skills *</label>
+                                    <label class="col-lg-2 control-label " for="address1">Working Platforms & Skills </label>
                                     <div class="col-lg-10">
                                         {!! Form::text('platform', '', array('class' => 'tags','id'=>'tags','multiple', 'autofocus')) !!}
                                     </div><br>
