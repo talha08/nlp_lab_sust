@@ -117,10 +117,10 @@
 
     <style>
         #text{
-            font-size: medium;
+            font-size: x-large;
         }
         #pass{
-            font-size: xx-large;
+            font-size: x-large;
         }
     </style>
 @stop
