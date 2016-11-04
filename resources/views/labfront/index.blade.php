@@ -54,23 +54,22 @@
 							</div>
 						</div>
 
-
-					@foreach($sliders as $slide)
-						<div class="item">
-							<img src="{!! asset($slide->img_url) !!}" width="1140" height="400" alt="Image slide 3" />
-							<div class="{!!$slide->slider_position !!}">
-								<div class="caption-content">
-									<h3 class="caption-title">{!!$slide->slider_title !!}</h3>
-									<p>
-										{!!$slide->slider_desc !!}
-									</p>
+					@if(count($sliders) != null)
+						@foreach($sliders as $slide)
+							<div class="item">
+								<img src="{!! asset($slide->img_url) !!}" width="1140" height="400" alt="Image slide 3" />
+								<div class="{!!$slide->slider_position !!}">
+									<div class="caption-content">
+										<h3 class="caption-title">{!!$slide->slider_title !!}</h3>
+										<p>
+											{!!$slide->slider_desc !!}
+										</p>
+									</div>
 								</div>
 							</div>
-						</div>
 
-					@endforeach
-
-
+						@endforeach
+					@endif
 
 
 				</div><!-- Wrapper for slides end -->
@@ -275,26 +274,26 @@
 						<h1 class="title-widget">Upcoming Events</h1>
 
 						<ul class="list-unstyled">
+							@if(count($event) != null)
+								@foreach($event as $events)
+									<li class="up-event-wrap">
 
-							@foreach($event as $events)
-								<li class="up-event-wrap">
+										<h1 class="title-median"><a href="{!! route('labfront.event_single',$events->event_meta_data ) !!}" title="{!! Str::limit($events->event_title,20) !!}">{!! Str::limit($events->event_title,30) !!}</a></h1>
 
-									<h1 class="title-median"><a href="{!! route('labfront.event_single',$events->event_meta_data ) !!}" title="{!! Str::limit($events->event_title,20) !!}">{!! Str::limit($events->event_title,30) !!}</a></h1>
+										<div class="up-event-meta clearfix">
+											<div class="up-event-date">{!! \App\Event::fullDate($events->event_start) !!}</div>
+											<div class="up-event-date">{!! \App\Event::fullEndDate($events->event_end) !!}</div>
+											<div class="up-event-time">{!! \App\Event::fullTime($events->event_time) !!}</div>
+										</div>
 
-									<div class="up-event-meta clearfix">
-										<div class="up-event-date">{!! \App\Event::fullDate($events->event_start) !!}</div>
-										<div class="up-event-date">{!! \App\Event::fullEndDate($events->event_end) !!}</div>
-										<div class="up-event-time">{!! \App\Event::fullTime($events->event_time) !!}</div>
-									</div>
+										<p>
+											{!! Str::limit($events->event_details,100) !!}
+											<a href="{!! route('labfront.event_single',$events->event_meta_data ) !!}" class="moretag" title="read more">MORE</a>
+										</p>
 
-									<p>
-										{!! Str::limit($events->event_details,100) !!}
-										<a href="{!! route('labfront.event_single',$events->event_meta_data ) !!}" class="moretag" title="read more">MORE</a>
-									</p>
-
-								</li>
-							@endforeach
-
+									</li>
+								@endforeach
+							@endif
 						</ul>
 
 					</li>
@@ -330,7 +329,8 @@
 
 						<ul class="list-unstyled">
 
-							@foreach($news as $newsList)
+							@if(count($news) != null)
+								@foreach($news as $newsList)
 							<li class="recent-news-wrap">
 
 								<h1 class="title-median"><a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" title="{!! Str::limit($newsList->news_title,30) !!}">{!! Str::limit($newsList->news_title,30) !!}</a></h1>
@@ -352,7 +352,7 @@
 								</div>
 							</li>
 							@endforeach
-
+						@endif
 
 						</ul>
 
@@ -401,7 +401,7 @@
 
 
 					<div id="k-tab-download" class="tab-pane fade in active">
-
+						@if(count($project) != null)
 							@foreach($project as $projectList)
 								<div class="media">
 									<div class="media-body">
@@ -414,6 +414,7 @@
 									</div>
 								</div>
 							@endforeach
+						@endif
 					</div>
 					<!-- tab 1 ends -->
 
@@ -422,18 +423,20 @@
 
 					<div id="k-tab-profile" class="tab-pane fade">
 						<!-- tab 2 starts -->
-						@foreach($paper as $papers)
-							<div class="media">
-								<div class="media-body">
-									<h5 class="media-heading"><a href="{!! route('labfront.paper_single',$papers->paper_meta_data ) !!}">
-											{!! Str::limit($papers->paper_title,30) !!} </a>
-									</h5>
-									<p>
-										{!!Str::limit($papers->paper_details,80) !!}
-									</p>
+						@if(count($paper) != null)
+							@foreach($paper as $papers)
+								<div class="media">
+									<div class="media-body">
+										<h5 class="media-heading"><a href="{!! route('labfront.paper_single',$papers->paper_meta_data ) !!}">
+												{!! Str::limit($papers->paper_title,30) !!} </a>
+										</h5>
+										<p>
+											{!!Str::limit($papers->paper_details,80) !!}
+										</p>
+									</div>
 								</div>
-							</div>
-						@endforeach
+							@endforeach
+						@endif
 					</div>
 					<!-- tab 2 ends -->
 
@@ -441,20 +444,21 @@
    {{--blogs--}}
 					<div id="k-tab-settings" class="tab-pane fade">
 						<!-- tab 3 starts -->
-						@foreach($blog as $new)
-							<div class="media">
-								<a class="pull-left" href="javascript:;">
-									<img class=" " src="{!! asset($new->img_thumbnail) !!}" alt="">
-								</a>
-								<div class="media-body">
-									<h5 class="media-heading"><a href="{!! route('labfront.blog_details',$new->meta_data) !!}">{!! \App\Blog::fullDate($new->id) !!} </a></h5>
-									<p>
-										{!! $new->title !!}
-									</p>
+						@if(count($blog) != null)
+							@foreach($blog as $new)
+								<div class="media">
+									<a class="pull-left" href="javascript:;">
+										<img class=" " src="{!! asset($new->img_thumbnail) !!}" alt="">
+									</a>
+									<div class="media-body">
+										<h5 class="media-heading"><a href="{!! route('labfront.blog_details',$new->meta_data) !!}">{!! \App\Blog::fullDate($new->id) !!} </a></h5>
+										<p>
+											{!! $new->title !!}
+										</p>
+									</div>
 								</div>
-							</div>
-						@endforeach
-
+							@endforeach
+						@endif
 					</div>
 					<!-- tab 3 ends -->
 	{{--blogs end--}}
