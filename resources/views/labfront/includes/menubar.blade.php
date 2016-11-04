@@ -26,6 +26,9 @@
 
 
                  <!-- Home -->
+                    <li></li>
+                    <li></li>
+
                     <li>
                         <a href="{!!  route('labfront.index') !!}" title="home">Home</a>
                     </li>
