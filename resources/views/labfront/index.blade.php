@@ -293,6 +293,8 @@
 
 									</li>
 								@endforeach
+							@else
+								<p>No Event Found on Database</p>
 							@endif
 						</ul>
 
@@ -331,28 +333,30 @@
 
 							@if(count($news) != null)
 								@foreach($news as $newsList)
-							<li class="recent-news-wrap">
+								<li class="recent-news-wrap">
 
-								<h1 class="title-median"><a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" title="{!! Str::limit($newsList->news_title,30) !!}">{!! Str::limit($newsList->news_title,30) !!}</a></h1>
+									<h1 class="title-median"><a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" title="{!! Str::limit($newsList->news_title,30) !!}">{!! Str::limit($newsList->news_title,30) !!}</a></h1>
 
-								<div class="recent-news-meta">
-									<div class="recent-news-date">{!! \App\News::fullDate($newsList->id) !!}</div>
-								</div>
-
-								<div class="recent-news-content clearfix">
-									<figure class="recent-news-thumb">
-										<a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" title="{!! Str::limit($newsList->news_title,30) !!}"><img src="{!! asset($newsList->news_image) !!}" class="attachment-thumbnail wp-post-image" alt="Thumbnail 1" />
-										</a>
-									</figure>
-									<div class="recent-news-text">
-										<p>
-											{!! Str::limit($newsList->news_details, 100) !!} <a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" class="moretag" title="read more">MORE</a>
-										</p>
+									<div class="recent-news-meta">
+										<div class="recent-news-date">{!! \App\News::fullDate($newsList->id) !!}</div>
 									</div>
-								</div>
-							</li>
-							@endforeach
-						@endif
+
+									<div class="recent-news-content clearfix">
+										<figure class="recent-news-thumb">
+											<a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" title="{!! Str::limit($newsList->news_title,30) !!}"><img src="{!! asset($newsList->news_image) !!}" class="attachment-thumbnail wp-post-image" alt="Thumbnail 1" />
+											</a>
+										</figure>
+										<div class="recent-news-text">
+											<p>
+												{!! Str::limit($newsList->news_details, 100) !!} <a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" class="moretag" title="read more">MORE</a>
+											</p>
+										</div>
+									</div>
+								</li>
+								@endforeach
+							@else
+								<p>No News Found on Database</p>
+							@endif
 
 						</ul>
 
@@ -386,11 +390,11 @@
 				<br>
 				<ul class="nav nav-tabs nav-justified">
 					<!-- starts tab controls -->
-					<li class="active"><a href="#k-tab-download" data-toggle="tab">Projects</a>
+					<li class="active"><a href="#k-tab-download" data-toggle="tab">Project</a>
 					</li>
-					<li><a href="#k-tab-profile" data-toggle="tab">Papers</a>
+					<li><a href="#k-tab-profile" data-toggle="tab">Publication</a>
 					</li>
-					<li><a href="#k-tab-settings" data-toggle="tab">Blogs</a>
+					<li><a href="#k-tab-settings" data-toggle="tab">Blog</a>
 					</li>
 				</ul>
 				<!-- ends tab controls -->
@@ -414,6 +418,8 @@
 									</div>
 								</div>
 							@endforeach
+						@else
+							<p>No Project Found on Database</p>
 						@endif
 					</div>
 					<!-- tab 1 ends -->
@@ -436,6 +442,8 @@
 									</div>
 								</div>
 							@endforeach
+						@else
+							<p>No Publication Found on Database</p>
 						@endif
 					</div>
 					<!-- tab 2 ends -->
@@ -458,6 +466,8 @@
 									</div>
 								</div>
 							@endforeach
+						@else
+							<p>No Blog Found on Database</p>
 						@endif
 					</div>
 					<!-- tab 3 ends -->
