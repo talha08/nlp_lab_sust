@@ -21,11 +21,11 @@
         <br>
         <!-- Vertical Steps Example -->
         <div class="row">
-            <div class="col-sm-offset-3 col-md-6">
+            <div class="col-sm-offset-3 col-md-5">
                 <div class="panel panel-default">
 
                     <div class="panel-heading">
-                        <h3 class="text-center"><b>LogIn into NLP LAB, SUST</b></h3>
+                        <h3 class="panel-title text-center"><b>LogIn into NLP LAB, SUST</b></h3>
                         @include('includes.alert')
                     </div>
                     <div class="panel-body">
@@ -117,10 +117,10 @@
 
     <style>
         #text{
-            font-size: x-large;
+            font-size: medium;
         }
         #pass{
-            font-size: x-large;
+            font-size: medium;
         }
     </style>
 @stop
