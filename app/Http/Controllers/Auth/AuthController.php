@@ -85,7 +85,7 @@ class AuthController extends Controller
     public function login(){
         // return 'Auth Login Panel';
         return view('auth.login')
-                    ->with('title', 'Login');
+                    ->with('title', 'Login | NLP Lab');
     }
 
 
