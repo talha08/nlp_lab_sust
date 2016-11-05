@@ -1,5 +1,5 @@
 
-# SUST CSE Software House Website
+# SUST CSE NLP LAB 
 TODO: 
 
 		+ User Panel
@@ -10,6 +10,8 @@ TODO:
 		+ Competition/Award
 		+ Projects
 		+ Research Paper
+		+ Searching System 
+		+ Tag Searching System 
 		+ Blog
 		+ Research Students
 		+ Research Supervisors
@@ -19,24 +21,19 @@ TODO:
 
 
 
-##Students/Developers
+##Developer
 
 * **[Md. Abu Talha](https://github.com/talha08)**  
 *Registration No*: 2012331008   
 
-* **[Farzad Bin Fazle](https://github.com/revegon)**     
-*Registration No*: 2012331005   
 
 
+##Supervisor
 
-##Supervisors
-
-* **[Sheikh Nabil Mohammad](https://bd.linkedin.com/in/sheikh-nabil-mohammad-51302945)**    
-**Lecturer**, *Department of Computer Science and Engineering*, Shahjalal University of Science and Technology.    
+* **[Md. Saiful Islam Saif](https://bd.linkedin.com/in/saifulcse)**    
+**Assistant Professor**, *Department of Computer Science and Engineering*, Shahjalal University of Science and Technology.    
   
-* **[Chakrabarty Biswa](https://bd.linkedin.com/in/biswa-chakrabarty-2b793476)**    
-**Lecturer**, *Department of Computer Science and Engineering*, Shahjalal University of Science and Technology.    
-  
+
 	
 ## License
  	Apache License
