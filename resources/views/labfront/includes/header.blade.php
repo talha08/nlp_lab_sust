@@ -29,13 +29,6 @@
     {!! Html::style('labfront/js/fancybox/jquery.fancybox.css') !!}
     {!! Html::style('labfront/js/audioplayer/audioplayer.css') !!}
     {!! Html::style('labfront/style.css') !!}
-
-
     @yield('style')
-
-
-
-
-
 
 </head>
