@@ -4,7 +4,16 @@
     <meta name="description" content="Natural language Processing Lab,
     Computer Science and Engineering Department,
     Shahjalal University of Science and Technology, Sylhet.">
-
+	
+	<!--
+	 Developer:
+	 .....................
+	 MD. ABU TALHA,
+	 SUST CSE 2012 Batch,
+	 SCDN, CSE, SUST.
+	 .....................
+	 -->
+	 
     <meta name="author" content=" ">
     <meta name="keyword" content="Sust,Natarul,Language,Processing,Lab,Cse,Sylhet, Ebent, News, Bangladesh, Award, Contest, Thesis">
 
