@@ -184,6 +184,10 @@ Route::group(array('middleware' => 'auth'), function() {
 		Route::put('tag/{id}/update', array('as' => 'tag.update', 'uses' => 'TagController@update'));
 		Route::delete('tag/{id}', array('as' => 'tag.delete', 'uses' => 'TagController@destroy'));
 
+		Route::get('tag/all', array('as' => 'tag.all', 'uses' => 'TagController@all'));
+		Route::post('tag/sort', array('as' => 'tag.sort', 'uses' => 'TagController@sort'));
+
+
 		//award section   complete
 		Route::get('award', array('as' => 'award.index', 'uses' => 'AwardController@index'));
 		Route::get('award/create', array('as' => 'award.create', 'uses' => 'AwardController@create'));
@@ -273,6 +277,7 @@ Route::get('home/projects/{meta_data}', array('as' => 'labfront.project_single',
 //paper or publication
 Route::get('home/publication', array('as' => 'labfront.publication', 'uses' => 'LabFrontController@paper'));
 Route::get('home/publication/{meta_data}', array('as' => 'labfront.paper_single', 'uses' => 'LabFrontController@fullPaper'));
+Route::get('home/paper/request-paper', array('as' => 'labfront.paperRequest', 'uses' => 'LabFrontController@sendAuthorForPaper'));
 Route::get('home/journal', array('as' => 'labfront.journal', 'uses' => 'LabFrontController@journal'));
 Route::get('home/conference', array('as' => 'labfront.conference', 'uses' => 'LabFrontController@conference'));
 Route::get('home/books', array('as' => 'labfront.books', 'uses' => 'LabFrontController@books'));
@@ -332,7 +337,7 @@ Route::post('home/subscriber', array('as' => 'subscriber.action', 'uses' => 'Sub
 
 
 
-
+Route::post('tag/sort', array('as' => 'tag.sort', 'uses' => 'TagController@sort'));
 
 
 

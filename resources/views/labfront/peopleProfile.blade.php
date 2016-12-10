@@ -111,13 +111,15 @@
 														<div class="panel-collapse collapse" id="collapseThree">
 															<div class="panel-body">
 															<b>Email: </b>{!! $user->email !!}<br/>
-															<b>Phone : </b>{!! $user->teachers->phone !!}<br/>
-															<b>Linked In: </b>{!! $user->teachers->linkedIn_user !!}<br/>
+															<b>Phone : </b>{!! $user->teachers->phone !!}<br/><br/>
+															@if($user->teachers->linkedIn_user != null)
+																<a href="{!! asset($user->teachers->linkedIn_user) !!}" target="_blank" ><i class="fa fa-linkedin-square fa-3x"></i></a>
+															@endif
 															@if($user->teachers->academia != null)
-															<b>Academia : </b>{!! $user->teachers->academia !!}<br/>
+																<a href="{!! asset($user->teachers->academia) !!}" target="_blank" ><i class="ai ai-academia-square ai-3x"></i></a>
 															@endif
 															@if($user->teachers->researchgate != null)
-															<b>Researchgate : </b>{!! $user->teachers->researchgate !!}<br/>
+																<a href="{!! asset($user->teachers->researchgate) !!}" target="_blank" ><i class="ai ai-researchgate-square ai-3x"></i></a>
 															@endif
 														     </div>
 														</div>
@@ -232,7 +234,7 @@
 														<div class="panel-heading">
 															<h4 class="panel-title">
 																<a href="#collapseTwo" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle collapsed">
-																	About Me
+																	About
 																</a>
 															</h4>
 														</div>
@@ -257,12 +259,12 @@
 														<div class="panel-collapse collapse" id="collapseThree">
 															<div class="panel-body">
 																<b>Email: </b>{!! $user->otherUsers->email !!}<br/>
-																<b>Phone :</b>{!! $user->otherUsers->phone !!}<br/>
+																<b>Phone :</b>{!! $user->otherUsers->phone !!}<br/><br/>
 																@if($user->otherUsers->linkedIn_user != null)
-																<b>Linked In: </b>{!! $user->otherUsers->linkedIn_user !!}<br/>
+																	<a href="{!! asset($user->otherUsers->linkedIn_user) !!}" target="_blank" ><i class="fa fa-linkedin-square fa-3x"></i></a>
 																@endif
 															    @if($user->otherUsers->github_user != null)
-																<b>Github :</b>{!! $user->otherUsers->github_user !!}<br/>
+																	<a href="{!! asset($user->otherUsers->github_user) !!}" target="_blank" ><i class="fa fa-github-square fa-3x"></i></a>
 																@endif
 															</div>
 														</div>
@@ -418,9 +420,14 @@
 													<div class="panel-collapse collapse" id="collapseThree">
 														<div class="panel-body">
 															<b>Email: </b>{!! $user->students->email !!}<br/>
-															<b>Phone :</b>{!! $user->students->phone !!}<br/>
-															<b>Linked In: </b>{!! $user->students->linkedIn_user !!}<br/>
-															<b>Github :</b>{!! $user->students->github_user !!}<br/>
+															<b>Phone :</b>{!! $user->students->phone !!}<br/>}<br/>
+															@if($user->students->linkedIn_user != null)
+																<a href="{!! asset($user->students->linkedIn_user) !!}" target="_blank" ><i class="fa fa-linkedin-square fa-3x"></i></a>
+															@endif
+															@if($user->students->github_user != null)
+																<a href="{!! asset($user->students->github_user) !!}" target="_blank" ><i class="fa fa-github-square fa-3x"></i></a>
+															@endif
+
 														</div>
 													</div>
 												</div>

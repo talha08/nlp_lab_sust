@@ -24,6 +24,7 @@
     <!-- Bootstrap core CSS -->
     {!! Html::style('http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,800') !!}
     {!! Html::style('labfront/font-awesome/css/font-awesome.min.css') !!}
+    {!! Html::style('css/academicons/css/academicons.css') !!}
     {!! Html::style('labfront/js/dropdown-menu/dropdown-menu.css') !!}
     {!! Html::style('labfront/bootstrap/css/bootstrap.min.css') !!}
     {!! Html::style('labfront/js/fancybox/jquery.fancybox.css') !!}

@@ -562,6 +562,31 @@ class LabFrontController extends Controller
     }
 
 
+
+
+    public function sendAuthorForPaper()
+    {
+        try{
+            $authors = PaperPeople::where('paper_id','=', 1)->lists('user_id');
+            foreach($authors->paper as $author){
+                return $author;
+            }
+            return redirect()->back()->with('title',"Paper Details" )->with('success','Paper Request successfully sent to Paper Author.');
+        }catch(\Exception $e){
+            return redirect()->back()->with('title',"Paper Details" )->with('error','Something went wrong, Please try again.');
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
     /*==================================================*/
     //Award List
     /*==================================================*/

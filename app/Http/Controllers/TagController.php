@@ -98,4 +98,41 @@ class TagController extends Controller
 
         return \Redirect::route('tag.index')->with('success',"Tag Successfully deleted");
     }
+
+
+    //experiment
+
+    public  function all(){
+         $tags = Tag::all();
+        return view('tag.all', compact('tags'))->with('title',"Tag");
+    }
+
+
+
+
+
+    public function sort(Request $request)
+    {
+        if(\Request::ajax()){
+
+            $uuid = \Input::get('uuid');
+            $id = \Input::get('id');
+
+            $i = 1;
+
+            foreach($id as $val) {
+
+                $chapter = Tag::where('id', $val)->first();
+
+                $chapter->id = $i;
+                $chapter->save();
+
+                $i++;
+
+            }
+
+        }
+
+    }
+
 }

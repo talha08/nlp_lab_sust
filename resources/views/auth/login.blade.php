@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group m-t-30">
                             <div class="col-sm-5">
-                                <input checked="checked" name="agree" type="checkbox" value="1">Remember me
+                                <input checked="checked" name="remember" type="checkbox" value="1">Remember me
                             </div>
                             <div class="col-sm-7 text-right">
                                 <a data-toggle="modal" href="#myModal"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
