@@ -269,7 +269,7 @@ Route::get('home/event', array('as' => 'labfront.events', 'uses' => 'LabFrontCon
 Route::get('home/event/{meta_data}', array('as' => 'labfront.event_single', 'uses' => 'LabFrontController@fullEvent'));
 
 //project
-Route::get('home/currnet-projects', array('as' => 'labfront.runningProject', 'uses' => 'LabFrontController@runningProject'));
+Route::get('home/current-projects', array('as' => 'labfront.runningProject', 'uses' => 'LabFrontController@runningProject'));
 Route::get('home/previous-projects', array('as' => 'labfront.completeProject', 'uses' => 'LabFrontController@completeProject'));
 Route::get('home/projects/{meta_data}', array('as' => 'labfront.project_single', 'uses' => 'LabFrontController@fullProject'));
 
