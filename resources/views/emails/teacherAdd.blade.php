@@ -96,7 +96,7 @@
 										@elseif($user->is_teacher ==5)
 											Visiting Scholar/ Industry Affiliates
 										@else
-											Student
+											PhD/ Masters/ Undergraduate Student
 										@endif
 										 at Natural Language Processing Lab, CSE, SUST.
 									</td>
