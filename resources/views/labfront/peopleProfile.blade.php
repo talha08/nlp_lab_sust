@@ -419,8 +419,8 @@
 													</div>
 													<div class="panel-collapse collapse" id="collapseThree">
 														<div class="panel-body">
-															<b>Email: </b>{!! $user->students->email !!}<br/>
-															<b>Phone :</b>{!! $user->students->phone !!}<br/>}<br/>
+															<b>Email: </b>{!! $user->email !!}<br/>
+															<b>Phone :</b>{!! $user->students->phone !!}<br/><br/>
 															@if($user->students->linkedIn_user != null)
 																<a href="{!! asset($user->students->linkedIn_user) !!}" target="_blank" ><i class="fa fa-linkedin-square fa-3x"></i></a>
 															@endif

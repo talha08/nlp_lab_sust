@@ -131,6 +131,7 @@ class UserAddController extends Controller
                 $profile = new Student();
                 $profile->user_id = $user->id;
                 $profile->position = "Undergraduate Student";
+                $profile->study_level = "Undergraduate";
 
                 $role = Role::find(2);  //role attach 2
                 $user->attachRole($role);
@@ -138,6 +139,7 @@ class UserAddController extends Controller
                 $profile = new Student();
                 $profile->user_id = $user->id;
                 $profile->position = "Masters Student";
+                $profile->study_level = "Masters";
 
                 $role = Role::find(2);  //role attach 2
                 $user->attachRole($role);
@@ -146,6 +148,7 @@ class UserAddController extends Controller
                 $profile = new Student();
                 $profile->user_id = $user->id;
                 $profile->position = "Phd Student";
+                $profile->study_level = "Phd";
 
                 $role = Role::find(2);  //role attach 2
                 $user->attachRole($role);

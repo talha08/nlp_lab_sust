@@ -257,7 +257,7 @@ class LabFrontController extends Controller
     /*==================================================*/
 
       public function phdStudent(){
-            $user = \DB::table('users')
+              $user = \DB::table('users')
              ->join('students', 'users.id', '=', 'students.user_id')
              ->where('users.status',1)
              ->where('users.is_teacher',0)
@@ -266,7 +266,7 @@ class LabFrontController extends Controller
 
 
         $news = News::take(3)->orderBy('id','desc')->get();
-        return view('labfront.student',compact('user','news'))->with('title','Phd');
+        return view('labfront.student',compact('user','news'))->with('title','PhD');
     }
 
 
