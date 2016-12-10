@@ -94,7 +94,7 @@
 										@endforeach
 										@else
 											<br><br><br><br><br><br>
-											<center><em>Only Lab members can access this publication</em></center>
+											<!-- <center><em>Only Lab members can access this publication</em></center> -->
 										@endif
 
 									   @endif
