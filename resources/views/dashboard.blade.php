@@ -126,7 +126,7 @@
 
     <div class="alert alert-danger">
         <center>
-            This site is now in <b>Alpha version</b>. Mistakes will be resolve soon. <br/>
+            This site is now in <b>Beta version</b>. Mistakes will be resolve soon. <br/>
             Thank You :)
         </center>
     </div>
