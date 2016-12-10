@@ -19,6 +19,10 @@ return [
         'secret' => 'key-9de72efb084c1e0352c4e7f41775c787',
     ),
 
+    'sendinblue' => [
+         'url' => 'https://api.sendinblue.com/v2.0',
+         'key' => env('SENDINBLUE_KEY'),
+    ],
 
     'mandrill' => [
         'secret' => env('MANDRILL_SECRET'),

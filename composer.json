@@ -14,7 +14,8 @@
         "intervention/image": "^2.3",
         "guzzlehttp/guzzle": "~5.0",
         "fzaninotto/faker": "^1.5",
-        "nesbot/carbon": "^1.21"
+        "nesbot/carbon": "^1.21",
+        "webup/laravel-sendinblue": "^1.0"
 
 
     },
