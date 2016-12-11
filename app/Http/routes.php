@@ -11,33 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-	return Redirect::route('labfront.index');
-});
+// Route::get('/', function () {
+// 	return Redirect::route('labfront.index');
+// });
 
-
-
+Route::get('/', array('as' => 'home', 'uses' => 'LabFrontController@index'));
 
 Route::group(['middleware' => 'guest'], function(){
-
 
 	Route::controller('password', 'RemindersController');
 	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
 	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
-
-
-	// social login route
-	//Route::get('login/fb', ['as'=>'login/fb','uses' => 'SocialController@loginWithFacebook']);
-	//Route::get('login/gp', ['as'=>'login/gp','uses' => 'SocialController@loginWithGoogle']);
-
-
 	Route::get('apply-for-member', ['as' => 'user.create', 'uses' => 'UsersController@create']);
 	Route::post('admin/user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 
 });
-
-
-
 
 Route::group(array('middleware' => 'auth'), function()
 {
@@ -48,14 +36,9 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
-
 	Route::put('profile/updateTeacher', array('as' => 'profile.updateTeacher', 'uses' => 'ProfileController@updateTeacher'));
 	Route::put('profile/updateStudent', array('as' => 'profile.updateStudent', 'uses' => 'ProfileController@updateStudent'));
 	Route::put('photo', array('as' => 'photo.store', 'uses' => 'ProfileController@photoUpload'));
-
-
-
-
 
 //blog section   complete
 	Route::get('blog/create', array('as' => 'blog.create', 'uses' => 'BlogController@create'));
@@ -65,8 +48,6 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::delete('blog/{id}', array('as' => 'blog.delete', 'uses' => 'BlogController@destroy'));
 	Route::get('myBlog', array('as' => 'blog.own', 'uses' => 'BlogController@myBlog'));
 
-
-
 //paper section  complete
 	Route::get('paper', array('as' => 'paper.index', 'uses' => 'PaperController@index'));
 	Route::get('paper/create', array('as' => 'paper.create', 'uses' => 'PaperController@create'));
@@ -75,11 +56,6 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::put('paper/{id}/update', array('as' => 'paper.update', 'uses' => 'PaperController@update'));
 	Route::delete('paper/{id}', array('as' => 'paper.delete', 'uses' => 'PaperController@destroy'));
 
-
-
-
-
-
 //news section complete
 	Route::get('news', array('as' => 'news.index', 'uses' => 'NewsController@index'));
 	Route::get('news/create', array('as' => 'news.create', 'uses' => 'NewsController@create'));
@@ -87,9 +63,6 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get('news/{id}/edit', array('as' => 'news.edit', 'uses' => 'NewsController@edit'));
 	Route::put('news/{id}/update', array('as' => 'news.update', 'uses' => 'NewsController@update'));
 	Route::delete('news/{id}', array('as' => 'news.delete', 'uses' => 'NewsController@destroy'));
-
-
-
 
     //project section complete
 	Route::get('project', array('as' => 'project.index', 'uses' => 'ProjectController@index'));
@@ -100,10 +73,6 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::delete('project/{id}', array('as' => 'project.delete', 'uses' => 'ProjectController@destroy'));
 	Route::get('changeStatus/{id}', array('as' => 'project.changeStatus', 'uses' => 'ProjectController@changeStatus'));
 
-
-
-
-
 	//resource Section
 	Route::get('resource', array('as' => 'book.index', 'uses' => 'BookController@index'));
 	Route::get('resource/create', array('as' => 'book.create', 'uses' => 'BookController@create'));
@@ -112,11 +81,7 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::put('resource/{id}/update', array('as' => 'book.update', 'uses' => 'BookController@update'));
 	Route::delete('resource/{id}', array('as' => 'book.delete', 'uses' => 'BookController@destroy'));
 
-
 });
-
-
-
 
 //only admin can access this area
 Route::group(array('middleware' => 'auth'), function() {
@@ -128,14 +93,10 @@ Route::group(array('middleware' => 'auth'), function() {
 		Route::post('slider', array('as' => 'slider.store', 'uses' => 'SliderController@store'));
 		Route::delete('slider/{id}', array('as' => 'slider.delete', 'uses' => 'SliderController@destroy'));
 
-
-
         //home page welcome message
 		Route::get('welcome', array('as' => 'welcome.index', 'uses' => 'WelcomeController@index'));
 		Route::get('welcome/edit', array('as' => 'welcome.edit', 'uses' => 'WelcomeController@edit'));
 		Route::put('award/update', array('as' => 'welcome.update', 'uses' => 'WelcomeController@update'));
-
-
 
 		//user list
 		//Route::get('allUser', array('as' => 'user.index', 'uses' => 'UsersController@index'));
@@ -175,7 +136,6 @@ Route::group(array('middleware' => 'auth'), function() {
 		Route::get('help', array('as' => 'help', 'uses' => 'UsersController@help'));
 
 
-
 		//tag section   complete
 		Route::get('tag', array('as' => 'tag.index', 'uses' => 'TagController@index'));
 		Route::get('tag/create', array('as' => 'tag.create', 'uses' => 'TagController@create'));
@@ -211,7 +171,6 @@ Route::group(array('middleware' => 'auth'), function() {
 	    Route::post('singleFileUpload', array('as' => 'event.singleUpload', 'uses' => 'EventController@singleFileUpload')); //for modal file upload
 
 		//Route::get('/download/{event_file}', array('as' => 'event.download', 'uses' => 'EventController@getDownload'));
-
 
 
 		//project category section   complete
@@ -321,30 +280,24 @@ Route::get('home/award/{meta_data}', array('as' => 'labfront.award_single', 'use
 Route::post('home/subscriber', array('as' => 'subscriber.action', 'uses' => 'SubscriberController@addSubscriber'));
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::post('tag/sort', array('as' => 'tag.sort', 'uses' => 'TagController@sort'));
 
 
 
 
 
+/********** Developer ************/
+/* 
+Md Abu Talha 
+talhaqc@gmail.com
+CSE'12, SUST. 
 
+Contributor
+Masiur
+mrsiddiki@gmail.com
+CSE'12,SUST.
 
+*/
 
 
 

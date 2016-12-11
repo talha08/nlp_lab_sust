@@ -2,7 +2,7 @@
 vendor/
 .env.*.php
 .env.php
-
+.env
 ### PhpStorm ###
 
 *.iml

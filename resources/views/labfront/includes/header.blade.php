@@ -9,13 +9,14 @@
 	 Developer:
 	 .....................
 	 MD. ABU TALHA,
+     talhaqc@gmail.com
 	 SUST CSE 2012 Batch,
 	 SCDN, CSE, SUST.
 	 .....................
 	 -->
 	 
-    <meta name="author" content=" ">
-    <meta name="keyword" content="Sust,Natarul,Language,Processing,Lab,Cse,Sylhet, 
+    <meta name="author" content="NLP Group">
+    <meta name="keyword" content="Sust,Natarul Language Processing,Lab,Cse,Sylhet, 
     Event, News, Bangladesh, Award, Contest, Thesis
     SUST NLP, sust nlp, nlp.sust.edu, 
     ">

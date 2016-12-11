@@ -1,9 +1,10 @@
 <!-- Footer Start -->
+<center>
 <footer class="footer">
 	Copyright &copy; NLP Lab, CSE , SUST, Sylhet, Bangladesh. All rights reserved.
 </footer>
 <!-- Footer Ends -->
-
+</center>
 </section>
 
 
