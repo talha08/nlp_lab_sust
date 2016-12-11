@@ -2,7 +2,7 @@
 
 return [
     'names' =>[
-        'siteName' => 'NLP Lab'
+        'siteName' => 'NLP Group'
     ],
     'roles' =>[
         'admin' => 'Admin',

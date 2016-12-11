@@ -25,7 +25,7 @@
                 <div class="panel panel-default">
 
                     <div class="panel-heading">
-                        <h3 class="panel-title text-center"><b>LogIn into NLP LAB, SUST</b></h3>
+                        <h3 class="panel-title text-center"><b>LogIn into NLP Group, SUST</b></h3>
                         @include('includes.alert')
                     </div>
                     <div class="panel-body">

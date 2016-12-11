@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'noreply@sust.edu', 'name' => "SUST CSE NLP Lab"],
+    'from' => ['address' => 'noreply@sust.edu', 'name' => "SUST CSE NLP Group"],
 
     /*
     |--------------------------------------------------------------------------
