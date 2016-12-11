@@ -144,9 +144,6 @@
 
 								</li>
 								@endforeach
-
-
-
 							</ul>
 
 						</li>
@@ -164,9 +161,6 @@
 							</a>
 
 						</li>
-
-
-
 					</ul><!-- widgets end -->
 
 				</div><!-- inner custom column end -->

@@ -36,4 +36,5 @@
     {!! Html::style('labfront/style.css') !!}
     @yield('style')
 
+
 </head>
