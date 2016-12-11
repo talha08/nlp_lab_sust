@@ -113,13 +113,13 @@
 															<b>Email: </b>{!! $user->email !!}<br/>
 															<b>Phone : </b>{!! $user->teachers->phone !!}<br/><br/>
 															@if($user->teachers->linkedIn_user != null)
-																<a href="{!! asset($user->teachers->linkedIn_user) !!}" target="_blank" ><i class="fa fa-linkedin-square fa-3x"></i></a>
+																<a href="{!! asset($user->teachers->linkedIn_user) !!}" target="_blank" ><i class="fa fa-linkedin-square fa-2x"></i></a>
 															@endif
 															@if($user->teachers->academia != null)
-																<a href="{!! asset($user->teachers->academia) !!}" target="_blank" ><i class="ai ai-academia-square ai-3x"></i></a>
+																<a href="{!! asset($user->teachers->academia) !!}" target="_blank" ><i class="ai ai-academia-square ai-2x"></i></a>
 															@endif
 															@if($user->teachers->researchgate != null)
-																<a href="{!! asset($user->teachers->researchgate) !!}" target="_blank" ><i class="ai ai-researchgate-square ai-3x"></i></a>
+																<a href="{!! asset($user->teachers->researchgate) !!}" target="_blank" ><i class="ai ai-researchgate-square ai-2x"></i></a>
 															@endif
 														     </div>
 														</div>
@@ -422,10 +422,10 @@
 															<b>Email: </b>{!! $user->email !!}<br/>
 															<b>Phone :</b>{!! $user->students->phone !!}<br/><br/>
 															@if($user->students->linkedIn_user != null)
-																<a href="{!! asset($user->students->linkedIn_user) !!}" target="_blank" ><i class="fa fa-linkedin-square fa-3x"></i></a>
+																<a href="{!! asset($user->students->linkedIn_user) !!}" target="_blank" ><i class="fa fa-linkedin-square fa-2x"></i></a>
 															@endif
 															@if($user->students->github_user != null)
-																<a href="{!! asset($user->students->github_user) !!}" target="_blank" ><i class="fa fa-github-square fa-3x"></i></a>
+																<a href="{!! asset($user->students->github_user) !!}" target="_blank" ><i class="fa fa-github-square fa-2x"></i></a>
 															@endif
 
 														</div>
