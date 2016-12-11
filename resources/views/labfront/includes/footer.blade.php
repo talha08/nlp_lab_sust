@@ -146,20 +146,20 @@
 
 
 {!! Html::script('labfront/jQuery/jquery-2.1.1.min.js') !!}
-{!! Html::script('labfront/jQuery/jquery-migrate-1.2.1.min.js') !!}
+<!-- {!! Html::script('labfront/jQuery/jquery-migrate-1.2.1.min.js') !!} -->
 {!! Html::script('labfront/bootstrap/js/bootstrap.min.js') !!}
 {!! Html::script('labfront/js/dropdown-menu/dropdown-menu.js') !!}
-{!! Html::script('labfront/js/fancybox/jquery.fancybox.pack.js') !!}
+<!-- {!! Html::script('labfront/js/fancybox/jquery.fancybox.pack.js') !!}
 {!! Html::script('labfront/js/fancybox/jquery.fancybox-media.js') !!}
 {!! Html::script('labfront/js/jquery.fitvids.js') !!}
 {!! Html::script('labfront/js/audioplayer/audioplayer.min.js') !!}
 {!! Html::script('labfront/js/jquery.easy-pie-chart.js') !!}
-{!! Html::script('js/jquery.sticky.js') !!}
+{!! Html::script('js/jquery.sticky.js') !!} -->
 
 
 {!! Html::script('labfront/js/theme.js') !!}
 
-{!! Html::script('labfront/js/jquery.sticky.js') !!}
+<!-- {!! Html::script('labfront/js/jquery.sticky.js') !!} -->
 
 <style>
     .copy-text{
@@ -170,17 +170,7 @@
 @yield('script')
 
 
-<script>
-//    $(window).load(function(){
-//        $("#drop-down-left").sticky({
-//            topSpacing: 0,
-//            responsiveWidth:false,
-//            widthFromWrapper:true
-//           // center:true
-//        });
-//    });
 
-</script>
 
 
 

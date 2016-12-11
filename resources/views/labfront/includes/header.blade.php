@@ -30,8 +30,8 @@
     {!! Html::style('css/academicons/css/academicons.css') !!}
     {!! Html::style('labfront/js/dropdown-menu/dropdown-menu.css') !!}
     {!! Html::style('labfront/bootstrap/css/bootstrap.min.css') !!}
-    {!! Html::style('labfront/js/fancybox/jquery.fancybox.css') !!}
-    {!! Html::style('labfront/js/audioplayer/audioplayer.css') !!}
+    <!-- {!! Html::style('labfront/js/fancybox/jquery.fancybox.css') !!} -->
+    <!-- {!! Html::style('labfront/js/audioplayer/audioplayer.css') !!} -->
     {!! Html::style('labfront/style.css') !!}
     @yield('style')
 
