@@ -4,7 +4,9 @@
 
 
 
+<div id="k-body"><!-- content wrapper -->
 
+        <div class="container"><!-- container -->
 
 
 {{--path to go--}}
@@ -473,7 +475,15 @@
 
 
 </div><!-- row end -->
+
+
+
+
+
 </div><!-- row end -->
 
-
+</div><!-- row end -->
+</div><!-- row end -->
+</div><!-- row end -->
+</div><!-- row end -->
 @endsection
