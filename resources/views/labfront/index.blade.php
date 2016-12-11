@@ -257,9 +257,13 @@
 						</li>
 						<li><a href="#k-tab-settings" data-toggle="tab">Blog</a>
 						</li>
+						
+						
 					</ul>
 					<!-- ends tab controls -->
 					<div class="tab-content">
+
+
 						<!-- starts tab containers -->
 						<div id="k-tab-download" class="tab-pane fade in active">
 							@if(count($project) != null)
@@ -279,6 +283,9 @@
 								<p>No Project Found on Database</p>
 							@endif
 						</div>
+
+
+
 						<!-- tab 1 ends -->
 						<div id="k-tab-profile" class="tab-pane fade">
 							<!-- tab 2 starts -->
@@ -299,10 +306,12 @@
 								<p>No Publication Found on Database</p>
 							@endif
 						</div>
-						<!-- tab 2 ends -->
+
+
+
 						{{--blogs--}}
 						<div id="k-tab-settings" class="tab-pane fade">
-							<!-- tab 3 starts -->
+							<!-- tab 2 starts -->
 							@if(count($blog) != null)
 								@foreach($blog as $new)
 									<div class="media">
@@ -310,7 +319,9 @@
 											<img class=" " src="{!! asset($new->img_thumbnail) !!}" alt="">
 										</a>
 										<div class="media-body">
-											<h5 class="media-heading"><a href="{!! route('labfront.blog_details',$new->meta_data) !!}">{!! \App\Blog::fullDate($new->id) !!} </a></h5>
+											<h5 class="media-heading"><a href="{!! route('labfront.blog_details',$new->meta_data) !!}">
+													{!! \App\Blog::fullDate($new->id) !!} </a>
+											</h5>
 											<p>
 												{!! $new->title !!}
 											</p>
@@ -321,8 +332,12 @@
 								<p>No Blog Found on Database</p>
 							@endif
 						</div>
-						<!-- tab 3 ends -->
 						{{--blogs end--}}
+
+
+
+						
+
 					</div>
 					<!-- ends tab containers -->
 				</div>
