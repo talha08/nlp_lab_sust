@@ -255,8 +255,8 @@
 						</li>
 						<li><a href="#k-tab-profile" data-toggle="tab">Publication</a>
 						</li>
-						<li><a href="#k-tab-settings" data-toggle="tab">Blog</a>
-						</li>
+						<!-- <li><a href="#k-tab-settings" data-toggle="tab">Blog</a>
+						</li> -->
 						
 						
 					</ul>
@@ -309,9 +309,8 @@
 
 
 
-						{{--blogs--}}
+					<!-- 	{{--blogs--}}
 						<div id="k-tab-settings" class="tab-pane fade">
-							<!-- tab 2 starts -->
 							@if(count($blog) != null)
 								@foreach($blog as $new)
 									<div class="media">
@@ -332,7 +331,7 @@
 								<p>No Blog Found on Database</p>
 							@endif
 						</div>
-						{{--blogs end--}}
+						{{--blogs end--}} -->
 
 
 
