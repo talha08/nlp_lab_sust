@@ -106,7 +106,7 @@ class NewsController extends Controller
         $news->news_title = $request->news_title;
         $news->news_details = $request->news_details;
         //$news->news_image = $request->event_image;
-        $news->news_meta_data =  str_slug($request->news_title).rand(23525,21414);
+       // $news->news_meta_data =  str_slug($request->news_title).rand(23525,21414);
         $news->save();
 
         return redirect()->back()->with('success', 'News Successfully Updated');

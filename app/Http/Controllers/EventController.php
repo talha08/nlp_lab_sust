@@ -121,7 +121,7 @@ class EventController extends Controller
         $event->event_end = $request->event_end;
         $event->event_time = $request->event_time;
         //$award->event_image = $request->event_image;
-        $event->event_meta_data =  str_slug($request->event_title).rand(2345,23142);
+       // $event->event_meta_data =  str_slug($request->event_title).rand(2345,23142);
         $event->save();
 
         return redirect()->back()->with('success', 'Event Successfully Updated');
