@@ -47,7 +47,7 @@
 
 									<div class="form-group">
 										{!! Form::label('publication_name', 'Publication Name :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('publication_name', '',array('class' => 'form-control','placeholder' =>  'Publication Name here', 'required'))!!}
+										{!!Form::text('publication_name', '',array('class' => 'form-control','placeholder' =>  'Publication Name here'))!!}
 									</div><br/>
 
 
