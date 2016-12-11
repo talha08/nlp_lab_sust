@@ -292,7 +292,7 @@
 
                                     <p>
                                         {!! Str::limit($events->event_details,100) !!}
-                                        <a href="{!! route('labfront.event_single',$events->event_meta_data ) !!}" class="moretag" title="read more">MORE</a>
+                                        <a href="{!! route('labfront.event_single',$events->event_meta_data ) !!}" class="moretag" title="read more">...MORE</a>
                                     </p>
 
                                 </li>
@@ -349,7 +349,7 @@
                                     </figure>
                                     <div class="recent-news-text">
                                         <p>
-                                            {!! Str::limit($newsList->news_details, 100) !!} <a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" class="moretag" title="read more">MORE</a>
+                                            {!! Str::limit($newsList->news_details, 100) !!} <a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" class="moretag" title="read more">...MORE</a>
                                         </p>
                                     </div>
                                 </div>
