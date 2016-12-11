@@ -50,7 +50,7 @@
                                 <ul class="sub-menu">
                                     <li><a href="{!! route('labfront.underStudent') !!}">Under Graduate</a></li>
                                     <li><a href="{!! route('labfront.masterStudent') !!}">MS</a></li>
-                                    <li><a style="text-transform:initial;" href="{!! route('labfront.student') !!}">Phd</a></li>
+                                    <li><a style="text-transform:initial;" href="{!! route('labfront.student') !!}">PhD</a></li>
 
                                     <li><a href="{!! route('labfront.scholar') !!}">Visiting Scholar</a></li>
                                     <li><a href="{!! route('labfront.affiliates') !!}">Industry Affiliates</a></li>

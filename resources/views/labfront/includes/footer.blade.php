@@ -48,13 +48,13 @@
                                 <h2 class="title-median m-contact-subject" itemprop="name">SUST CSE Natural Language Processing (NLP) Lab
                                 <div class="m-contact-address" itemprop="address" itemscope itemtype="#">
                                     <span class="m-contact-street" itemprop="street-address">IICT Building</span>
-                                    <span class="m-contact-city-region"><span class="m-contact-city" itemprop="locality">3114,Akhalia</span>, <span class="m-contact-region" itemprop="region"></span></span>
-                                    <span class="m-contact-zip-country"><span class="m-contact-zip" itemprop="postal-code">Sylhet</span> <span class="m-contact-country" itemprop="country-name">Bangladesh</span></span>
+                                
+                                    <span class="m-contact-zip-country"><span class="m-contact-zip" itemprop="postal-code">Kumargaon, Sylhet-3114</span> <span class="m-contact-country" itemprop="country-name">Bangladesh</span></span>
                                 </div>
 
                                 <div class="m-contact-tel-fax">
-                                    <span class="m-contact-tel">Tel: <span itemprop="tel">###</span></span>
-                                    <span class="m-contact-fax">Fax: <span itemprop="fax">###</span></span>
+                                    <span class="m-contact-tel">Tel: <span itemprop="tel"> PABX : 880-821-713491, 714479, 713850, 717850, 716123, 71539</span></span>
+                                    <span class="m-contact-fax">Fax: <span itemprop="fax">880-821-715257, 725050</span></span>
                                 </div>
 
                             </div>
