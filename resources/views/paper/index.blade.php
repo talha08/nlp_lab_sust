@@ -66,7 +66,12 @@
 															<div class="modal-body" >
 
 
-																<p>{{ $paper->paper_details}}</p>
+																@if($paper->publication_name  != null)
+																  <b>Publication Name:</b> {!! $paper->publication_name !!} 
+																@endif
+																<br><br>
+
+																<p>{{ strip_tags($paper->paper_details)}}</p>
 																<p><b>Published at : {{ $paper->paper_publish_date}} </b></p>
 																<p><b>Paper Url: </b><a class="" href="{!!$paper->paper_url!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$paper->paper_url!!}</a></p><br/>
 																<b>Author: </b><br>
@@ -75,6 +80,9 @@
 																		{{ $value->name }}<br/>
 																	{{--@endif--}}
 																@endforeach
+																<br><br>
+
+
 																{{--<b>Students: </b><br>--}}
 																{{--@foreach($paper->users as $user=> $value)--}}
 																	{{--@if($value->is_teacher != 1)--}}
@@ -84,7 +92,14 @@
 
 
 
-																<br>
+																@if($paper->paper_cite  != null)
+																  <b>Cite:</b> {!! $paper->paper_cite !!} 
+																@endif
+																<br><br>
+																
+			                                                   
+
+
 																<p><b>Attachment Section: </b></p>
 																@if(!empty($paper->paperFile))
 																	@foreach($paper->paperFile as $file)

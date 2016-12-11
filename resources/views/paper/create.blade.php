@@ -16,7 +16,7 @@
 						<h3 class="panel-title">{!!$title!!}</h3>
 
                     <span class="pull-right">
-						<a href="{!! route('paper.index')!!}"><button class="btn btn-success">All Paper</button></a>
+						<a href="{!! route('paper.index')!!}"><button class="btn btn-success">Publication List</button></a>
                     </span>
 					</div>
 
@@ -32,17 +32,22 @@
 
 									<div class="form-group">
 										{!! Form::label('paper_type', 'Select Paper Type* :', array('class' => 'col-md-2 control-label')) !!}
-										{!!Form::select('paper_type', $paperType, '',array('class' => 'select2', 'autofocus'))!!}
+										{!!Form::select('paper_type', $paperType, '',array('class' => 'select2', 'autofocus', 'required'))!!}
 									</div><br/>
 
 									<div class="form-group">
 										{!! Form::label('paper_title', 'Title* :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('paper_title', '',array('class' => 'form-control','placeholder' =>  'Paper title here'))!!}
+										{!!Form::text('paper_title', '',array('class' => 'form-control','placeholder' =>  'Paper title here', 'required'))!!}
 									</div><br/>
 
 									<div class="form-group">
 										{!! Form::label('paper_publish_date', 'Publishing Date * :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('paper_publish_date', '',array('class' => 'form-control','id'=>'datepicker','placeholder' =>  'Publishing Date here'))!!}
+										{!!Form::text('paper_publish_date', '',array('class' => 'form-control','id'=>'datepicker','placeholder' =>  'Publishing Date here', 'required'))!!}
+									</div><br/>
+
+									<div class="form-group">
+										{!! Form::label('publication_name', 'Publication Name :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::text('publication_name', '',array('class' => 'form-control','placeholder' =>  'Publication Name here', 'required'))!!}
 									</div><br/>
 
 
@@ -69,9 +74,18 @@
 									</div><br/>
 
 									<div class="form-group">
-										{!! Form::label('paper_details', 'Details(optional) :', array('class' => 'control-label')) !!}<br/>
+										{!! Form::label('paper_details', 'Abstract :', array('class' => 'control-label')) !!}<br/>
 										{!!Form::textarea('paper_details', '',array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
+
+									<div class="form-group">
+										{!! Form::label('paper_cite', 'Cite :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::textarea('paper_cite', '',array('size'=>'30x5','class' => 'form-control','placeholder' =>  'Paper Citation here'))!!}
+									</div><br/>
+
+
+
+
 
 									{{--<div class="form-group">--}}
 									{{--{!! Form::label('file', 'Choose Pdf/Doc File') !!}--}}

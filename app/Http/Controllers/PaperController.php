@@ -81,6 +81,8 @@ class PaperController extends Controller
         $paper->paper_type = $request->paper_type;
         $paper->paper_meta_data =  str_slug($request->paper_title);
         $paper->paper_publish_date =  $request->paper_publish_date;
+        $paper->paper_cite = $request->paper_cite;
+        $paper->publication_name = $request->publication_name;
         // $paper->paper_pdf = $request->paper_pdf;
         if($paper->save()){
 
@@ -182,6 +184,8 @@ class PaperController extends Controller
         $paper->paper_title = $request->paper_title;
         $paper->paper_details = $request->paper_details;
         $paper->paper_url = $request->paper_url;
+        $paper->paper_cite = $request->paper_cite;
+        $paper->publication_name = $request->publication_name;
         // $paper->paper_pdf = $request->paper_pdf;
         $paper->paper_publish_date =  $request->paper_publish_date;
         $paper->paper_meta_data =  str_slug($request->paper_title).rand(rand(12223,4579),1234243344);

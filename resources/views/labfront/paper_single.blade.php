@@ -65,6 +65,12 @@
 										{{--@endif--}}
 									{{--@endforeach--}}
 
+									<br><br>
+									@if($paper->publication_name  != null)
+									<b>Publication Name:</b> {!! $paper->publication_name !!} 
+									@endif
+									
+
 									@if($paper->paper_url != null)
 									<br/><br/><b>Publication Link: </b><p><a class="" href="{!!$paper->paper_url!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$paper->paper_url!!}</a></p>
 									@endif
@@ -98,6 +104,20 @@
 										@endif
 
 									   @endif
+
+
+
+									   @if($paper->paper_cite  != null)
+										<b>Cite:</b> <br>
+										 <p id="p1"><em>{!! $paper->paper_cite !!}  </em>
+
+<a onclick="copyToClipboard('#p1')" class="btn btn-info btn-xs" data-clipboard-text="Copy Me!" title="Click to Copy ."><i class="fa fa-files-o" aria-hidden="true"></i></a>
+										 </p>
+										 
+										@endif
+
+										<br><br>
+																
 
 
 								</div><br/>
@@ -180,4 +200,15 @@
 
 @section('style')
 	{!! Html::style('css/languageTag.css') !!}
+@stop
+@section('script')
+	<script language="JavaScript">
+		function copyToClipboard(element) {
+		  var $temp = $("<input>");
+		  $("body").append($temp);
+		  $temp.val($(element).text()).select();
+		  document.execCommand("copy");
+		  $temp.remove();
+		}
+	</script>
 @stop
