@@ -120,7 +120,7 @@
 												</figure>
 												<div class="recent-news-text">
 													<div class="recent-news-meta">
-														<div class="recent-news-date">{!! \App\News::fullDate($eventList->id) !!}</div>
+														<div class="recent-news-date">{!! \App\Event::fullDate($eventList->created_at) !!}</div>
 													</div>
 													<h4 class="title-median"><a href="{!! route('labfront.event_single',$eventList->event_meta_data) !!}" title="{!! Str::limit($eventList->event_title,15) !!}">
 															{!! $eventList->event_title !!}
