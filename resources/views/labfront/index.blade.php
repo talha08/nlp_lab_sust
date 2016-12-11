@@ -278,7 +278,7 @@
                         <h1 class="title-widget">Upcoming Events</h1>
 
                         <ul class="list-unstyled">
-
+                         @if($event->count() != 0)
                             @foreach($event as $events)
                                 <li class="up-event-wrap">
 
@@ -297,6 +297,9 @@
 
                                 </li>
                             @endforeach
+                         @else
+                           <p>No Event Found on Database </p>
+                          @endif 
 
                         </ul>
 
@@ -332,7 +335,7 @@
                         <h1 class="title-widget">Lab News</h1>
 
                         <ul class="list-unstyled">
-
+                        @if($news->count() != 0)
                             @foreach($news as $newsList)
                             <li class="recent-news-wrap">
 
@@ -355,6 +358,9 @@
                                 </div>
                             </li>
                             @endforeach
+                          @else
+                           <p>No News Found on Database </p>
+                          @endif    
 
 
                         </ul>
