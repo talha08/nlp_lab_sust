@@ -46,9 +46,9 @@
                             <img src="{!! asset($slider->img_url) !!}" width="1140" height="400" alt="Image slide 3" />
                             <div class="{!!$slider->slider_position !!}">
                                 <div class="caption-content">
-                                    <h3 class="caption-title">{!!$slider->slider_title !!}</h3>
+                                    <h3 class="caption-title">{!! strip_tags($slider->slider_title) !!}</h3>
                                     <p>
-                                        {!!$slider->slider_desc !!}
+                                        {!! strip_tags($slider->slider_desc) !!}
                                     </p>
                                 </div>
                             </div>
@@ -60,9 +60,9 @@
                                 <img src="{!! asset($slide->img_url) !!}" width="1140" height="400" alt="Image slide 3" />
                                 <div class="{!!$slide->slider_position !!}">
                                     <div class="caption-content">
-                                        <h3 class="caption-title">{!!$slide->slider_title !!}</h3>
+                                        <h3 class="caption-title">{!! strip_tags($slide->slider_title) !!}</h3>
                                         <p>
-                                            {!!$slide->slider_desc !!}
+                                            {!! strip_tags($slide->slider_desc) !!}
                                         </p>
                                     </div>
                                 </div>
@@ -116,13 +116,13 @@
                         <div class="news-title-meta">
                             <br/>
                             <h1 class="page-title">
-                                {!! $welcome->welcome_title !!}
+                                {!! strip_tags($welcome->welcome_title) !!}
                             </h1>
                         </div>
 
                         <div class="news-body">
                             <p>
-                                {!! $welcome->welcome_details !!}
+                                {!! strip_tags($welcome->welcome_details) !!}
 
                             </p>
 
@@ -287,7 +287,7 @@
                                         </div>
 
                                         <p>
-                                            {!! Str::limit($events->event_details,100) !!}
+                                            {!! Str::limit(strip_tags($events->event_details),100) !!}
                                             <a href="{!! route('labfront.event_single',$events->event_meta_data ) !!}" class="moretag" title="read more">MORE</a>
                                         </p>
 
@@ -350,7 +350,7 @@
                                         </figure>
                                         <div class="recent-news-text">
                                             <p>
-                                                {!! Str::limit($newsList->news_details, 100) !!} <a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" class="moretag" title="read more">MORE</a>
+                                                {!! Str::limit(strip_tags($newsList->news_details), 100) !!} <a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" class="moretag" title="read more">MORE</a>
                                             </p>
                                         </div>
                                     </div>
