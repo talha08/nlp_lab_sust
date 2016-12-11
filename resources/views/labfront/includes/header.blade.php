@@ -15,7 +15,10 @@
 	 -->
 	 
     <meta name="author" content=" ">
-    <meta name="keyword" content="Sust,Natarul,Language,Processing,Lab,Cse,Sylhet, Ebent, News, Bangladesh, Award, Contest, Thesis">
+    <meta name="keyword" content="Sust,Natarul,Language,Processing,Lab,Cse,Sylhet, 
+    Event, News, Bangladesh, Award, Contest, Thesis
+    SUST NLP, sust nlp, nlp.sust.edu, 
+    ">
 
     {!! Html::favicon('favicon.ico') !!}
 
