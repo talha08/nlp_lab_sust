@@ -45,7 +45,7 @@
 
                             <div itemscope itemtype="#">
 
-                                <h2 class="title-median m-contact-subject" itemprop="name">SUST CSE Natural Language Processing (NLP) Lab
+                                <h2 class="title-median m-contact-subject" itemprop="name">SUST CSE Natural Language Processing (NLP) Group
                                 <div class="m-contact-address" itemprop="address" itemscope itemtype="#">
                                     <span class="m-contact-street" itemprop="street-address">IICT Building</span>
                                 
@@ -125,7 +125,7 @@
             <div class="col-lg-12">
 
                 <p class="copy-text text-inverse">
-                    &copy; <?php echo date("Y"); ?> . SUST Cse Natural Language Processing(NLP) Lab, All rights reserved.
+                    &copy; <?php echo date("Y"); ?> . SUST Cse Natural Language Processing(NLP) Group, All rights reserved.
                 </p>
 
             </div>
