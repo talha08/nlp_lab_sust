@@ -1,12 +1,10 @@
 @extends('labfront.layouts.master')
 @section('content')
+    <div id="k-body"><!-- content wrapper -->
 
 
+    <div class="container"><!-- container -->
 
-
-<div id="k-body"><!-- content wrapper -->
-
-        <div class="container"><!-- container -->
 
 
 {{--path to go--}}
@@ -14,7 +12,7 @@
 
             <div class="k-breadcrumbs col-lg-12 clearfix"><!-- breadcrumbs -->
                 <ol class="breadcrumb">
-                    <li><a href="#">SUST CSE Natural Language Processing Group</a></li>
+                    <li><a href="#">SUST CSE Natural Language Processing Lab</a></li>
                     <li><a href="#">Home</a></li>
                 </ol>
             </div><!-- breadcrumbs end -->
@@ -44,36 +42,34 @@
                 <div class="carousel-inner"><!-- Wrapper for slides -->
 
 
-                    <div class="item active">
-                        <img src="{!! asset($slider->img_url) !!}" width="1140" height="400" alt="Image slide 3" />
-                        <div class="{!!$slider->slider_position !!}">
-                            <div class="caption-content">
-                                <h3 class="caption-title">{!! strip_tags($slider->slider_title) !!}</h3>
-                                <p>
-                                    {!!strip_tags($slider->slider_desc) !!}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    @if(count($sliders) != null) 
-                        @foreach($sliders as $slide)
-                        <div class="item">
-                            <img src="{!! asset($slide->img_url) !!}" width="1140" height="400" alt="Image slide 3" />
-                            <div class="{!!$slide->slider_position !!}">
+                        <div class="item active">
+                            <img src="{!! asset($slider->img_url) !!}" width="1140" height="400" alt="Image slide 3" />
+                            <div class="{!!$slider->slider_position !!}">
                                 <div class="caption-content">
-                                    <h3 class="caption-title">{!!$slide->slider_title !!}</h3>
+                                    <h3 class="caption-title">{!!$slider->slider_title !!}</h3>
                                     <p>
-                                        {!!$slide->slider_desc !!}
+                                        {!!$slider->slider_desc !!}
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        @endforeach 
+
+                    @if(count($sliders) != null)
+                        @foreach($sliders as $slide)
+                            <div class="item">
+                                <img src="{!! asset($slide->img_url) !!}" width="1140" height="400" alt="Image slide 3" />
+                                <div class="{!!$slide->slider_position !!}">
+                                    <div class="caption-content">
+                                        <h3 class="caption-title">{!!$slide->slider_title !!}</h3>
+                                        <p>
+                                            {!!$slide->slider_desc !!}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        @endforeach
                     @endif
-
-
 
 
                 </div><!-- Wrapper for slides end -->
@@ -171,7 +167,7 @@
                 {{--Newsletter--}}
                     <li class="widget-container widget_newsletter">
                         <!-- widget -->
-                        <h1 class="title-titan">NLP Group Newsletter</h1>
+                        <h1 class="title-titan">Lab Newsletter</h1>
                         @include('includes.alert')
                         <form role="search" method="post" class="newsletter-form" action="{!!route('subscriber.action')!!}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -210,7 +206,7 @@
                             <i class="custom-button-icon fa fa-check-square-o"></i>
                                 <span class="custom-button-wrap">
                                             <span class="custom-button-title">Apply For Membership?</span>
-                                <span class="custom-button-tagline">Join us whenever you feel its time!</span>
+                                <span class="custom-button-tagline">Join us when ever you feel it's time!</span>
                                 </span>
                             <em></em>
                         </a>
@@ -278,29 +274,28 @@
                         <h1 class="title-widget">Upcoming Events</h1>
 
                         <ul class="list-unstyled">
-                         @if($event->count() != 0)
-                            @foreach($event as $events)
-                                <li class="up-event-wrap">
+                            @if(count($event) != null)
+                                @foreach($event as $events)
+                                    <li class="up-event-wrap">
 
-                                    <h1 class="title-median"><a href="{!! route('labfront.event_single',$events->event_meta_data ) !!}" title="{!! Str::limit($events->event_title,20) !!}">{!! Str::limit($events->event_title,30) !!}</a></h1>
+                                        <h1 class="title-median"><a href="{!! route('labfront.event_single',$events->event_meta_data ) !!}" title="{!! Str::limit($events->event_title,20) !!}">{!! Str::limit($events->event_title,30) !!}</a></h1>
 
-                                    <div class="up-event-meta clearfix">
-                                        <div class="up-event-date">{!! \App\Event::fullDate($events->event_start) !!}</div>
-                                        <div class="up-event-date">{!! \App\Event::fullEndDate($events->event_end) !!}</div>
-                                        <div class="up-event-time">{!! \App\Event::fullTime($events->event_time) !!}</div>
-                                    </div>
+                                        <div class="up-event-meta clearfix">
+                                            <div class="up-event-date">{!! \App\Event::fullDate($events->event_start) !!}</div>
+                                            <div class="up-event-date">{!! \App\Event::fullEndDate($events->event_end) !!}</div>
+                                            <div class="up-event-time">{!! \App\Event::fullTime($events->event_time) !!}</div>
+                                        </div>
 
-                                    <p>
-                                        {!! Str::limit($events->event_details,100) !!}
-                                        <a href="{!! route('labfront.event_single',$events->event_meta_data ) !!}" class="moretag" title="read more">...MORE</a>
-                                    </p>
+                                        <p>
+                                            {!! Str::limit($events->event_details,100) !!}
+                                            <a href="{!! route('labfront.event_single',$events->event_meta_data ) !!}" class="moretag" title="read more">MORE</a>
+                                        </p>
 
-                                </li>
-                            @endforeach
-                         @else
-                           <p>No Event Found on Database </p>
-                          @endif 
-
+                                    </li>
+                                @endforeach
+                            @else
+                                <p>No Event Found on Database</p>
+                            @endif
                         </ul>
 
                     </li>
@@ -323,7 +318,9 @@
         <div class="col-lg-4 col-md-4">
             <!-- recent news wrapper -->
 
-            <div class="col-padded">
+            <div class="col-padded" style="
+    background: rgba(0,0,0,.075);
+">
                 <!-- inner custom column -->
 
                 <ul class="list-unstyled clear-margins">
@@ -335,33 +332,33 @@
                         <h1 class="title-widget">Lab News</h1>
 
                         <ul class="list-unstyled">
-                        @if($news->count() != 0)
-                            @foreach($news as $newsList)
-                            <li class="recent-news-wrap">
 
-                                <h1 class="title-median"><a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" title="{!! Str::limit($newsList->news_title,30) !!}">{!! Str::limit($newsList->news_title,30) !!}</a></h1>
+                            @if(count($news) != null)
+                                @foreach($news as $newsList)
+                                <li class="recent-news-wrap">
 
-                                <div class="recent-news-meta">
-                                    <div class="recent-news-date">{!! \App\News::fullDate($newsList->id) !!}</div>
-                                </div>
+                                    <h1 class="title-median"><a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" title="{!! Str::limit($newsList->news_title,30) !!}">{!! Str::limit($newsList->news_title,30) !!}</a></h1>
 
-                                <div class="recent-news-content clearfix">
-                                    <figure class="recent-news-thumb">
-                                        <a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" title="{!! Str::limit($newsList->news_title,30) !!}"><img src="{!! asset($newsList->news_image) !!}" class="attachment-thumbnail wp-post-image" alt="Thumbnail 1" />
-                                        </a>
-                                    </figure>
-                                    <div class="recent-news-text">
-                                        <p>
-                                            {!! Str::limit($newsList->news_details, 100) !!} <a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" class="moretag" title="read more">...MORE</a>
-                                        </p>
+                                    <div class="recent-news-meta">
+                                        <div class="recent-news-date">{!! \App\News::fullDate($newsList->id) !!}</div>
                                     </div>
-                                </div>
-                            </li>
-                            @endforeach
-                          @else
-                           <p>No News Found on Database </p>
-                          @endif    
 
+                                    <div class="recent-news-content clearfix">
+                                        <figure class="recent-news-thumb">
+                                            <a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" title="{!! Str::limit($newsList->news_title,30) !!}"><img src="{!! asset($newsList->news_image) !!}" class="attachment-thumbnail wp-post-image" alt="Thumbnail 1" />
+                                            </a>
+                                        </figure>
+                                        <div class="recent-news-text">
+                                            <p>
+                                                {!! Str::limit($newsList->news_details, 100) !!} <a href="{!! route('labfront.full_news',$newsList->news_meta_data ) !!}" class="moretag" title="read more">MORE</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endforeach
+                            @else
+                                <p>No News Found on Database</p>
+                            @endif
 
                         </ul>
 
@@ -395,11 +392,11 @@
                 <br>
                 <ul class="nav nav-tabs nav-justified">
                     <!-- starts tab controls -->
-                    <li class="active"><a href="#k-tab-download" data-toggle="tab">Projects</a>
+                    <li class="active"><a href="#k-tab-download" data-toggle="tab">Project</a>
                     </li>
-                    <li><a href="#k-tab-profile" data-toggle="tab">Papers</a>
+                    <li><a href="#k-tab-profile" data-toggle="tab">Publication</a>
                     </li>
-                    <li><a href="#k-tab-settings" data-toggle="tab">Blogs</a>
+                    <li><a href="#k-tab-settings" data-toggle="tab">Blog</a>
                     </li>
                 </ul>
                 <!-- ends tab controls -->
@@ -410,7 +407,7 @@
 
 
                     <div id="k-tab-download" class="tab-pane fade in active">
-
+                        @if(count($project) != null)
                             @foreach($project as $projectList)
                                 <div class="media">
                                     <div class="media-body">
@@ -423,6 +420,9 @@
                                     </div>
                                 </div>
                             @endforeach
+                        @else
+                            <p>No Project Found on Database</p>
+                        @endif
                     </div>
                     <!-- tab 1 ends -->
 
@@ -431,18 +431,22 @@
 
                     <div id="k-tab-profile" class="tab-pane fade">
                         <!-- tab 2 starts -->
-                        @foreach($paper as $papers)
-                            <div class="media">
-                                <div class="media-body">
-                                    <h5 class="media-heading"><a href="{!! route('labfront.paper_single',$papers->paper_meta_data ) !!}">
-                                            {!! Str::limit($papers->paper_title,30) !!} </a>
-                                    </h5>
-                                    <p>
-                                        {!!Str::limit($papers->paper_details,80) !!}
-                                    </p>
+                        @if(count($paper) != null)
+                            @foreach($paper as $papers)
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><a href="{!! route('labfront.paper_single',$papers->paper_meta_data ) !!}">
+                                                {!! Str::limit($papers->paper_title,30) !!} </a>
+                                        </h5>
+                                        <p>
+                                            {!!Str::limit($papers->paper_details,80) !!}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            <p>No Publication Found on Database</p>
+                        @endif
                     </div>
                     <!-- tab 2 ends -->
 
@@ -450,20 +454,23 @@
    {{--blogs--}}
                     <div id="k-tab-settings" class="tab-pane fade">
                         <!-- tab 3 starts -->
-                        @foreach($blog as $new)
-                            <div class="media">
-                                <a class="pull-left" href="javascript:;">
-                                    <img class=" " src="{!! asset($new->img_thumbnail) !!}" alt="">
-                                </a>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><a href="{!! route('labfront.blog_details',$new->meta_data) !!}">{!! \App\Blog::fullDate($new->id) !!} </a></h5>
-                                    <p>
-                                        {!! $new->title !!}
-                                    </p>
+                        @if(count($blog) != null)
+                            @foreach($blog as $new)
+                                <div class="media">
+                                    <a class="pull-left" href="javascript:;">
+                                        <img class=" " src="{!! asset($new->img_thumbnail) !!}" alt="">
+                                    </a>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><a href="{!! route('labfront.blog_details',$new->meta_data) !!}">{!! \App\Blog::fullDate($new->id) !!} </a></h5>
+                                        <p>
+                                            {!! $new->title !!}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
-
+                            @endforeach
+                        @else
+                            <p>No Blog Found on Database</p>
+                        @endif
                     </div>
                     <!-- tab 3 ends -->
     {{--blogs end--}}
@@ -481,13 +488,6 @@
 
 
 </div><!-- row end -->
-
-
-
-
-
-</div><!-- row end -->
-
 </div><!-- row end -->
 </div><!-- row end -->
 </div><!-- row end -->
