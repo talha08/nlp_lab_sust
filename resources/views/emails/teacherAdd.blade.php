@@ -92,7 +92,7 @@
 										Congratulation,  <b>{{ $user->name }}</b>.
 										You are added as a
 										@if($user->is_teacher ==1)
-											Supervisor
+											Faculty Member
 										@elseif($user->is_teacher ==5)
 											Visiting Scholar/ Industry Affiliates
 										@else
