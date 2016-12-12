@@ -294,7 +294,7 @@
                                     </li>
                                 @endforeach
                             @else
-                                <p>No Event Found on Database</p>
+                                <p>No Event To Display </p>
                             @endif
                         </ul>
 
@@ -357,7 +357,7 @@
                                 </li>
                                 @endforeach
                             @else
-                                <p>No News Found on Database</p>
+                                <p>No News To Display</p>
                             @endif
 
                         </ul>
@@ -421,7 +421,7 @@
                                 </div>
                             @endforeach
                         @else
-                            <p>No Project Found on Database</p>
+                            <p>No Project To Display</p>
                         @endif
                     </div>
                     <!-- tab 1 ends -->
@@ -445,7 +445,7 @@
                                 </div>
                             @endforeach
                         @else
-                            <p>No Publication Found on Database</p>
+                            <p>No Publication To Display</p>
                         @endif
                     </div>
                     <!-- tab 2 ends -->
@@ -469,7 +469,7 @@
                                 </div>
                             @endforeach
                         @else
-                            <p>No Blog Found on Database</p>
+                            <p>No Blog Found To Display</p>
                         @endif
                     </div>
                     <!-- tab 3 ends -->
