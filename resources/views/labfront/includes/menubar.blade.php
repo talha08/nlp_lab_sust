@@ -30,7 +30,7 @@
                     <li></li>
 
                     <li>
-                        <a href="{!!  route('labfront.index') !!}" title="home">Home</a>
+                        <a href="{!!  route('labfront.index') !!}" title="Home">Home</a>
                     </li>
 
 
@@ -48,7 +48,7 @@
                             <li>
                                 <a href="{!! route('labfront.student') !!}" class="Pages Collection" title="People">Members</a>
                                 <ul class="sub-menu">
-                                    <li><a href="{!! route('labfront.underStudent') !!}">Under Graduate</a></li>
+                                    <li><a href="{!! route('labfront.underStudent') !!}">UnderGraduate</a></li>
                                     <li><a href="{!! route('labfront.masterStudent') !!}">MS</a></li>
                                     <li><a style="text-transform:initial;" href="{!! route('labfront.student') !!}">PhD</a></li>
 
