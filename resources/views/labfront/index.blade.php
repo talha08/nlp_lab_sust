@@ -412,10 +412,10 @@
                                 <div class="media">
                                     <div class="media-body">
                                         <h5 class="media-heading"><a href="{!! route('labfront.project_single',$projectList->project_meta_data ) !!}">
-                                                {!! Str::limit($projectList->project_title,30) !!} </a>
+                                                {!! Str::limit( strip_tags($projectList->project_title),30) !!} </a>
                                         </h5>
                                         <p>
-                                            {!!Str::limit($projectList->project_details,80) !!}
+                                            {!!Str::limit(strip_tags($projectList->project_details),80) !!}
                                         </p>
                                     </div>
                                 </div>
@@ -436,10 +436,10 @@
                                 <div class="media">
                                     <div class="media-body">
                                         <h5 class="media-heading"><a href="{!! route('labfront.paper_single',$papers->paper_meta_data ) !!}">
-                                                {!! Str::limit($papers->paper_title,30) !!} </a>
+                                                {!! Str::limit( strip_tags($papers->paper_title),30) !!} </a>
                                         </h5>
                                         <p>
-                                            {!!Str::limit($papers->paper_details,80) !!}
+                                            {!!Str::limit( strip_tags($papers->paper_details),80) !!}
                                         </p>
                                     </div>
                                 </div>
@@ -463,7 +463,7 @@
                                     <div class="media-body">
                                         <h5 class="media-heading"><a href="{!! route('labfront.blog_details',$new->meta_data) !!}">{!! \App\Blog::fullDate($new->id) !!} </a></h5>
                                         <p>
-                                            {!! $new->title !!}
+                                            {!! strip_tags($new->title) !!}
                                         </p>
                                     </div>
                                 </div>
