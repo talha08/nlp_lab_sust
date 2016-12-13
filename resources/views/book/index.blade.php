@@ -45,7 +45,7 @@
 												<td>{!! $resource->id !!}</td>
 
 												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$resource->id}}" >{!!Str::limit($resource->resource_name,50) !!}</a></td>
-												{{--<td>{!!Str::limit($book->book_details,30) !!}</td>--}}
+												{{--<td>{!!Str::limit(strip_tags($book->book_details),30) !!}</td>--}}
 												<td>{!! $resource->resource_type !!}</td>
 												<td>{!! $resource->user->name !!}</td>
 												@if(Auth::user()->id == $resource->user->id)
@@ -76,10 +76,19 @@
 
 
 																<p>{{ $resource->resource_details}}</p>
+																
+                                                                 
+                                                                 @if($resource->resource_link1 != null)
+																	<p><b>Link - 1: </b><a class="" href="{!!$resource->resource_link1!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link1!!}</a></p><br/>
+																 @endif
+																  @if($resource->resource_link2 != null)
+																 	 <p><b>Link - 2: </b><a class="" href="{!!$resource->resource_link2!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link2!!}</a></p><br/>
+																  @endif
+																  @if($resource->resource_link3 != null)
+																	<p><b>Link - 3: </b><a class="" href="{!!$resource->resource_link3!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link3!!}</a></p><br/>
+ 																  @endif
 
-																<p><b>Link - 1: </b><a class="" href="{!!$resource->resource_link1!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link1!!}</a></p><br/>
-																<p><b>Link - 2: </b><a class="" href="{!!$resource->resource_link2!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link2!!}</a></p><br/>
-																<p><b>Link - 3: </b><a class="" href="{!!$resource->resource_link3!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link3!!}</a></p><br/>
+
 
 																@foreach($resource->resourceFile as $file)
 																	{!! $file->resource_file_title !!}
