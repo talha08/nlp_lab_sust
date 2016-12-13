@@ -71,7 +71,7 @@
 								</div>
 
 								<p>
-									{!! Str::limit($events->event_details,200) !!}
+									{!! Str::limit(strip_tags($events->event_details),200) !!}
 									  <a href="{!! route('labfront.event_single',$events->event_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
 								</p>
 
