@@ -194,9 +194,9 @@ class UserAddController extends Controller
                 ];
 
                 Mail::send('emails.teacherAdd', $datatopass, function ($m) use ($user) {
-                    $m->from('noreply@nlp.sust.edu', 'Membership At NLP Lab');
+                    $m->from('noreply@nlp.sust.edu', 'Membership At SUST NLP Research Group');
 
-                    $m->to($user->email, $user->name)->subject('Membership At NLP Research Lab!');
+                    $m->to($user->email, $user->name)->subject('Membership At SUST NLP Research Group!');
                 });
 
 
