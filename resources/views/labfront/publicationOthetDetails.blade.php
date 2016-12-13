@@ -75,14 +75,14 @@
 
 
 
-									@if(!empty(count($resource->resourceFile)) && Auth::user())
+									@if( $resource->resourceFile->count() != 0 && Auth::user())
 									<br/><h3>Resource Attachment:</h3>
-									@foreach($resource->resourceFile as $file)
-										{!! $file->resource_file_title !!}
-										<a class="btn btn-info btn-xs btn-archive" href="{!! $file->resource_file!!}" target="_blank">
-											<i class="fa fa-download" aria-hidden="true"></i>
-										</a><br><br/>
-									@endforeach
+										@foreach($resource->resourceFile as $file)
+											{!! $file->resource_file_title !!}
+											<a class="btn btn-info btn-xs btn-archive" href="{!! $file->resource_file!!}" target="_blank">
+												<i class="fa fa-download" aria-hidden="true"></i>
+											</a><br><br/>
+										@endforeach
 									@endif
 
 
