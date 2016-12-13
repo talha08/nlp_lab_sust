@@ -75,7 +75,7 @@
 															<div class="modal-body" >
 
 
-																<p>{{ strip_tags($resource->resource_details)}}</p>
+																<p>{!! strip_tags($resource->resource_details) !!}</p>
 
                                                                  
                                                                  @if($resource->resource_link1 != null)
