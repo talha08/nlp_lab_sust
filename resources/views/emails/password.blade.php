@@ -5,7 +5,7 @@
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Mail From SUST CSE NLP Research Group</title>
+	<title>Mail From SUST NLP Research Group</title>
 
 
 	<style type="text/css">
