@@ -101,7 +101,11 @@
 
 										<h1 class="title-titan">Image</h1>
 										<figure class="news-featured-image">
-											<img src="{!! asset($resource->resource_image_url) !!}" alt="Featured image 1" class="img-responsive" />
+											@if($resource->resource_image_url != null)
+												<img src="{!! asset($resource->resource_image_url) !!}" alt="Featured image 1" class="img-responsive" />
+											@else
+												<img src="{!! asset($resource->resource_image) !!}" alt="Featured image 1" class="img-responsive" />
+											@endif
 										</figure>
 
 									</li>
