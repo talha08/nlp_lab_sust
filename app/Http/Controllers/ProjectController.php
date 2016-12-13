@@ -129,7 +129,7 @@ class ProjectController extends Controller
         $project->is_founded = $request->is_founded;
         //$project->project_status = $request->project_status;
         $project->project_url = $request->project_url;
-        $project->project_meta_data =  str_slug($request->project_title);
+       // $project->project_meta_data =  str_slug($request->project_title);
 
         $language = implode(",", $request->project_language);
         $project->project_language = $language ;
