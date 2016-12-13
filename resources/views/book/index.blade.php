@@ -75,8 +75,8 @@
 															<div class="modal-body" >
 
 
-																<p>{{ $resource->resource_details}}</p>
-																
+																<p>{{ strip_tags($resource->resource_details)}}</p>
+
                                                                  
                                                                  @if($resource->resource_link1 != null)
 																	<p><b>Link - 1: </b><a class="" href="{!!$resource->resource_link1!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link1!!}</a></p><br/>
