@@ -60,7 +60,7 @@
 									@endif
 
 
-										@if(count($resource->resourceFile) != 0)
+										@if($resource->resourceFile->count() != 0)
 											<br/><h3>Resource Attachment:</h3>
 											@foreach($resource->resourceFile as $file)
 												{!! $file->resource_file_title !!}
@@ -101,7 +101,7 @@
 
 										<h1 class="title-titan">Image</h1>
 										<figure class="news-featured-image">
-											<img src="{!! asset($resource->resource_image) !!}" alt="Featured image 1" class="img-responsive" />
+											<img src="{!! asset($resource->resource_image_url) !!}" alt="Featured image 1" class="img-responsive" />
 										</figure>
 
 									</li>

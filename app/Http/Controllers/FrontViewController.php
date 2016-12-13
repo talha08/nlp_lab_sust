@@ -34,7 +34,7 @@ class FrontViewController extends Controller
 
     public function presentation(){
 
-        $resources = Resource::where('resource_type', 'presentation')->simplePaginate(5);
+         $resources = Resource::where('resource_type', 'presentation')->simplePaginate(5);
 
         return view('labfront.resource', compact('resources'))->with('title',"Resource | Presentation ");
     }
