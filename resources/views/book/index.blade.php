@@ -78,14 +78,17 @@
 																<p>{!! strip_tags($resource->resource_details) !!}</p>
 
                                                                  
+																<br><br>
+
                                                                  @if($resource->resource_link1 != null)
-																	<p><b>Link - 1: </b><a class="" href="{!!$resource->resource_link1!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link1!!}</a></p><br/>
+                                                                 File::
+																	<h4><b>Link - 1: </b><a class="" href="{!!$resource->resource_link1!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link1!!}</a></p><br/>
 																 @endif
 																  @if($resource->resource_link2 != null)
-																 	 <p><b>Link - 2: </b><a class="" href="{!!$resource->resource_link2!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link2!!}</a></p><br/>
+																 	 <h4><b>Link - 2: </b><a class="" href="{!!$resource->resource_link2!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link2!!}</a></p><br/>
 																  @endif
 																  @if($resource->resource_link3 != null)
-																	<p><b>Link - 3: </b><a class="" href="{!!$resource->resource_link3!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link3!!}</a></p><br/>
+																	<h4><b>Link - 3: </b><a class="" href="{!!$resource->resource_link3!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link3!!}</a></p><br/>
  																  @endif
 
 
