@@ -81,7 +81,7 @@
 																<br><br>
 
                                                                  @if($resource->resource_link1 != null)
-                                                                 File::
+                                                               		<h1>  File:: </h1><br>
 																	<h4><b>Link - 1: </b><a class="" href="{!!$resource->resource_link1!!}"  target="_blank" style="margin-right: 3px; color:teal;">{!!$resource->resource_link1!!}</a></p><br/>
 																 @endif
 																  @if($resource->resource_link2 != null)
