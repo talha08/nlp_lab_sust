@@ -124,16 +124,16 @@
 
 @section('style')
 	{!! Html::style('assets/tagsinput/jquery.tagsinput.css') !!}
-	{{--{!! Html::style('assets/select2/select2.css') !!}--}}
+	{!! Html::style('assets/select2/select2.css') !!}
 	{!! Html::style('assets/summernote/summernote.css') !!}
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+	<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> -->
 @stop
 
 
 @section('script')
 	{!! Html::script('assets/tagsinput/jquery.tagsinput.min.js') !!}
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-	{{--{!! Html::script('assets/select2/select2.min.js') !!}--}}
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> -->
+	{!! Html::script('assets/select2/select2.min.js') !!}
 	{!! Html::script('assets/summernote/summernote.min.js') !!}
 
 	<script type="text/javascript">
