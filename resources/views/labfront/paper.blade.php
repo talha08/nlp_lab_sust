@@ -57,7 +57,7 @@
 											</div>
 
 											<p>
-												{!! Str::limit($paper->paper_details,200) !!}
+												{!! Str::limit( strip_tags($paper->paper_details),200) !!}
 												<a href="{!! route('labfront.paper_single',$paper->paper_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
 											</p><br/>
 

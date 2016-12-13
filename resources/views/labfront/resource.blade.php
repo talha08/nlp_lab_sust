@@ -57,7 +57,7 @@
 											</div>
 
 											<p>
-												{!! Str::limit($resource->resource_details,200) !!}
+												{!! Str::limit( strip_tags($resource->resource_details),200) !!}
 												<a href="{!! route('labfront.resource_single',$resource->resource_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
 											</p><br/>
 

@@ -72,7 +72,7 @@
 											</div>
 
 											<p>
-												{!! Str::limit($project->project_details,200) !!}
+												{!! Str::limit( strip_tags($project->project_details),200) !!}
 												<a href="{!! route('labfront.project_single',$project->project_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
 											</p><br/>
 

@@ -55,7 +55,7 @@
 
 								<div class="news-body">
 
-									<p>{!! \Str::limit($new_blog->details,300) !!}</p><br>
+									<p>{!! \Str::limit(strip_tags($new_blog->details),300) !!}</p><br>
 									<a href="{!! route('labfront.blog_details',$new_blog->meta_data) !!} " class="btn btn-danger" >Continue Reading...</a>
 
 								</div>

@@ -73,7 +73,7 @@
 
 							<div class="news-summary">
 								<p>
-									{!! Str::limit($newsList->news_details, 200) !!} <a href="#" title="Read more" class="moretag">More</a>
+									{!! Str::limit( strip_tags($newsList->news_details), 200) !!} <a href="#" title="Read more" class="moretag">More</a>
 								</p>
 							</div>
 
