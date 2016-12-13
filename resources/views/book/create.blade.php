@@ -154,34 +154,34 @@
 				height: 40
 			});
 
-//			// Select2
-//			jQuery(".select2").select2({
-//				width: '100%'
-//			});
-//
-//			jQuery(".tag_list").select2({
-//				width: '100%'
-//				//tags: true
-//			});
+			// Select2
+			jQuery(".select2").select2({
+				width: '100%'
+			});
+
+			jQuery(".tag_list").select2({
+				width: '100%'
+				//tags: true
+			});
 
 
 
 		});
 
 
-		$('.select2').select2({
-			width: '100%',
-			theme: "classic"
+		// $('.select2').select2({
+		// 	width: '100%',
+		// 	theme: "classic"
 
-		});
+		// });
 
-				$('.tag_list').select2({
-					tags:true,
-					width: '100%',
-					theme: "classic",
-					placeholder: 'Choose Tag or Insert New'
+		// $('.tag_list').select2({
+		// 	tags:true,
+		// 	width: '100%',
+		// 	theme: "classic",
+		// 	placeholder: 'Choose Tag or Insert New'
 
-				});
+		// });
 	</script>
 
 
