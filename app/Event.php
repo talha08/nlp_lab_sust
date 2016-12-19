@@ -9,7 +9,7 @@ class Event extends Model
     protected $table='events';
 
 
-    //protected $dates = ['event_start','event_end'];
+    //protected $dates = ['event_start'];
 
 
     //parse created_at date and return full date

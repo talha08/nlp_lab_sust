@@ -45,7 +45,7 @@
 
 
 								<div class="news-body clearfix">
-									<p>{!! $paper->paper_details !!}</p><br/><br/>
+									<p>{!! strip_tags($paper->paper_details) !!}</p><br/><br/>
 
 
 

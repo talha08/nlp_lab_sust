@@ -163,6 +163,14 @@
 
 <!-- {!! Html::script('labfront/js/jquery.sticky.js') !!} -->
 
+
+<script type="text/javascript">
+    $(window).load(function() {
+        $(".loader").fadeOut("slow");
+    })
+</script>
+
+
 <style>
     .copy-text{
         color:white ;

@@ -30,7 +30,21 @@ class LabFrontController extends Controller
     //Home PAGE
     /*==================================================*/
     public function index(){
-        $event = Event::take(3)->orderBy('id','desc')->get();
+      
+       $event = Event::take(3)->orderBy('id','desc')->get();
+
+       // foreach ($event as $events) {
+       //   $today =Carbon::now()->formatLocalized('%m/%d/%Y'); //day date month year 
+       //      $format = "m/d/y";
+       //      $date1  = \DateTime::createFromFormat($format, $events->event_start);
+       //      $date2  = \DateTime::createFromFormat($format, $today);
+       //      var_dump($date1 > $date1) ;
+       // }
+       
+
+
+
+
         $news = News::take(3)->orderBy('id','desc')->get();
 
         $blog= Blog::take(4)->orderBy('id','desc')->get();
