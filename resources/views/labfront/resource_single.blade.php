@@ -45,7 +45,7 @@
 											for($i=0; $i<count($myArray);$i++){
 												//echo $myArray[$i]."<br/>";
 												//echo '<div class="tags"><a href="#" class="tag">'.$myArray[$i].'</a></div>';
-												echo '<a class="tag1">'.$myArray[$i].'</a>';
+												echo $myArray[$i];
 											}
 										?>
 
