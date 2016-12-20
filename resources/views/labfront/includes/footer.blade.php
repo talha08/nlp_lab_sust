@@ -164,10 +164,19 @@
 <!-- {!! Html::script('labfront/js/jquery.sticky.js') !!} -->
 
 
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+
 <script type="text/javascript">
+
+//paste this code under the head tag or in a separate js file.
+    // Wait for window load
     $(window).load(function() {
-        $(".loader").fadeOut("slow");
-    })
+        // Animate loader off screen
+         $(".se-pre-con").fadeOut("slow");
+         $('#preloader').delay(3500).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+         $('body').delay(350).css({'overflow':'visible'});
+    });
 </script>
 
 
