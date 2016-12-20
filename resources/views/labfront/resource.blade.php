@@ -52,7 +52,20 @@
 											<h1 class="title-median"><a href="{!! route('labfront.resource_single',$resource->resource_meta_data ) !!}" title="{!! $resource->resource_name !!}">{!! $resource->resource_name !!}</a></h1>
 
 											<div class="up-event-meta clearfix">
-												<div class="up-event-time">Added By - {!! $resource->user->name !!}</div>
+												<div class="up-event-time">By - 
+													 <?php
+														$myString = $resource->resource_author;
+														$myArray = explode(',', $myString);
+														//print_r($myArray[1]);
+														for($i=0; $i<count($myArray);$i++){
+															//echo $myArray[$i]."<br/>";
+															//echo '<div class="tags"><a href="#" class="tag">'.$myArray[$i].'</a></div>';
+															echo $myArray[$i];
+														}
+													  ?>
+
+											</div>
+
 												<div class="up-event-date">{!! $resource->resource_type !!}</div>
 											</div>
 
