@@ -35,7 +35,22 @@
 									<h1 class="page-title">{!! $resource->resource_name !!}</h1>
 
 									<div class="up-event-meta clearfix">
-										<div class="up-event-time">Added By - {!! $resource->user->name !!}</div>
+										<div class="up-event-time">BY -
+										
+
+										 <?php
+											$myString = $resource->resource_author;
+											$myArray = explode(',', $myString);
+											//print_r($myArray[1]);
+											for($i=0; $i<count($myArray);$i++){
+												//echo $myArray[$i]."<br/>";
+												//echo '<div class="tags"><a href="#" class="tag">'.$myArray[$i].'</a></div>';
+												echo '<a class="tag">'.$myArray[$i].'</a>';
+											}
+										?>
+
+
+										</div>
 										<div class="up-event-date">{!! $resource->resource_type !!}</div>
 									</div>
 
@@ -61,9 +76,9 @@
 
 
 										@if($resource->resourceFile->count() != 0)
-											<br/><h3>Resource Attachment:</h3>
+											<br/><h5>Resource Attachment:</h3>
 											@foreach($resource->resourceFile as $file)
-												{!! $file->resource_file_title !!}
+													<em>{!! $file->resource_file_title !!}</em>
 												<a class="btn btn-info btn-xs btn-archive" href="{!! $file->resource_file!!}" target="_blank">
 													<i class="fa fa-download" aria-hidden="true"></i>
 												</a><br><br/>
