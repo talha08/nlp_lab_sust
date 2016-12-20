@@ -175,7 +175,7 @@
         // Animate loader off screen
          $(".se-pre-con").fadeOut("slow");
          // $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
-          $('body').delay(350).css({'overflow':'visible'});
+          $('body').delay(150).css({'overflow':'visible'});
     });
 </script>
 
