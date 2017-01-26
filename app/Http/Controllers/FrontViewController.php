@@ -98,7 +98,9 @@ class FrontViewController extends Controller
         try{
             $resource = Resource::where('resource_meta_data','=',$meta_data)->first();
 
-            return view('labfront.resource_single', compact('resource'))->with('title',  $resource->resource_name );
+$resource->resource_author
+
+            return view('labfront.resource_single', compact('resource'))->with('title',  $resource->resource_name. " By- " . $resource->resource_author );
         }catch(\Exception $e){
             return "Sorry, Page not Found ";
         }
