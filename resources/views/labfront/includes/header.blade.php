@@ -16,7 +16,7 @@
 	 -->
 	 
     <meta name="author" content="NLP Group">
-    <meta name="keyword" content="Sust,Natarul Language Processing,Lab,Cse,Sylhet, 
+    <meta name="keyword" content="Sust,Natarul Language Processing,Lab,NLP Group,Cse,Sylhet, 
     Event, News, Bangladesh, Award, Contest, Thesis
     SUST NLP, sust nlp, nlp.sust.edu, 
     ">
