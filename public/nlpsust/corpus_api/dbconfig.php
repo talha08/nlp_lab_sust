@@ -5,7 +5,7 @@ class Database
     private $host = "localhost";
     private $db_name = "id704181_corpus";
     private $username = "root";
-    private $password = "";
+    private $password = "intranet#255";
     public $conn;
      
     public function dbConnection()
