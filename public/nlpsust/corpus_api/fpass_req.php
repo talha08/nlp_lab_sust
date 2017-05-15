@@ -24,10 +24,10 @@ $pass_word = "   ";
 
 include('db_con.php');
 
-if(!class_exists('PHPMailer')) {
+//if(!class_exists('PHPMailer')) {
     require('PHPMailer/class.phpmailer.php');
    require('PHPMailer/class.smtp.php');
-}
+//}
 
 require_once("mail_configuration.php");
 
