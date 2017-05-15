@@ -1,0 +1,110 @@
+<!DOCTYPE>
+<html>
+
+
+<head>
+<div class = "center">
+<link rel="stylesheet" href="styles.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <!-- jQuery -->
+  <style type="text/css">
+  body{width:50%;}
+  .email{width: 60%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid grey;
+    border-radius: 2px;}
+.user-available{color:#2FC332;}
+.user-not-available{color:#D60202;}
+.mail-status{color:#D60202;}
+  </style>
+<script src="js/jquery-3.1.1.js"></script>
+
+<!-- The following jQuery code would check whether the username is available or not -->
+<script>
+
+function checkEmail() {
+  $("#loaderIcon").show();
+  jQuery.ajax({
+  url: "signup/check_email.php",
+  data:'email='+$("#email").val(),
+  type: "POST",
+  success:function(data){
+    $("#email-availability-status").html(data);
+    $("#loaderIcon").hide();
+  },
+  error:function (){}
+  });
+}
+
+function checkUsername() {
+  $("#loaderIcon").show();
+  jQuery.ajax({
+  url: "signup/check_username.php",
+  data:'username='+$("#username").val(),
+  type: "POST",
+  success:function(data){
+    $("#user-availability-status").html(data);
+    $("#loaderIcon").hide();
+  },
+  error:function (){}
+  });
+}
+</script>
+<script>
+function checkPass()
+{
+  document.getElementById("button").disabled = true ;
+    //Store the password field objects into variables ...
+    var pass1 = document.getElementById('password1');
+    var pass2 = document.getElementById('password2');
+    //Store the Confimation Message Object ...
+    var message = document.getElementById('confirmMessage');
+    //Set the colors we will be using ...
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    //Compare the values in the password field 
+    //and the confirmation field
+    if(pass1.value == pass2.value){
+      document.getElementById("button").disabled = false ;
+        //The passwords match. 
+        //Set the color to the good color and inform
+        //the user that they have entered the correct password 
+        pass2.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "Passwords Match!"
+    }else{
+        //The passwords do not match.
+        //Set the color to the bad color and
+        //notify the user.
+        pass2.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "Passwords Do Not Match!"
+    }
+}  
+
+</script>
+<!--End of script.-->
+</head>
+<body>
+  <h1> Signup form </h1>
+<form action="signup.php" method = "post" accept-charset="utf-8">
+  <input class = "text_input" type="text" name="name" placeholder="Full Name" required><br>
+  <input class = "text_input" type="text" name="username" id="username" placeholder="Username" autocomplete="off" onkeyup="checkUsername(); " required><br><span id="user-availability-status"></span><br>
+  <input class = "password_input" type="password" name="password1" id = "password1" placeholder="Password" required><br>
+  <input class = "password_input" type="password" name="password2" id = "password2" placeholder="Confirm Password" onkeyup="checkPass();" required><br>
+  <input class = "text_input" type="text" name="email" class="email" id="email" onkeyup="checkEmail();" required placeholder="E-mail(e.g. example@example.edu)" autocomplete="off"><br>
+  <span id="email-availability-status"></span>
+ 
+ <h3> <button type ="submit" id="button" class ="button button1 " >Create Account</button></h3> 
+ </form>
+ 
+<h3> <button class ="button button1 "><a href="index.php">Home</button></a></h3>
+  
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE>
+<html>
+
+
+<head>
+<div class = "center">
+<link rel="stylesheet" href="styles.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <!-- jQuery -->
+  <style type="text/css">
+  body{width:50%;}
+  .email{width: 60%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid grey;
+    border-radius: 2px;}
+.status-available{color:#2FC332;}
+.status-not-available{color:#D60202;}
+  </style>
+<script src="js/jquery-3.1.1.js"></script>
+
+<!-- The following jQuery code would check whether the username is available or not -->
+<script>
+
+function checkEmail() {
+  $("#loaderIcon").show();
+  jQuery.ajax({
+  url: "avail_check/check_availability.php",
+  data:'email='+$("#email").val(),
+  type: "POST",
+  success:function(data){
+    $("#user-availability-status").html(data);
+    $("#loaderIcon").hide();
+  },
+  error:function (){}
+  });
+}
+
+function checkUsername() {
+  $("#loaderIcon").show();
+  jQuery.ajax({
+  url: "avail_check/check_availability.php",
+  data:'username='+$("#username").val(),
+  type: "POST",
+  success:function(data){
+    $("#user-availability-status").html(data);
+    $("#loaderIcon").hide();
+  },
+  error:function (){}
+  });
+}
+
+</script>
+<!--End of script.-->
+</head>
+<body>
+  <h1> Signup form </h1>
+<form action="signup.php" method = "post" accept-charset="utf-8">
+  <input class = "text_input" type="text" name="name" placeholder="Full Name"><br>
+  <input class = "text_input" type="text" name="username" id="user_name" placeholder="Username">
+  <input class = "password_input" type="password" name="password1" placeholder="Password"><br>
+  <input class = "password_input" type="password" name="password2" placeholder="Confirm Password"><br>
+  <input class = "text_input" type="text" name="email" class="email" id="email" onkeyup="checkEmail();" placeholder="E-mail(e.g. example@example.edu)"><br>
+  <span id="user-availability-status"></span>
+ 
+ <h3> <button type ="submit" class ="button button1 " >Create Account</button></h3> 
+ </form>
+ <br>
+ <br>
+<h3> <button class ="button button1 "><a href="index.php">Home</button></a></h3>
+  
+
+</div>
+
+</body>
+
+</html>

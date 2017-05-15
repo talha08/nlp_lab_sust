@@ -1,0 +1,16 @@
+<!DOCTYPE>
+<html>
+<script type="text/javascript">
+function insertReply(content) {
+    document.getElementById('output').innerHTML = content;
+}
+
+// create script element
+var script = document.createElement('script');
+// assing src with callback name
+script.src = 'http://localhost/api.php/?callback=insertReply';
+// insert script to document and load content
+document.body.appendChild(script);
+</script>
+
+</html>

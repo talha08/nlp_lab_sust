@@ -1,0 +1,38 @@
+<!DOCTYPE>
+<html>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "corpus";
+
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if (mysqli_connect_errno())
+{
+echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+$sql_must="SET NAMES utf8";
+$conn->query($sql_must);
+
+$result = mysqli_query($conn,"SELECT english ,bangla FROM e2b;");
+
+echo "<table border='1'>
+<tr>
+<th>English</th>
+<th>Bangla</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>" . $row['english'] . "</td>";
+echo "<td>" . $row['bangla'] . "</td>";
+echo "</tr>";
+}
+echo "</table>";
+
+mysqli_close($conn);
+?>
+</html>
