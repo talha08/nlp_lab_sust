@@ -20,10 +20,10 @@ $name=$_COOKIE["name"];
 $token=$_COOKIE["token"];
 $email=$_COOKIE["email"];
 
-if(!class_exists('PHPMailer')) {
+//if(!class_exists('PHPMailer')) {
     require('PHPMailer/class.phpmailer.php');
 	require('PHPMailer/class.smtp.php');
-}
+//}
 
 require_once("mail_configuration.php");
 
