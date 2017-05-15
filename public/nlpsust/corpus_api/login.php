@@ -11,6 +11,7 @@ if($_SESSION["logged_in"] === true)
 <html>
 
 <head>
+	<title>API for English-Bengali Bilingual Corpus</title>
 <style>
 	/* unvisited link */
 a:link {
