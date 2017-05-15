@@ -7,6 +7,6 @@ define("MAIL_PASSWORD", "134679258"); // smtp password
 define("MAIL_HOST", "smtp.gmail.com"); // smtp host
 define("MAILER", "smtp");
 
-define("SENDER_NAME", "Admin");
+define("SENDER_NAME", "NLP Group SUST (API for English-Bengali Bilingual Corpus)");
 define("SERDER_EMAIL", "cse343project@gmail.com");
 ?>
