@@ -2,7 +2,7 @@
 class DBController {
 	private $host = "localhost";
 	private $user = "root";
-	private $password = "";
+	private $password = "intranet#255";
 	private $database = "id704181_corpus";
 	
 	function __construct() {
