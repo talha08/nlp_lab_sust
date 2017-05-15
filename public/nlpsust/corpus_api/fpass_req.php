@@ -36,8 +36,8 @@ $mail = new PHPMailer();
 $email=$_POST['email'];
 //echo ".".$email.".";
 
-$count = "SELECT COUNT(*) FROM user_details WHERE email_id='" . $email . "'";
-  $result = mysql_query($count);
+//$count = "SELECT COUNT(*) FROM user_details WHERE email_id='" . $email . "'";
+ // $result = mysql_query($count);
   //$row = mysql_fetch_row($result);
   $sql="SELECT * FROM user_details WHERE email_id='" . $email . "'";
   $result = $conn->query($sql);
