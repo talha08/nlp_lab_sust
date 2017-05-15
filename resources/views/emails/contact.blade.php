@@ -116,7 +116,7 @@ $date_time = date("F j, Y, g:i a");
 
                                         <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                                             <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-                                                <a href="{!! URL::route('labfront.index')!!}" class="btn btn-primary" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; color: #FFF; text-decoration: none; line-height: 2em; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 5px; text-transform: capitalize; background-color: #6e8cd7; margin: 0; border-color: #6e8cd7; border-style: solid; border-width: 10px 20px;">Data Science Lab, CSE, SUST</a>
+                                                <a href="{!! URL::route('labfront.index')!!}" class="btn btn-primary" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; color: #FFF; text-decoration: none; line-height: 2em; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 5px; text-transform: capitalize; background-color: #6e8cd7; margin: 0; border-color: #6e8cd7; border-style: solid; border-width: 10px 20px;">NLP Research Group, CSE, SUST</a>
                                             </td>
                                         </tr>
 
