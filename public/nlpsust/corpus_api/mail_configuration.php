@@ -1,5 +1,5 @@
 <?php
-define("PROJECT_HOME","http://localhost/corpus_api");
+define("PROJECT_HOME","http://nlp.sust.edu/nlpsust/corpus_api");
 
 define("PORT", "465"); // port number
 define("MAIL_USERNAME", "cse343project@gmail.com"); // smtp usernmae
