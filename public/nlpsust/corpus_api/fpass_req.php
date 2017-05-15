@@ -25,8 +25,8 @@ $pass_word = "   ";
 include('db_con.php');
 
 if(!class_exists('PHPMailer')) {
-    require('phpmailer/class.phpmailer.php');
-   require('phpmailer/class.smtp.php');
+    require('PHPMailer/class.phpmailer.php');
+   require('PHPMailer/class.smtp.php');
 }
 
 require_once("mail_configuration.php");
