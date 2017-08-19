@@ -71,6 +71,10 @@ class UsersController extends Controller
         $id = Input::get('id');
         $user = User::where('status', 1)->where('is_teacher','=',1)->orderBy('rank')->get();
         $t = [];
+        for($i=0; $i<sizeof($id); $i++)
+        {
+            $t[$i] = 0;
+        }
         foreach ($id as $i=>$a)
         {
             $t[$a] = $i;
