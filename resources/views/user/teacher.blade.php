@@ -103,8 +103,8 @@
 				</div>
 				<div class="modal-body">
 					<ul class='sortable list-group' style="list-style:none;">
-						@foreach($user as $u)
-							<li class="list-group-item" id="id_{{ $u->rank }}">{!! $u->name !!}</li>
+						@foreach($user as $key=>$u)
+							<li class="list-group-item" id="id_{{ $key }}">{!! $u->name !!}</li>
 						@endforeach
 					</ul>
 				</div>
