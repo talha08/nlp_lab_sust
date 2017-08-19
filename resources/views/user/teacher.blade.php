@@ -1,6 +1,11 @@
 @extends('layouts.default')
 @section('content')
 
+<style>
+    .ui-sortable-helper {
+        display: table;
+    }
+</style>
 	<div class="row">
 		<div class="col-lg-12">
 			@include('includes.alert')
@@ -13,14 +18,16 @@
 
 						<div class="panel-heading">
 
-							<h3 class="panel-title">{!!$title!!}</h3>
+							<h3 class="panel-title" style="margin: 10px" type="button" data-toggle="modal" data-target="#sortit">
+								{!!$title!!}
+								<button class="btn btn-primary pull-right">Change Order</button>
+							</h3>
 
 
-						</div><br>
-
-
+						</div>
 
 						<div class="panel-body">
+
 							<div class="row">
 								<div class="col-md-12 col-sm-12 col-xs-12">
 
@@ -34,13 +41,13 @@
 											<th>Delete</th>
 										</tr>
 										</thead>
-										<tbody>
-										@foreach ($user as $users)
+										<tbody >
+										@foreach ($user as $i=> $users)
 											<tr>
-												<td>{!! $users->id !!}</td>
+												<td>{!! $users->rank !!}</td>
 												<td><a style="color: teal;" href="{!!route('user.profile',$users->id)!!}"  >{!! $users->name !!}</a>
 												<td>{!! $users->email !!}</td>
-												<td>{!! \Carbon\Carbon::now()->diffForHumans($users->created_at) !!}</td>
+												<td>{!! \Carbon\Carbon::parse($users->created_at)->diffForHumans(\Carbon\Carbon::now()) !!}</td>
 												<td><a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $users->id!!}"><i class="ion-trash-a" aria-hidden="true"></i></a></td>
 											</tr>
 										@endforeach
@@ -83,6 +90,34 @@
 	</div>
 
 
+
+	<!-- Sortable Modal -->
+	<div id="sortit" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Change Order</h4>
+				</div>
+				<div class="modal-body">
+					<ul class='sortable list-group' style="list-style:none;">
+						@foreach($user as $u)
+							<li class="list-group-item" id="id_{{ $u->rank }}">{!! $u->name !!}</li>
+						@endforeach
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button class="btn btn-success" id="update">Update</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
 @stop
 
 
@@ -90,25 +125,15 @@
 
 	{!! Html::style('assets/datatables/jquery.dataTables.min.css') !!}
 
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
 @stop
 
 @section('script')
 
 	{!! Html::script('assets/datatables/jquery.dataTables.min.js') !!}
 	{!! Html::script('assets/datatables/dataTables.bootstrap.js') !!}
-
-
-
-
-	//for Datatable
-	<script type="text/javascript">
-
-		$(document).ready(function() {
-			$('#datatable').dataTable();
-		});
-	</script>
-
-
 
 	<script type="text/javascript" charset="utf-8">
 		$(document).ready(function() {
@@ -121,6 +146,19 @@
 
 		});
 	</script>
+
+
+
+	{{--SCRIPT ONLY FOR THIS PAGE SORTABLE + DATATABLE--}}
+	{{--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>--}}
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="js/sortable.js"></script>
+	<script >
+        $(document).ready(function () {
+            sortableAndDatatable('{{csrf_token()}}')
+        });
+    </script>
+	{{--SCRIPT ONLY FOR THIS PAGE--}}
 
 
 @stop

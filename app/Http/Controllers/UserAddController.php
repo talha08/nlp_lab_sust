@@ -38,12 +38,9 @@ class UserAddController extends Controller
             '8' => 'Visiting Scholar',
             '9' => 'Industry Affiliates',
         ];
-        return view('auth.userAdd',compact('order'))
+        return view('auth.userAdd', compact('order'))
             ->with('title', 'Add Teacher, Student, Visiting Scholar, Industry Affiliates ');
     }
-
-
-
 
 
     /**
@@ -63,71 +60,58 @@ class UserAddController extends Controller
         $user->order = $request->order;
 
 
-
-        if($request->order == 1 ){      //professor
+        if ($request->order == 1) {      //professor
             $user->is_teacher = 1;
-        }
-        elseif($request->order == 2){    //associate pro
+        } elseif ($request->order == 2) {    //associate pro
             $user->is_teacher = 1;
-        }
-        elseif($request->order == 3){   //assistant pro
+        } elseif ($request->order == 3) {   //assistant pro
             $user->is_teacher = 1;
-        }
-        elseif($request->order == 4 ){      //lecturer
+        } elseif ($request->order == 4) {      //lecturer
             $user->is_teacher = 1;
-        }
-        elseif($request->order == 8){   //visiting scholars
+        } elseif ($request->order == 8) {   //visiting scholars
             $user->is_teacher = 5;
-        }
-        elseif($request->order == 9){   //  industry affiliates
+        } elseif ($request->order == 9) {   //  industry affiliates
             $user->is_teacher = 5;
-        }
-        else{
+        } else {
             $user->is_teacher = 0;     // students
         }
 
 
-
-        $passwordRandom = 'user'.rand(234574,315457);
+        $passwordRandom = 'user' . rand(234574, 315457);
         $user->password = \Hash::make($passwordRandom);
         $user->password = \Hash::make('a');
 
-        if($user->save()){
+        if ($user->save()) {
 
-            if($request->order == 1 ){
+            if ($request->order == 1) {
                 $profile = new Teacher();
                 $profile->user_id = $user->id;
                 $profile->position = "Professor";
 
                 $role = Role::find(1);  //role attach 1
                 $user->attachRole($role);
-            }
-            elseif($request->order == 2 ){
+            } elseif ($request->order == 2) {
                 $profile = new Teacher();
                 $profile->user_id = $user->id;
                 $profile->position = "Associate Professor";
 
                 $role = Role::find(1);  //role attach 1
                 $user->attachRole($role);
-            }
-            elseif($request->order == 3 ){
+            } elseif ($request->order == 3) {
                 $profile = new Teacher();
                 $profile->user_id = $user->id;
                 $profile->position = "Assistant Professor";
 
                 $role = Role::find(1);  //role attach 1
                 $user->attachRole($role);
-            }
-            elseif($request->order == 4 ){
+            } elseif ($request->order == 4) {
                 $profile = new Teacher();
                 $profile->user_id = $user->id;
                 $profile->position = "Lecturer";
 
                 $role = Role::find(1);  //role attach 1
                 $user->attachRole($role);
-            }
-
-            elseif($request->order == 5){
+            } elseif ($request->order == 5) {
                 $profile = new Student();
                 $profile->user_id = $user->id;
                 $profile->position = "Undergraduate Student";
@@ -135,7 +119,7 @@ class UserAddController extends Controller
 
                 $role = Role::find(2);  //role attach 2
                 $user->attachRole($role);
-            } elseif($request->order == 6){
+            } elseif ($request->order == 6) {
                 $profile = new Student();
                 $profile->user_id = $user->id;
                 $profile->position = "Masters Student";
@@ -143,8 +127,7 @@ class UserAddController extends Controller
 
                 $role = Role::find(2);  //role attach 2
                 $user->attachRole($role);
-            }
-            elseif($request->order == 7){
+            } elseif ($request->order == 7) {
                 $profile = new Student();
                 $profile->user_id = $user->id;
                 $profile->position = "Phd Student";
@@ -152,8 +135,7 @@ class UserAddController extends Controller
 
                 $role = Role::find(2);  //role attach 2
                 $user->attachRole($role);
-            }
-            elseif($request->order == 8 ){
+            } elseif ($request->order == 8) {
                 $profile = new OtherUser();
                 $profile->user_id = $user->id;
                 $profile->user_type = 'Scholar';
@@ -162,8 +144,7 @@ class UserAddController extends Controller
 
                 $role = Role::find(2);  //role attach 2
                 $user->attachRole($role);
-            }
-            elseif($request->order == 9 ){
+            } elseif ($request->order == 9) {
                 $profile = new OtherUser();
                 $profile->user_id = $user->id;
                 $profile->user_type = 'Affiliates';
@@ -172,8 +153,7 @@ class UserAddController extends Controller
 
                 $role = Role::find(2);  //role attach 2
                 $user->attachRole($role);
-            }
-            else{
+            } else {
                 $profile = new Student();
                 $profile->user_id = $user->id;
                 $profile->position = "Student";
@@ -182,9 +162,7 @@ class UserAddController extends Controller
                 $user->attachRole($role);
             }
 
-            if($profile->save()){
-
-
+            if ($profile->save()) {
 
 
                 $datatopass = [
@@ -201,21 +179,18 @@ class UserAddController extends Controller
 
 
                 return redirect()->route('auth.userAdd')
-                    ->with('success','User Add Successfully and a Mail sent to him/her');
+                    ->with('success', 'User Add Successfully and a Mail sent to him/her');
 
-            }else{
+            } else {
                 User::destroy($user->id);
                 return redirect()->back()
-                    ->with('error','Something went wrong.Please Try again.');
+                    ->with('error', 'Something went wrong.Please Try again.');
             }
-        }else{
+        } else {
             return redirect()->back()
-                ->with('error',"Something went wrong.Please Try again.");
+                ->with('error', "Something went wrong.Please Try again.");
         }
     }
-
-
-
 
 
 }

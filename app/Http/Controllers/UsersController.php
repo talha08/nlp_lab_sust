@@ -14,6 +14,7 @@ use Hash;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Role;
+use Input;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class UsersController extends Controller
@@ -59,10 +60,33 @@ class UsersController extends Controller
      */
     public function teacher()
     {
-        $user = User::where('status', 1)->where('is_teacher','=',1)->get();
+        $user = User::where('status', 1)->where('is_teacher','=',1)->orderBy('rank')->get();
         return view('user.teacher', compact('user'))
             ->with('title', 'All Teacher List');
     }
+
+    public function teacherSort()
+    {
+//        return Input::all();
+        $id = Input::get('id');
+        $user = User::where('status', 1)->where('is_teacher','=',1)->orderBy('rank')->get();
+        $t = [];
+        foreach ($id as $i=>$a)
+        {
+            $t[$a] = $i;
+        }
+        foreach ($user as $i=> $a)
+        {
+            $u = User::findOrFail($a->id);
+            $u->rank = $t[$i];
+            $u->save();
+        }
+        $user = User::where('status', 1)->where('is_teacher','=',1)->orderBy('rank')->get();
+        return "DONE";
+
+    }
+
+
 
 
     /**
