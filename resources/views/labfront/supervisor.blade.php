@@ -53,7 +53,7 @@
 														{{--<small>Teacher</small>--}}
 													</a></h4>
 
-												<div class="leadership-position">Member Since {!! Carbon\Carbon::now()->diffForHumans($users->created_at) !!} </div>
+												<div class="leadership-position">Member Since {!! Carbon\Carbon::parse($users->created_at)->diffForHumans(\Carbon\Carbon::now()) !!} </div>
 
 												<p class="leadership-bio">
 													{!! $users->teachers->position !!},<small> {!! $users->teachers->organization !!}</small> <br>

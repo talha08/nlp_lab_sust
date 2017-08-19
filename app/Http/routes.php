@@ -215,7 +215,6 @@ Route::get('home/news/{meta_data}', array('as' => 'labfront.full_news', 'uses' =
 Route::get('people/faculty', array('as' => 'labfront.supervisor', 'uses' => 'LabFrontController@supervisor'));
 Route::get('people/alumni', array('as' => 'labfront.alumni', 'uses' => 'LabFrontController@alumni'));
 
-//===================================================================================
 Route::get('people/members/scholar', array('as' => 'labfront.scholar', 'uses' => 'LabFrontController@userScholar'));
 Route::get('people/members/affiliates', array('as' => 'labfront.affiliates', 'uses' => 'LabFrontController@userAffiliates'));
 Route::get('people/members/undergraduates', array('as' => 'labfront.underStudent', 'uses' => 'LabFrontController@undergraduatesStudents'));
