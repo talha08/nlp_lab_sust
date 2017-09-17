@@ -106,7 +106,7 @@
                             <li><a href="{!! route('labfront.resource') !!}" title="Events">Software</a></li>
                             <li><a href="{!! route('labfront.tutorial') !!}" title="Events">Tutorial</a></li>
                             <li><a href="{!! route('labfront.presentation') !!}" title="Events">Presentation</a></li>
-                            <li><a href="{!! route('resource') !!}" title="Events">Books</a></li>
+                            <li><a href="{!! route('labfront.book') !!}" title="Events">Books</a></li>
                         </ul>
                     </li>
 

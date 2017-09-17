@@ -239,7 +239,7 @@ Route::get('home/publication/{meta_data}', array('as' => 'labfront.paper_single'
 Route::get('home/paper/request-paper', array('as' => 'labfront.paperRequest', 'uses' => 'LabFrontController@sendAuthorForPaper'));
 Route::get('home/journal', array('as' => 'labfront.journal', 'uses' => 'LabFrontController@journal'));
 Route::get('home/conference', array('as' => 'labfront.conference', 'uses' => 'LabFrontController@conference'));
-Route::get('home/resources', array('as' => 'labfront.resources', 'uses' => 'LabFrontController@resources'));
+Route::get('home/books', array('as' => 'labfront.books', 'uses' => 'LabFrontController@books'));
 Route::post('home/search/publication', array('as' => 'labfront.searchPublication', 'uses' => 'LabFrontController@publicationSearch'));
 
 
@@ -248,7 +248,7 @@ Route::post('home/search/publication', array('as' => 'labfront.searchPublication
 Route::get('home/resource/software', array('as' => 'labfront.resource', 'uses' => 'FrontViewController@software'));
 Route::get('home/resource/tutorial', array('as' => 'labfront.tutorial', 'uses' => 'FrontViewController@tutorial'));
 Route::get('home/resource/presentation', array('as' => 'labfront.presentation', 'uses' => 'FrontViewController@presentation'));
-Route::get('home/resource/resource', array('as' => 'labfront.resource', 'uses' => 'FrontViewController@resource'));
+Route::get('home/resource/book', array('as' => 'labfront.book', 'uses' => 'FrontViewController@book'));
 Route::get('home/resource/details/{meta_data}', array('as' => 'labfront.resource_single', 'uses' => 'FrontViewController@fullPaper'));
 
 
