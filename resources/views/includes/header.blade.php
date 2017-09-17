@@ -43,6 +43,8 @@
         {!! Html::script('js/respond.min.js') !!}
 
         <![endif]-->
+        {!! Html::script('js/custom.js') !!}
+
         @yield('style')
 
 

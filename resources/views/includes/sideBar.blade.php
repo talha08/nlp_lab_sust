@@ -188,20 +188,20 @@
                     {{--project end--}}
 
 
-                    {{--book--}}
-                    <li class="{!! Menu::areActiveRoutes(['book.index', 'book.create']) !!}"><a href="#"><i class="fa fa-book"></i> <span class="nav-label">Resource</span></a>
+                    {{--resource--}}
+                    <li class="{!! Menu::areActiveRoutes(['resource.index', 'resource.create']) !!}"><a href="#"><i class="fa fa-book"></i> <span class="nav-label">Resource</span></a>
                         <ul class="list-unstyled">
 
-                            <li class="{!! Menu::isActiveRoute('book.index') !!}">
-                                <a href="{!!  URL::route( 'book.index') !!}">Resource List</a>
+                            <li class="{!! Menu::isActiveRoute('resource.index') !!}">
+                                <a href="{!!  URL::route( 'resource.index') !!}">Resource List</a>
                             </li>
 
-                            <li class="{!! Menu::isActiveRoute('book.create') !!}">
-                                <a href="{!!  URL::route( 'book.create') !!}">New Resource</a>
+                            <li class="{!! Menu::isActiveRoute('resource.create') !!}">
+                                <a href="{!!  URL::route( 'resource.create') !!}">New Resource</a>
                             </li>
                         </ul>
                     </li>
-                    {{--book end--}}
+                    {{--resource end--}}
 
 
                     {{--award--}}
@@ -303,20 +303,20 @@
                         </ul>
                     </li>
 
-                    {{--book--}}
-                    <li class="{!! Menu::areActiveRoutes(['book.index', 'book.create']) !!}"><a href="#"><i class="fa fa-book"></i> <span class="nav-label">Resource</span></a>
+                    {{--resource--}}
+                    <li class="{!! Menu::areActiveRoutes(['resource.index', 'resource.create']) !!}"><a href="#"><i class="fa fa-book"></i> <span class="nav-label">Resource</span></a>
                         <ul class="list-unstyled">
 
-                            <li class="{!! Menu::isActiveRoute('book.index') !!}">
-                                <a href="{!!  URL::route( 'book.index') !!}">Resource List</a>
+                            <li class="{!! Menu::isActiveRoute('resource.index') !!}">
+                                <a href="{!!  URL::route( 'resource.index') !!}">Resource List</a>
                             </li>
 
-                            <li class="{!! Menu::isActiveRoute('book.create') !!}">
-                                <a href="{!!  URL::route( 'book.create') !!}">New Resource</a>
+                            <li class="{!! Menu::isActiveRoute('resource.create') !!}">
+                                <a href="{!!  URL::route( 'resource.create') !!}">New Resource</a>
                             </li>
                         </ul>
                     </li>
-                    {{--book end--}}
+                    {{--resource end--}}
 
 
                     {{--paper--}}

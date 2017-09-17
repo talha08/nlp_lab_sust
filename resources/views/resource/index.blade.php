@@ -16,7 +16,7 @@
 							<h3 class="panel-title">{!!$title!!}</h3>
 
                                         <span class="pull-right">
-                                               <a href="{!! route('book.create')!!}"><button class="btn btn-success">Add New Resource</button></a>
+                                               <a href="{!! route('resource.create')!!}"><button class="btn btn-success">Add New Resource</button></a>
                                         </span>
 						</div><br>
 
@@ -45,12 +45,12 @@
 												<td>{!! $resource->id !!}</td>
 
 												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$resource->id}}" >{!!Str::limit($resource->resource_name,50) !!}</a></td>
-												{{--<td>{!!Str::limit(strip_tags($book->book_details),30) !!}</td>--}}
+												{{--<td>{!!Str::limit(strip_tags($resource->book_details),30) !!}</td>--}}
 												<td>{!! $resource->resource_type !!}</td>
 												<td>{!! $resource->user->name !!}</td>
 												@if(Auth::user()->id == $resource->user->id)
 												<td>
-													<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('book.edit',$resource->id)!!}"  style="margin-right: 3px;"><i class="ion-compose" aria-hidden="true"></i></a>
+													<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('resource.edit',$resource->id)!!}"  style="margin-right: 3px;"><i class="ion-compose" aria-hidden="true"></i></a>
 													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $resource->id!!}"><i class="ion-trash-a" aria-hidden="true"></i></a>
 												</td>
 												@else
@@ -140,7 +140,7 @@
 					Are you sure to delete?
 				</div>
 				<div class="modal-footer">
-					{!! Form::open(array('route' => array('book.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) !!}
+					{!! Form::open(array('route' => array('resource.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) !!}
 					<button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
 					{!! Form::submit('Yes, Delete', array('class' => 'btn btn-success')) !!}
 					{!! Form::close() !!}
@@ -185,7 +185,7 @@
 			/* do not add datatable method/function here , its always loaded from footer -- masiur */
 			$(document).on("click", ".deleteBtn", function() {
 				var deleteId = $(this).attr('deleteId');
-				var url = "<?php echo URL::route('book.index'); ?>";
+				var url = "<?php echo URL::route('resource.index'); ?>";
 				$(".deleteForm").attr("action", url+'/'+deleteId);
 			});
 

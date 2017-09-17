@@ -16,7 +16,7 @@
 						<h3 class="panel-title">{!!$title!!}</h3>
 
                     <span class="pull-right">
-						<a href="{!! route('book.index')!!}"><button class="btn btn-success">Resource List</button></a>
+						<a href="{!! route('resource.index')!!}"><button class="btn btn-success">Resource List</button></a>
                     </span>
 					</div>
 
@@ -28,82 +28,64 @@
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="panel-body">
 
-									{!! Form::open(array('route' => 'book.store',  'files' => true) ) !!}
+									{!!Form::model($resource,['route' => ['resource.update',$resource->id], 'method' => 'put' ])!!}
 
 
 
 									<div class="form-group">
 										{!! Form::label('resource_type', 'Select Paper Type* :', array('class' => 'col-md-2 control-label')) !!}
-										{!!Form::select('resource_type', $resourceType, '',array('class' => 'select2', 'autofocus'))!!}
+										{!!Form::select('resource_type', $resourceType,null ,array('class' => 'select2', 'autofocus'))!!}
 									</div><br/>
 
 									<div class="form-group">
 										{!! Form::label('resource_name', 'Title* :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('resource_name', '',array('class' => 'form-control','placeholder' =>  'Resource title here'))!!}
+										{!!Form::text('resource_name', null,array('class' => 'form-control','placeholder' =>  'Resource title here'))!!}
 									</div><br/>
-
 
 									<div class="form-group">
 										{!! Form::label('resource_author', 'Resource Author :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('resource_author[]', '',array('class' => 'tags','id'=>'tags','multiple', 'autofocus'))!!}
+										{!!Form::text('resource_author[]', null,array('class' => 'tags','id'=>'tags','multiple', 'autofocus'))!!}
 									</div><br/>
 
 
 									<div class="form-group">
 										{!! Form::label('resource_link1', 'Resource First Url :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('resource_link1', '',array('class' => 'form-control','placeholder' =>  'put resource url here...'))!!}
+										{!!Form::text('resource_link1', null,array('class' => 'form-control','placeholder' =>  'put resource url here...'))!!}
 									</div><br/>
 
 									<div class="form-group">
 										{!! Form::label('resource_link12', 'Resource Second Url (optional):', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('resource_link2', '',array('class' => 'form-control','placeholder' =>  'put resource url here...'))!!}
+										{!!Form::text('resource_link2',null,array('class' => 'form-control','placeholder' =>  'put resource url here...'))!!}
 									</div><br/>
 
 									<div class="form-group">
 										{!! Form::label('resource_link3', 'Resource Third Url (optional):', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('resource_link3', '',array('class' => 'form-control','placeholder' =>  'put resource url here...'))!!}
-									</div><br/>
-
-									<div class="form-group">
-										{!! Form::label('resource_details', 'Details :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('resource_details', '',array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+										{!!Form::text('resource_link3',null,array('class' => 'form-control','placeholder' =>  'put resource url here...'))!!}
 									</div><br/>
 
 									<div class="form-group">
 										{!! Form::label('tags_list', 'Select Tag Or Create:', array('class' => 'control-label')) !!}<br/>
-										{!!Form::select('tags_list[]', $tag_lists, '',array('class' => 'tag_list','multiple', 'autofocus'))!!}
-									</div><br/>
-
-                                  
-
-
-									<h4><b>File & Image  Attachment: (Optional) </b></h4><br>
-
-									<div class="form-group">
-										{!! Form::label('resource_file_title', 'File Title* :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('resource_file_title', '',array('class' => 'form-control','placeholder' =>  'Resource file title here'))!!}
+										{!!Form::select('tags_list[]', $tagList, $x,array('class' => 'tag_list','multiple', 'autofocus'))!!}
 									</div><br/>
 
 									<div class="form-group">
-										{!! Form::label('file', 'File Upload :', array('class' => 'control-label')) !!}
-										{!! Form::file('file[]', array('multiple'=>true)) !!}
-									</div><br/>
-
-
-									<div class="form-group">
-										{!! Form::label('image', 'Resource Image (if any):', array('class' => 'control-label')) !!}
-										{!! Form::file('image') !!}
+										{!! Form::label('resource_details', 'Details :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::textarea('resource_details', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
 
 
 
+
 									<div class="form-group">
-										{!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
+										{!! Form::submit('Update Resource', array('class' => 'btn btn-primary')) !!}
 									</div>
 
 
 
+
+
 									{!! Form::close() !!}
+
 
 								</div>
 							</div>
@@ -121,7 +103,6 @@
 
 
 @stop
-
 @section('style')
 	{!! Html::style('assets/tagsinput/jquery.tagsinput.css') !!}
 	<!-- {!! Html::style('assets/select2/select2.css') !!} -->
@@ -178,6 +159,7 @@
 
 
 @stop
+
 
 
 
