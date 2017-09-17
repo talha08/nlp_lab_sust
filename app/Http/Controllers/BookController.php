@@ -91,7 +91,7 @@ class BookController extends Controller
         $resource->resource_link3 = $request->resource_link3;
         $resource->resource_details = $request->resource_details;
         $resource->user_id =  \Auth::user()->id;
-        $resource->resource_meta_data =   str_slug($request->resource_name).'-'.rand(6738267,25366783977);
+        $resource->resource_meta_data =   str_slug($request->resource_name).'-'.md5(rand(11111, 99999));
 
         //image save
         if( $request->hasFile('image')) {

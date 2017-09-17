@@ -68,7 +68,7 @@
 											</div>
 
 											<p>
-												{!! Str::limit($award->award_details,200) !!}
+												{!! Str::limit($award->award_details,300) !!}
 												<a href="{!! route('labfront.award_single',$award->award_meta_data ) !!}" class="moretag" title="read more">..MORE</a>
 											</p><br/>
 

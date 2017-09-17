@@ -64,7 +64,7 @@
 									</div><br/>
 
 									<div class="form-group">
-										{!! Form::label('tags_list', 'Select Tag :', array('class' => 'control-label')) !!}<br/>
+										{!! Form::label('tags_list', 'Select Tag Or Create:', array('class' => 'control-label')) !!}<br/>
 										{!!Form::select('tags_list[]', $tagList, $x,array('class' => 'tag_list','multiple', 'autofocus'))!!}
 									</div><br/>
 
@@ -105,16 +105,17 @@
 @stop
 @section('style')
 	{!! Html::style('assets/tagsinput/jquery.tagsinput.css') !!}
-	{{--{!! Html::style('assets/select2/select2.css') !!}--}}
+	<!-- {!! Html::style('assets/select2/select2.css') !!} -->
 	{!! Html::style('assets/summernote/summernote.css') !!}
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+   
 @stop
 
 
 @section('script')
 	{!! Html::script('assets/tagsinput/jquery.tagsinput.min.js') !!}
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-	{{--{!! Html::script('assets/select2/select2.min.js') !!}--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+	<!-- {!! Html::script('assets/select2/select2.min.js') !!} -->
 	{!! Html::script('assets/summernote/summernote.min.js') !!}
 
 	<script type="text/javascript">
@@ -134,22 +135,10 @@
 				width:'auto',
 				height: 40
 			});
-
-//			// Select2
-//			jQuery(".select2").select2({
-//				width: '100%'
-//			});
-//
-//			jQuery(".tag_list").select2({
-//				width: '100%'
-//				//tags: true
-//			});
-
-
-
 		});
 
 
+		
 		$('.select2').select2({
 			width: '100%',
 			theme: "classic"
@@ -157,12 +146,14 @@
 		});
 
 		$('.tag_list').select2({
-			//tags:true,
+			tags:true,
 			width: '100%',
 			theme: "classic",
-			placeholder: 'Choose Tag or Insert New'
+			placeholder: 'Select'
 
 		});
+		
+		
 	</script>
 
 

@@ -4,7 +4,7 @@
 	<h3>Zopim (Chat Support)</h3>
 	<p>
 		Email: talhaqc@gmail.com <br/>
-		Password: talha012
+		Password: talha...
 	</p>
 
 <br/><br/>

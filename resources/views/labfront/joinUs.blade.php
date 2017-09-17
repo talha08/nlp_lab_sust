@@ -11,7 +11,7 @@
 					<!-- breadcrumbs -->
 					<ol class="breadcrumb">
 						<li><a href="{!!  route('labfront.index') !!}">Home</a></li>
-						<li class="active">Resource</li>
+						<li class="active">Join-Us</li>
 					</ol>
 				</div>
 				<!-- breadcrumbs end -->
