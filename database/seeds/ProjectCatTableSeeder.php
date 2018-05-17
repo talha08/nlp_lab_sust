@@ -11,6 +11,6 @@ class ProjectCatTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\ProjectCat::class,10)->create();
+        // factory(\App\ProjectCat::class,10)->create();
     }
 }
