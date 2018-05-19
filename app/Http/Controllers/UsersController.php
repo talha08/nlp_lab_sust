@@ -28,9 +28,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $user = User::where('status', 1)
-            //->where('id','!=',1)
-            ->get();
+        $user = User::get();
         return view('user.index', compact('user'))
             ->with('title', 'All User List');
     }

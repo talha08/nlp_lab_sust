@@ -99,7 +99,7 @@ Route::group(array('middleware' => 'auth'), function() {
 		Route::put('award/update', array('as' => 'welcome.update', 'uses' => 'WelcomeController@update'));
 
 		//user list
-		//Route::get('allUser', array('as' => 'user.index', 'uses' => 'UsersController@index'));
+		Route::get('allUser', array('as' => 'user.index', 'uses' => 'UsersController@index'));
 		Route::get('student-list', array('as' => 'user.student', 'uses' => 'UsersController@student'));
 		Route::delete('student-list/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
 		Route::get('teacher-list', array('as' => 'user.teacher', 'uses' => 'UsersController@teacher'));
