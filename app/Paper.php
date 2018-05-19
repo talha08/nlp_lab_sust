@@ -16,7 +16,9 @@ class Paper extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function users(){
-        return $this->belongsToMany('App\User','paper_user','paper_id','user_id');
+        return $this->belongsToMany('App\User','paper_user','paper_id','user_id')
+            ->withPivot('order')
+            ->orderBy('paper_user.order', 'ASC');
     }
 
     /**

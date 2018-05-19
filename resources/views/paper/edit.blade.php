@@ -52,8 +52,8 @@
 									</div><br/>
 
 									<div class="form-group">
-										{!! Form::label('paper_supervisor', 'Select Author Or Add New :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::select('paper_supervisor[]', $teacher, $x,array('class' => 'tag_list','multiple', 'autofocus'))!!}
+										{!! Form::label('paper_supervisor', 'Select Author Or Add New (In Order of Appeared in the Publication) :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::select('paper_supervisor[]', $teacher, null ,array('class' => 'tag_list','multiple', 'autofocus', 'required'))!!}
 									</div><br/>
 
 
@@ -83,25 +83,14 @@
 										{!! Form::label('paper_cite', 'Cite :', array('class' => 'control-label')) !!}<br/>
 										{!!Form::textarea('paper_cite', '',array('size'=>'30x5','class' => 'form-control','placeholder' =>  'Paper Citation here'))!!}
 									</div><br/>
-
-
-
-
 									{{--<div class="form-group">--}}
 									{{--{!! Form::label('file', 'Choose Pdf/Doc File') !!}--}}
 									{{--{!! Form::file('paper_pdf') !!}--}}
 									{{--</div> <br>--}}
-
-
-
 									<div class="form-group">
 										{!! Form::submit('Update Paper', array('class' => 'btn btn-primary')) !!}
 									</div>
-
-
-
 									{!! Form::close() !!}
-
 								</div>
 							</div>
 						</div>
@@ -112,11 +101,6 @@
 
 		</div>
 	</div>
-
-
-
-
-
 @stop
 
 @section('style')
@@ -173,16 +157,25 @@
 		$('.select2').select2({
 			width: '100%',
 			theme: "classic"
-
 		});
 
 		$('.tag_list').select2({
-			tags:true,
+			tags: true,
 			width: '100%',
 			theme: "classic",
 			placeholder: 'Select'
+		})
+			// .select2('val', [
+        //     "Sabir Ismail"
+        // ]);
+        $(".tag_list").on("select2:select", function (evt) {
+            var element = evt.params.data.element;
+            var $element = $(element);
 
-		});
+            $element.detach();
+            $(this).append($element);
+            $(this).trigger("change");
+        });
 	</script>
 
 

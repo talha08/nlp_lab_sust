@@ -1,16 +1,10 @@
 @extends('layouts.default')
 @section('content')
-
-
-
 	<div class="wraper container-fluid">
-
 		@include('includes.alert')
-
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">
-
 					<div class="panel-heading">
 
 						<h3 class="panel-title">{!!$title!!}</h3>
@@ -19,10 +13,6 @@
 						<a href="{!! route('paper.index')!!}"><button class="btn btn-success">Publication List</button></a>
                     </span>
 					</div>
-
-
-
-
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-12 col-sm-12 col-xs-12">
@@ -42,7 +32,7 @@
 
 									<div class="form-group">
 										{!! Form::label('paper_publish_date', 'Publishing Date * :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('paper_publish_date', '',array('class' => 'form-control','id'=>'datepicker','placeholder' =>  'Publishing Date here', 'required'))!!}
+										{!!Form::text('paper_publish_date', '',array('class' => 'form-control','id'=>'datepicker','placeholder' =>  'DD/MM/YYYY', 'required'))!!}
 									</div><br/>
 
 									<div class="form-group">
@@ -103,14 +93,9 @@
 										{!! Form::label('file', 'File Upload :', array('class' => 'col-md-2 control-label')) !!}
 										{!! Form::file('file[]', array('multiple'=>true)) !!}
 									</div><br/>
-
-
 									<div class="form-group">
 										{!! Form::submit('Submit Paper', array('class' => 'btn btn-primary')) !!}
 									</div>
-
-
-
 									{!! Form::close() !!}
 
 								</div>
@@ -123,16 +108,7 @@
 
 		</div>
 	</div>
-
-
-
-
-
 @stop
-
-
-
-
 @section('style')
 	{!! Html::style('assets/timepicker/bootstrap-datepicker.min.css') !!}
 	{!! Html::style('assets/tagsinput/jquery.tagsinput.css') !!}
@@ -167,7 +143,7 @@
 				height: 40
 			});
 
-			jQuery('#datepicker').datepicker();
+			/*jQuery('#datepicker').datepicker();*/
 		});
 
 
@@ -178,12 +154,20 @@
 		});
 
 		$('.tag_list').select2({
-			tags:true,
+			tags: true,
 			width: '100%',
 			theme: "classic",
-			placeholder: 'Select'
+			placeholder: 'Select Authors Serially'
 
 		});
+        $(".tag_list").on("select2:select", function (evt) {
+            var element = evt.params.data.element;
+            var $element = $(element);
+
+            $element.detach();
+            $(this).append($element);
+            $(this).trigger("change");
+        });
 	</script>
 
 
