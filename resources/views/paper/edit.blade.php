@@ -109,6 +109,11 @@
 	{{--{!! Html::style('assets/select2/select2.css') !!}--}}
 	{!! Html::style('assets/summernote/summernote.css') !!}
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+	<style>
+		.select2-search__field {
+			width: 100% !important;
+		}
+	</style>
 @stop
 
 
@@ -160,7 +165,7 @@
 		});
 
 		$('.tag_list').select2({
-			tags: true,
+			multiple: true,
 			width: '100%',
 			theme: "classic",
 			placeholder: 'Select'
