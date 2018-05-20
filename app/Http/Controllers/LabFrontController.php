@@ -175,6 +175,7 @@ class LabFrontController extends Controller
 //        $news = News::take(3)->orderBy('id', 'desc')->get();
         $user = User::where('is_teacher', 1)
             ->where('status', 1)
+            ->orderBy('rank')
             ->paginate(5);
         return view('labfront.supervisor', compact(['user']))->with('title', 'Faculty');
     }
