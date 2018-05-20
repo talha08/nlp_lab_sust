@@ -170,8 +170,9 @@ class LabFrontController extends Controller
     //Supervisor List
     /*==================================================*/
 
-    public function supervisor()
+    public function supervisor(Request $request)
     {
+        return $request->page;
 //        $news = News::take(3)->orderBy('id', 'desc')->get();
         $user = User::where('is_teacher', 1)
             ->where('status', 1)
