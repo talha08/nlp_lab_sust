@@ -8,6 +8,8 @@ use App\Http\Requests\UserRequest;
 use App\Student;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\DB;
+use Mail;
 use Validator;
 use Auth;
 use Hash;
@@ -19,8 +21,6 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class UsersController extends Controller
 {
-
-
     /**
      * List all User including teacher, student and alumni
      *
@@ -33,9 +33,6 @@ class UsersController extends Controller
             ->with('title', 'All User List');
     }
 
-
-
-
     /**
      * List of all students
      *
@@ -47,9 +44,6 @@ class UsersController extends Controller
         return view('user.student', compact('user'))
             ->with('title', 'All Student List');
     }
-
-
-
 
     /**
      * List of all Teachers
@@ -88,9 +82,6 @@ class UsersController extends Controller
 
     }
 
-
-
-
     /**
      * List of all other user like scholar,affiliates
      *
@@ -103,8 +94,6 @@ class UsersController extends Controller
             ->with('title', 'Visiting Scholar and Industry Affiliates List');
     }
 
-
-
     /**
      * List of all Alumni
      *
@@ -116,8 +105,6 @@ class UsersController extends Controller
         return view('user.alumni', compact('user'))
             ->with('title', 'All Alumni List');
     }
-
-
 
     /**
      * This function is for making a student to alumni
@@ -136,9 +123,6 @@ class UsersController extends Controller
         }
     }
 
-
-
-
     /**
      * all waiting user list
      * waiting for admin approval
@@ -151,7 +135,6 @@ class UsersController extends Controller
             ->with('title', 'All Apply List');
     }
 
-
     /**
      * This function is for approve waiting users
      *
@@ -159,12 +142,32 @@ class UsersController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function approve($id){
-        User::where('id', $id)->update([
-            'status'=> 1,
-        ]);
-        return redirect()->back();
-    }
+        try
+        {
+            DB::beginTransaction();
+            $user = User::findOrFail($id);
+            $user->status = 1;
+            $user->save();
+            /*            Approved Mail                   */
+            $datatopass = [
+                'user' => $user,
+            ];
+            Mail::send('emails.studentApproval', $datatopass, function ($m) use ($user) {
+                $m->from('noreply@nlp.sust.edu', 'SUST NLP Research Group');
 
+                $m->to($user->email, $user->name)->subject('Membership Approval At SUST NLP Research Group!');
+            });
+            DB::commit();
+            return redirect()->back()->with('success', 'User Approved');
+        }
+        catch (\Exception $e)
+        {
+            DB::rollback();
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+
+
+    }
 
     /**
      * All User Profile
@@ -177,7 +180,6 @@ class UsersController extends Controller
         return view('user.profile', compact('user'))
             ->with('title', 'User Profile');
     }
-
 
     /**
      * Student Sign up Form view
@@ -208,8 +210,6 @@ class UsersController extends Controller
         return view('user.create',compact('platform','level','year','semester'))
             ->with('title', 'Apply For Membership');
     }
-
-
 
     /**
      * Store Student Data in Database from Signup Form
@@ -285,12 +285,6 @@ class UsersController extends Controller
           }
     }
 
-
-
-
-
-
-
     /**
      * Delete Student/Teacher/alumni
      *
@@ -304,7 +298,6 @@ class UsersController extends Controller
         return redirect()->back()->with('success', "User Successfully deleted");
     }
 
-
     /**
      * 3rd party account information
      *
@@ -313,8 +306,4 @@ class UsersController extends Controller
     public function help(){
           return view('help')->with('title','3rd Party Account Information');
     }
-
-
-
-
 }

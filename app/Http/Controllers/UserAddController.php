@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Role;
+use Illuminate\Support\Facades\DB;
 use Mail;
 use App\User;
 use App\Http\Requests\UserAddRequest;
@@ -51,37 +52,38 @@ class UserAddController extends Controller
      */
     public function userStore(UserAddRequest $request)
     {
-
-        //return  $request->all();
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->status = 1;
-        $user->order = $request->order;
-
-
-        if ($request->order == 1) {      //professor
-            $user->is_teacher = 1;
-        } elseif ($request->order == 2) {    //associate pro
-            $user->is_teacher = 1;
-        } elseif ($request->order == 3) {   //assistant pro
-            $user->is_teacher = 1;
-        } elseif ($request->order == 4) {      //lecturer
-            $user->is_teacher = 1;
-        } elseif ($request->order == 8) {   //visiting scholars
-            $user->is_teacher = 5;
-        } elseif ($request->order == 9) {   //  industry affiliates
-            $user->is_teacher = 5;
-        } else {
-            $user->is_teacher = 0;     // students
-        }
+        try {
+            DB::beginTransaction();
+            //return  $request->all();
+            $user = new User;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->status = 1;
+            $user->order = $request->order;
 
 
-        $passwordRandom = 'user' . rand(234574, 315457);
-        $user->password = \Hash::make($passwordRandom);
-        $user->password = \Hash::make('a');
+            if ($request->order == 1) {      //professor
+                $user->is_teacher = 1;
+            } elseif ($request->order == 2) {    //associate pro
+                $user->is_teacher = 1;
+            } elseif ($request->order == 3) {   //assistant pro
+                $user->is_teacher = 1;
+            } elseif ($request->order == 4) {      //lecturer
+                $user->is_teacher = 1;
+            } elseif ($request->order == 8) {   //visiting scholars
+                $user->is_teacher = 5;
+            } elseif ($request->order == 9) {   //  industry affiliates
+                $user->is_teacher = 5;
+            } else {
+                $user->is_teacher = 0;     // students
+            }
 
-        if ($user->save()) {
+
+            $passwordRandom = 'user' . rand(234574, 315457);
+            $user->password = bcrypt($passwordRandom);
+//        $user->password = \Hash::make('a');
+
+            $user->save();
 
             if ($request->order == 1) {
                 $profile = new Teacher();
@@ -162,33 +164,29 @@ class UserAddController extends Controller
                 $user->attachRole($role);
             }
 
-            if ($profile->save()) {
+            $profile->save();
 
 
-                $datatopass = [
-                    'user' => $user,
-                    'password' => $passwordRandom
-                    //'password' => 'a'
-                ];
+            $datatopass = [
+                'user' => $user,
+                'password' => $passwordRandom
+                //'password' => 'a'
+            ];
 
-                Mail::send('emails.teacherAdd', $datatopass, function ($m) use ($user) {
-                    $m->from('noreply@nlp.sust.edu', 'Membership At SUST NLP Research Group');
+            Mail::send('emails.teacherAdd', $datatopass, function ($m) use ($user) {
+                $m->from('noreply@nlp.sust.edu', 'SUST NLP Research Group');
 
-                    $m->to($user->email, $user->name)->subject('Membership At SUST NLP Research Group!');
-                });
+                $m->to($user->email, $user->name)->subject('Membership At SUST NLP Research Group!');
+            });
 
+            DB::commit();
+            return redirect()->route('auth.userAdd')
+                ->with('success', 'User Add Successfully and a Mail sent to him/her');
 
-                return redirect()->route('auth.userAdd')
-                    ->with('success', 'User Add Successfully and a Mail sent to him/her');
-
-            } else {
-                User::destroy($user->id);
-                return redirect()->back()
-                    ->with('error', 'Something went wrong.Please Try again.');
-            }
-        } else {
-            return redirect()->back()
-                ->with('error', "Something went wrong.Please Try again.");
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->withInput()
+                ->with('error', $e->getMessage());//"Something went wrong.Please Try again.");
         }
     }
 

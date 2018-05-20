@@ -54,7 +54,8 @@ return [
     |
     */
 
-    'from' => ['address' => 'noreply@sust.edu', 'name' => "SUST CSE NLP Group"],
+    'from' => ['address' => 'moqsadnlp@gmail.com', 'name' => "SUST CSE NLP Group"],
+//    'from' => ['address' => 'noreply@sust.edu', 'name' => "SUST CSE NLP Group"],
 
     /*
     |--------------------------------------------------------------------------
