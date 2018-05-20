@@ -9,6 +9,7 @@ vendor/
 # Composer
 composer.phar
 composer.lock
+*.lock
 
 ## Directory-based project format:
 .idea/

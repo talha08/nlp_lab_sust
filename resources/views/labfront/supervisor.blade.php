@@ -77,7 +77,7 @@
 							<div class="col-lg-12">
 
 								<ul class="pagination pull-right"><!-- pagination -->
-									{!!$user->render() !!}
+									{!! $user->render() !!}
 								</ul><!-- pagination end -->
 
 							</div>
