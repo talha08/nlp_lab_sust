@@ -53,7 +53,7 @@
 														{{--<small>Teacher</small>--}}
 													</a></h4>
 
-												<div class="leadership-position">Member Since {!! Carbon\Carbon::parse($users->created_at)->diffForHumans(\Carbon\Carbon::now()) !!} </div>
+												<div class="leadership-position">Member Since {!! Carbon\Carbon::parse($users->created_at)->diffForHumans(\Carbon\Carbon::now(), true) !!} </div>
 
 												<p class="leadership-bio">
 													{!! $users->teachers->position !!},<small> {!! $users->teachers->organization !!}</small> <br>
@@ -116,9 +116,8 @@
 								</ul>
 
 							</li>
-
-
-
+@if($news = DB::table('news')->take(3)->orderBy('id', 'desc')->get())
+	@endif
 							<li class="widget-container widget_recent_news"><!-- widgets list -->
 
 								<h1 class="title-widget">Lab News</h1>
