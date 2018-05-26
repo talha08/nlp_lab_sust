@@ -103,7 +103,7 @@
                         <a href="#" class="Pages Collection" title="Resource">Resource</a>
                         <ul class="sub-menu">
                             <li><a href="{!! route('labfront.publicationOthers') !!}" title="News">Publication</a></li>
-                            <li><a href="{!! route('labfront.resource') !!}" title="Events">Software</a></li>
+                            {{--<li><a href="{!! route('labfront.resource') !!}" title="Events">Software</a></li>--}}
                             <li><a href="{!! route('labfront.tutorial') !!}" title="Events">Tutorial</a></li>
                             <li><a href="{!! route('labfront.presentation') !!}" title="Events">Presentation</a></li>
                             <li><a href="{!! route('labfront.book') !!}" title="Events">Books</a></li>
