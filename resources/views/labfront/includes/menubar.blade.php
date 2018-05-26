@@ -94,10 +94,6 @@
                             <li><a href="{!! route('labfront.award') !!}" title="Awards">Awards</a></li>
                         </ul>
                     </li>
-
-
-
-
                     <!-- Resource -->
                     <li>
                         <a href="#" class="Pages Collection" title="Resource">Resource</a>
@@ -109,11 +105,6 @@
                             <li><a href="{!! route('labfront.book') !!}" title="Events">Books</a></li>
                         </ul>
                     </li>
-
-
-
-
-
                     <!-- News & Events -->
                     <li>
                         <a href="#" class="Pages Collection" title="News & event">News & Event</a>
@@ -122,11 +113,6 @@
                             <li><a href="{!! route('labfront.events') !!}" title="Events">Events</a></li>
                         </ul>
                     </li>
-
-
-
-
-
                 <!-- Blog Section -->
                     <li>
                         <a href="{!! route('labfront.blog') !!}" title="Blog">Blog</a>

