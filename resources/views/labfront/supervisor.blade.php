@@ -37,32 +37,66 @@
 
 							<div class="col-lg-12 col-md-12">
 
+                                <style>
+                                    .lab-view {
+                                        margin-left: 20px;
+                                        margin-right: 20px;
+                                        margin-bottom: 20px;
+                                    }
+                                    .lab-view img {
+                                        border-radius: 1000px;
+                                        transition: transform .5s; /* Animation */
+                                    }
+                                    .lab-view img:hover {
+                                        transform: scale(1.2);
+                                    }
+                                    .lab-view-title {
+                                        font-size: 18px;
+                                    }
+                                </style>
 								@if(count($user)!= 0)
+                                    <div class="row">
+                                        @if($i = 0)
+                                        @endif
 									@foreach($user as $users)
-										<div class="leadership-wrapper"><!-- leadership single wrap -->
+										<div class="col-md-3 col-sm-6 lab-view">
+											<img src="{!! asset($users->teachers->img_url)!!}" alt="{!! $users->name !!}" />
+                                            <h4 class="lab-view-title"><a href="{!!  route('labfront.peopleProfile',$users->id ) !!}" title="Click to view full profile...">
+                                            {!! $users->name !!} <br>
+                                            <small>{!! $users->teachers->position !!}</small>
+                                            </a></h4>
+										</div>
+                                        @if(++$i%3==0)
 
-											<figure class="leadership-photo">
-												<a href="{!! route('labfront.peopleProfile',$users->id ) !!}">
-													<img src="{!! asset($users->teachers->img_url)!!}" alt="{!! $users->name !!}" />
-												</a>
-											</figure>
-											<div class="leadership-meta clearfix">
+                                    </div>
+                                    <div class="row">
 
-												<h4 class="title-median"><a href="{!!  route('labfront.peopleProfile',$users->id ) !!}" title="Click to view full profile...">
-														{!! $users->name !!}
+                                        @endif
+										{{--<div class="leadership-wrapper"><!-- leadership single wrap -->--}}
+
+											{{--<figure class="leadership-photo">--}}
+												{{--<a href="{!! route('labfront.peopleProfile',$users->id ) !!}">--}}
+													{{--<img src="{!! asset($users->teachers->img_url)!!}" alt="{!! $users->name !!}" />--}}
+												{{--</a>--}}
+											{{--</figure>--}}
+											{{--<div class="leadership-meta clearfix">--}}
+
+												{{--<h4 class="title-median"><a href="{!!  route('labfront.peopleProfile',$users->id ) !!}" title="Click to view full profile...">--}}
+														{{--{!! $users->name !!}--}}
 														{{--<small>Teacher</small>--}}
-													</a></h4>
+													{{--</a></h4>--}}
 
-												<div class="leadership-position">Member Since {!! Carbon\Carbon::parse($users->created_at)->diffForHumans(\Carbon\Carbon::now(), true) !!} </div>
+												{{--<div class="leadership-position">Member Since {!! Carbon\Carbon::parse($users->created_at)->diffForHumans(\Carbon\Carbon::now(), true) !!} </div>--}}
 
-												<p class="leadership-bio">
-													{!! $users->teachers->position !!},<small> {!! $users->teachers->organization !!}</small> <br>
-													<small>Shahjalal University of Science and Technology, Sylhet</small>
-												</p><br/>
+												{{--<p class="leadership-bio">--}}
+													{{--{!! $users->teachers->position !!},<small> {!! $users->teachers->organization !!}</small> <br>--}}
+													{{--<small>Shahjalal University of Science and Technology, Sylhet</small>--}}
+												{{--</p><br/>--}}
 
-											</div>
-										</div><!-- leadership single wrap end -->
+											{{--</div>--}}
+										{{--</div><!-- leadership single wrap end -->--}}
 									@endforeach
+                                    </div>
 								@else
 									<p> No Teacher Found in Database</p>
 								@endif
@@ -72,31 +106,20 @@
 
 
 						{{--paginate--}}
-						<div class="row gutter"><!-- row -->
+						{{--<div class="row gutter"><!-- row -->--}}
 
-							<div class="col-lg-12">
+							{{--<div class="col-lg-12">--}}
 
-								<ul class="pagination pull-right"><!-- pagination -->
-									{!! $user->render() !!}
-								</ul><!-- pagination end -->
+								{{--<ul class="pagination pull-right"><!-- pagination -->--}}
+									{{--{!! $user->render() !!}--}}
+								{{--</ul><!-- pagination end -->--}}
 
-							</div>
+							{{--</div>--}}
 
-						</div><!-- row end -->
+						{{--</div><!-- row end -->--}}
 						{{--paginate--}}
-
-
-
 					</div><!-- inner custom column end -->
-
-
 				</div><!-- doc body wrapper end -->
-
-
-
-
-
-
 				<div id="k-sidebar" class="col-lg-4 col-md-4"><!-- sidebar wrapper -->
 
 					<div class="col-padded col-shaded"><!-- inner custom column -->

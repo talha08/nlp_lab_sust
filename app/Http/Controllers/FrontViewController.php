@@ -16,13 +16,12 @@ class FrontViewController extends Controller
 {
 
 
-     public function software(){
+    public function software(){
 
          $resources = Resource::where('resource_type', 'software')->simplePaginate(5);
 
          return view('labfront.resource', compact('resources'))->with('title',"Resource | Software ");
      }
-
 
     public function tutorial(){
 
@@ -31,14 +30,12 @@ class FrontViewController extends Controller
         return view('labfront.resource', compact('resources'))->with('title',"Resource | Tutorial ");
     }
 
-
     public function presentation(){
 
          $resources = Resource::where('resource_type', 'presentation')->simplePaginate(5);
 
         return view('labfront.resource', compact('resources'))->with('title',"Resource | Presentation ");
     }
-
 
     public function book(){
 
@@ -47,7 +44,6 @@ class FrontViewController extends Controller
         return view('labfront.resource', compact('resources'))->with('title',"Resource | Book ");
     }
 
-
     public function publication(){
 
         $tag = Tag::all();
@@ -55,8 +51,6 @@ class FrontViewController extends Controller
 
         return view('labfront.publicationOthers', compact('resources','tag'))->with('title',"Resource | Publication ");
     }
-
-
 
     public function tagAssociatePublication($tag_name){
         try{
@@ -77,10 +71,6 @@ class FrontViewController extends Controller
         }
     }
 
-
-
-
-
     public function publicationOthetDetails($meta_data){
 
         $tag = Tag::all();
@@ -88,10 +78,6 @@ class FrontViewController extends Controller
 
         return view('labfront.publicationOthetDetails', compact('resource','tag'))->with('title',"Resource | Publication |".$resource->resource_name );
     }
-
-
-
-
 
     public function fullPaper($meta_data)
     {
@@ -104,10 +90,5 @@ class FrontViewController extends Controller
         }
 
     }
-
-
-
-
-
 
 }
