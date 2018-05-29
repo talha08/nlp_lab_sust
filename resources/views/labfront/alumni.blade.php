@@ -40,56 +40,125 @@
 							</div>
 
 						</div><!-- row end -->
-
 						<div class="row gutter"><!-- row -->
 
 							<div class="col-lg-12 col-md-12">
 
+								<style>
+									.lab-view {
+										margin-left: 20px;
+										margin-right: 20px;
+										margin-bottom: 20px;
+									}
+									.lab-view img {
+										border-radius: 1000px;
+										transition: transform .5s; /* Animation */
+									}
+									.lab-view img:hover {
+										transform: scale(1.2);
+									}
+									.lab-view-title {
+										font-size: 18px;
+									}
+								</style>
 								@if(count($user)!= 0)
-									@foreach($user as $users)
-										<div class="leadership-wrapper"><!-- leadership single wrap -->
-
-											<figure class="leadership-photo">
-												<a href="{!! route('labfront.peopleProfile',$users->id ) !!}">
-													<img src="{!! asset($users->students->img_url)!!}" alt="{!! $users->name !!}" />
-												</a>
-											</figure>
-											<div class="leadership-meta clearfix">
-
-												     <h4 class="title-median"><a href="{!!  route('labfront.peopleProfile',$users->id ) !!}" title="Click to view full profile...">
-															 {!! $users->name !!}
-															 <small>Alumni</small>
+									<div class="row">
+										@if($i = 0)
+										@endif
+										@foreach($user as $users)
+											<div class="col-md-3 col-sm-6 lab-view">
+												<img src="{!! asset($users->students->img_url)!!}" alt="{!! $users->name !!}" />
+												<h4 class="lab-view-title"><a href="{!!  route('labfront.peopleProfile',$users->id ) !!}" title="Click to view full profile...">
+														{!! $users->name !!} <br>
+														<small>{!! $users->students->position !!}</small>
 													</a></h4>
-
-												<div class="leadership-position">Member Since {!! Carbon\Carbon::now()->diffForHumans($users->created_at) !!} </div>
-
-												<p class="leadership-bio">
-													{!! $users->students->position !!},<small> {!! $users->students->organization !!} </small><br>
-													<small>Shahjalal University of Science and Technology, Sylhet</small>
-												</p><br/>
-
 											</div>
-										</div><!-- leadership single wrap end -->
-									@endforeach
+											@if(++$i%3==0)
+
+									</div>
+									<div class="row">
+
+										@endif
+										{{--<div class="leadership-wrapper"><!-- leadership single wrap -->--}}
+
+										{{--<figure class="leadership-photo">--}}
+										{{--<a href="{!! route('labfront.peopleProfile',$users->id ) !!}">--}}
+										{{--<img src="{!! asset($users->teachers->img_url)!!}" alt="{!! $users->name !!}" />--}}
+										{{--</a>--}}
+										{{--</figure>--}}
+										{{--<div class="leadership-meta clearfix">--}}
+
+										{{--<h4 class="title-median"><a href="{!!  route('labfront.peopleProfile',$users->id ) !!}" title="Click to view full profile...">--}}
+										{{--{!! $users->name !!}--}}
+										{{--<small>Teacher</small>--}}
+										{{--</a></h4>--}}
+
+										{{--<div class="leadership-position">Member Since {!! Carbon\Carbon::parse($users->created_at)->diffForHumans(\Carbon\Carbon::now(), true) !!} </div>--}}
+
+										{{--<p class="leadership-bio">--}}
+										{{--{!! $users->teachers->position !!},<small> {!! $users->teachers->organization !!}</small> <br>--}}
+										{{--<small>Shahjalal University of Science and Technology, Sylhet</small>--}}
+										{{--</p><br/>--}}
+
+										{{--</div>--}}
+										{{--</div><!-- leadership single wrap end -->--}}
+										@endforeach
+									</div>
 								@else
-									<p> No People Found in Database</p>
+									<p> No Teacher Found in Database</p>
 								@endif
 							</div>
 
 						</div><!-- row end -->
+						{{--<div class="row gutter"><!-- row -->--}}
+
+							{{--<div class="col-lg-12 col-md-12">--}}
+
+								{{--@if(count($user)!= 0)--}}
+									{{--@foreach($user as $users)--}}
+										{{--<div class="leadership-wrapper"><!-- leadership single wrap -->--}}
+
+											{{--<figure class="leadership-photo">--}}
+												{{--<a href="{!! route('labfront.peopleProfile',$users->id ) !!}">--}}
+													{{--<img src="{!! asset($users->students->img_url)!!}" alt="{!! $users->name !!}" />--}}
+												{{--</a>--}}
+											{{--</figure>--}}
+											{{--<div class="leadership-meta clearfix">--}}
+
+												     {{--<h4 class="title-median"><a href="{!!  route('labfront.peopleProfile',$users->id ) !!}" title="Click to view full profile...">--}}
+															 {{--{!! $users->name !!}--}}
+															 {{--<small>Alumni</small>--}}
+													{{--</a></h4>--}}
+
+												{{--<div class="leadership-position">Member Since {!! Carbon\Carbon::now()->diffForHumans($users->created_at) !!} </div>--}}
+
+												{{--<p class="leadership-bio">--}}
+													{{--{!! $users->students->position !!},<small> {!! $users->students->organization !!} </small><br>--}}
+													{{--<small>Shahjalal University of Science and Technology, Sylhet</small>--}}
+												{{--</p><br/>--}}
+
+											{{--</div>--}}
+										{{--</div><!-- leadership single wrap end -->--}}
+									{{--@endforeach--}}
+								{{--@else--}}
+									{{--<p> No People Found in Database</p>--}}
+								{{--@endif--}}
+							{{--</div>--}}
+
+						{{--</div><!-- row end -->--}}
 
 						{{--paginate--}}
-						<div class="row gutter"><!-- row -->
+						{{--<div class="row gutter"><!-- row -->--}}
 
-							<div class="col-lg-12">
+							{{--<div class="col-lg-12">--}}
 
-								<ul class="pagination pull-right"><!-- pagination -->
-									{!!$user->render() !!}
-								</ul><!-- pagination end -->
+								{{--<ul class="pagination pull-right"><!-- pagination -->--}}
+									{{--{!!$user->render() !!}--}}
+								{{--</ul><!-- pagination end -->--}}
 
-							</div>
+							{{--</div>--}}
 
-						</div><!-- row end -->
+						{{--</div><!-- row end -->--}}
 						{{--end paginate--}}
 
 					</div><!-- inner custom column end -->

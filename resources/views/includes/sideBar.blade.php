@@ -68,6 +68,9 @@
                                     class="ion-person-stalker"></i> <span class="nav-label">Users</span></a>
                         <ul class="list-unstyled">
 
+                            <li class="{!! Menu::isActiveRoute('user.index') !!}">
+                                <a href="{!!  URL::route('user.index') !!}">All User</a>
+                            </li>
                             <li class="{!! Menu::isActiveRoute('user.student') !!}">
                                 <a href="{!!  URL::route('user.student') !!}">Students</a>
                             </li>

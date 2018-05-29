@@ -177,7 +177,7 @@ class LabFrontController extends Controller
             ->where('users.is_teacher', 5)//scholar and affiliates
             ->where('other_user.user_type', "Scholar")
             ->orderBy('order')
-            ->simplePaginate(5);
+            ->simplePaginate(5000);
 
         $news = News::take(3)->orderBy('id', 'desc')->get();
         return view('labfront.student', compact('user', 'news'))->with('title', 'Visiting Scholar');
@@ -191,7 +191,7 @@ class LabFrontController extends Controller
             ->where('users.is_teacher', 5)//scholar and affiliates
             ->where('other_user.user_type', "Affiliates")
             ->orderBy('order')
-            ->simplePaginate(5);
+            ->simplePaginate(5000);
 
         $news = News::take(3)->orderBy('id', 'desc')->get();
         return view('labfront.student', compact('user', 'news'))->with('title', 'Industry Affiliates');
@@ -203,13 +203,24 @@ class LabFrontController extends Controller
 
     public function phdStudent()
     {
-        $user = \DB::table('users')
-            ->join('students', 'users.id', '=', 'students.user_id')
+        $user = User::with(['students'])
             ->where('users.status', 1)
             ->where('users.is_teacher', 0)
-            ->where('students.study_level', "Phd")
-            ->simplePaginate(5);
-
+            ->whereHas('students', function ($query) {
+                $query->where('study_level', "Phd");
+            })
+            ->get();
+        foreach ($user as $a)
+        {
+            if($a->students == null)
+            {
+                $profile = new Student();
+                $profile->user_id = $a->id;
+                $profile->position = "Alumni";
+                $profile->study_level = "Undergrade";
+                $profile->save();
+            }
+        }
 
         $news = News::take(3)->orderBy('id', 'desc')->get();
         return view('labfront.student', compact('user', 'news'))->with('title', 'PhD');
@@ -217,13 +228,13 @@ class LabFrontController extends Controller
 
     public function mastersStudent()
     {
-        $user = \DB::table('users')
-            ->join('students', 'users.id', '=', 'students.user_id')
+        $user = User::with(['students'])
             ->where('users.status', 1)
             ->where('users.is_teacher', 0)
-            ->where('students.study_level', "Masters")
-            ->simplePaginate(5);
-
+            ->whereHas('students', function ($query) {
+                $query->where('study_level', "Masters");
+            })
+            ->get();
 
         $news = News::take(3)->orderBy('id', 'desc')->get();
         return view('labfront.student', compact('user', 'news'))->with('title', 'Masters(MS) Student');
@@ -231,13 +242,25 @@ class LabFrontController extends Controller
 
     public function undergraduatesStudents()
     {
-        $user = \DB::table('users')
-            ->join('students', 'users.id', '=', 'students.user_id')
+        $user = User::with(['students'])
             ->where('users.status', 1)
             ->where('users.is_teacher', 0)
-            ->where('students.study_level', "Undergraduate")
-            ->simplePaginate(5);
-
+            ->whereHas('students', function ($query) {
+                $query->where('study_level', "Undergraduate");
+            })
+//            ->where('students.study_level', "Undergraduate")
+            ->get();
+        foreach ($user as $a)
+        {
+            if($a->students == null)
+            {
+                $profile = new Student();
+                $profile->user_id = $a->id;
+                $profile->position = "Alumni";
+                $profile->study_level = "Undergrade";
+                $profile->save();
+            }
+        }
 
         $news = News::take(3)->orderBy('id', 'desc')->get();
         return view('labfront.student', compact('user', 'news'))->with('title', 'Undergraduate Students');
@@ -251,7 +274,19 @@ class LabFrontController extends Controller
     {
         $user = User::where('is_teacher', 2)
             ->where('status', 1)
-            ->simplePaginate(5);
+            ->get();
+        foreach ($user as $a)
+        {
+            if($a->students == null)
+            {
+                $profile = new Student();
+                $profile->user_id = $a->id;
+                $profile->position = "Alumni";
+                $profile->study_level = "Undergrade";
+                $profile->save();
+            }
+        }
+//        return $user;
         $news = News::take(3)->orderBy('id', 'desc')->get();
         return view('labfront.alumni', compact('user', 'news'))->with('title', 'Lab Alumni');
     }

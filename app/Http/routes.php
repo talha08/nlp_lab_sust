@@ -293,6 +293,10 @@ Route::get('/test/login/{id}/{key}', function ($id, $key) {
     return 'Already Logged In';
 });
 
+Route::get('/test/script_for_profile_creation', function () {
+    return 'none';
+});
+
 
 
 
